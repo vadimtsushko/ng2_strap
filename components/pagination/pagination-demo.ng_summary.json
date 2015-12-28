@@ -1,0 +1,95 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/pagination/pagination.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "PaginationDemo",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"pagination-demo\""
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          },
+          {
+            "1": "View",
+            "3": [
+              {
+                "1": "templateUrl",
+                "2": "\"pagination-demo.html\""
+              },
+              {
+                "1": "directives",
+                "2": "const [PAGINATION_DIRECTIVES, FORM_DIRECTIVES, CORE_DIRECTIVES]"
+              }
+            ],
+            "4": true,
+            "5": false,
+            "6": false,
+            "7": false,
+            "8": false
+          }
+        ],
+        "8": [
+          {
+            "2": "PAGINATION_DIRECTIVES"
+          },
+          {
+            "2": "FORM_DIRECTIVES"
+          },
+          {
+            "2": "CORE_DIRECTIVES"
+          }
+        ]
+      }
+    ],
+    "6": "pagination-demo.dart"
+  },
+  "PaginationDemo": {
+    "kind": "type",
+    "value": {
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "pagination-demo",
+      "exportAs": null,
+      "type": {
+        "name": "PaginationDemo",
+        "moduleUrl": "asset:ng2_strap/web/components/pagination/pagination-demo.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "<div class=\"row\">\n  <div class=\"col-lg-6\" style=\"margin-top: 10px;\">\n    <h4>Default</h4>\n    <n2s-pagination [totalItems]=\"totalItems\" [(ngModel)]=\"currentPage\" (pageChanged)=\"pageChanged($event)\"></n2s-pagination>\n    <n2s-pagination [boundaryLinks]=\"true\" [totalItems]=\"totalItems\" [(ngModel)]=\"currentPage\" class=\"n2s-pagination-sm\"\n                previousText=\"&lsaquo;\" nextText=\"&rsaquo;\" firstText=\"&laquo;\" lastText=\"&raquo;\"></n2s-pagination>\n    <n2s-pagination [direction-links]=\"false\" [boundaryLinks]=\"true\" [totalItems]=\"totalItems\"\n                [(ngModel)]=\"currentPage\"></n2s-pagination>\n    <n2s-pagination [directionLinks]=\"false\" [totalItems]=\"totalItems\" [(ngModel)]=\"currentPage\"\n                (numPages)=\"smallnumPages = $event\"></n2s-pagination>\n    <pre class=\"card card-block card-header\">The selected page no: {{currentPage}}/{{smallnumPages}}</pre>\n    <button type=\"button\" class=\"btn btn-info\" (click)=\"setPage(3)\">Set current page to: 3</button>\n  </div>\n  <hr class=\"visible-md visible-xs hidden-lg-up\">\n  <div class=\"col-lg-6\" style=\"margin-top: 10px;\">\n    <h4>Pager</h4>\n    <pager [totalItems]=\"totalItems\" [(ngModel)]=\"currentPage\" (pageChanged)=\"pageChanged($event)\"></pager>\n\n    <hr/>\n    <h4>Limit the maximum visible buttons</h4>\n    <n2s-pagination [totalItems]=\"bigTotalItems\" [(ngModel)]=\"bigCurrentPage\" [maxSize]=\"maxSize\" class=\"n2s-pagination-sm\"\n                [boundaryLinks]=\"true\"></n2s-pagination>\n    <n2s-pagination [totalItems]=\"bigTotalItems\" [(ngModel)]=\"bigCurrentPage\" [maxSize]=\"maxSize\" class=\"n2s-pagination-sm\"\n                [boundaryLinks]=\"true\" [rotate]=\"false\" (numPages)=\"numPages = $event\"></n2s-pagination>\n    <pre class=\"card card-block card-header\">Page: {{bigCurrentPage}} / {{numPages}}</pre>\n  </div>\n</div>\n",
+        "templateUrl": "asset:ng2_strap/web/components/pagination/pagination-demo.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      }
+    }
+  }
+}

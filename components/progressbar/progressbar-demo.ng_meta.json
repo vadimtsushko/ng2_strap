@@ -1,0 +1,109 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/progressbar/progressbar.dart",
+        "5": false
+      },
+      {
+        "1": "dart:math",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "ProgressbarDemo",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"progressbar-demo\""
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          },
+          {
+            "1": "View",
+            "3": [
+              {
+                "1": "templateUrl",
+                "2": "\"progressbar-demo.html\""
+              },
+              {
+                "1": "directives",
+                "2": "const [PROGRESSBAR_DIRECTIVES, CORE_DIRECTIVES, NgStyle]"
+              }
+            ],
+            "4": true,
+            "5": false,
+            "6": false,
+            "7": false,
+            "8": false
+          }
+        ],
+        "8": [
+          {
+            "2": "PROGRESSBAR_DIRECTIVES"
+          },
+          {
+            "2": "CORE_DIRECTIVES"
+          },
+          {
+            "2": "NgStyle"
+          }
+        ]
+      }
+    ],
+    "6": "progressbar-demo.dart",
+    "10": [
+      {
+        "1": "package:angular2/angular2.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:ng2_strap/progressbar/progressbar.ng_deps.dart",
+        "4": "i1"
+      }
+    ]
+  },
+  "ProgressbarDemo": {
+    "kind": "type",
+    "value": {
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "progressbar-demo",
+      "exportAs": null,
+      "type": {
+        "name": "ProgressbarDemo",
+        "moduleUrl": "asset:ng2_strap/web/components/progressbar/progressbar-demo.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "<h3>Static</h3>\n<div class=\"row\">\n  <div class=\"col-sm-4\">\n    <n2s-progressbar [value]=\"55\"></n2s-progressbar>\n  </div>\n  <div class=\"col-sm-4\">\n    <n2s-progressbar class=\"progress-striped\" [value]=\"22\" type=\"warning\">22%</n2s-progressbar>\n  </div>\n  <div class=\"col-sm-4\">\n    <n2s-progressbar class=\"progress-striped active\" [max]=\"200\" [value]=\"167\" type=\"danger\"><i>166 / 200</i></n2s-progressbar>\n  </div>\n</div>\n\n<hr/>\n<h3>Dynamic\n  <button type=\"button\" class=\"btn btn-sm btn-primary\" (click)=\"random()\">Randomize</button>\n</h3>\n<n2s-progressbar [max]=\"max\" [value]=\"dynamic\"><span style=\"color:white; white-space:nowrap;\">{{dynamic}} / {{max}}</span>\n</n2s-progressbar>\n\n<small><em>No animation</em></small>\n<n2s-progressbar [animate]=\"false\" [value]=\"dynamic\" type=\"success\"><b>{{dynamic}}%</b></n2s-progressbar>\n\n<small><em>Object (changes type based on value)</em></small>\n<n2s-progressbar class=\"progress-striped active\" [value]=\"dynamic\" [type]=\"type\">{{type}} <i [hidden]=\"!showWarning\">!!!\n  Watch out !!!</i></n2s-progressbar>\n\n<hr/>\n<h3>Stacked\n  <button type=\"button\" class=\"btn btn-sm btn-primary\" (click)=\"randomStacked()\">Randomize</button>\n</h3>\n<bs-progress>\n  <bar *ngFor=\"#baz of stacked\" [value]=\"baz['value']\" [type]=\"baz['type']\">\n    <span [hidden]=\"baz['value'] < 5\">{{baz['value']}}%</span>\n  </bar>\n</bs-progress>\n",
+        "templateUrl": "asset:ng2_strap/web/components/progressbar/progressbar-demo.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      }
+    }
+  }
+}

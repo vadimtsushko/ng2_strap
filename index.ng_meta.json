@@ -1,0 +1,298 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/index.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/bootstrap_static.dart",
+        "5": false
+      },
+      {
+        "1": "dart:html",
+        "5": false
+      },
+      {
+        "1": "package:markdown/markdown.dart",
+        "3": [
+          "Element"
+        ],
+        "5": false
+      },
+      {
+        "1": "components/demo-header.dart",
+        "5": false
+      },
+      {
+        "1": "components/demo-section.dart",
+        "5": false
+      },
+      {
+        "1": "components/accordion/accordion-demo.dart",
+        "5": false
+      },
+      {
+        "1": "components/alert/alert-demo.dart",
+        "5": false
+      },
+      {
+        "1": "components/buttons/buttons-demo.dart",
+        "5": false
+      },
+      {
+        "1": "components/carousel/carousel-demo.dart",
+        "5": false
+      },
+      {
+        "1": "components/datepicker/datepicker-demo.dart",
+        "5": false
+      },
+      {
+        "1": "components/collapse/collapse-demo.dart",
+        "5": false
+      },
+      {
+        "1": "components/dropdown/dropdown-demo.dart",
+        "5": false
+      },
+      {
+        "1": "components/pagination/pagination-demo.dart",
+        "5": false
+      },
+      {
+        "1": "components/progressbar/progressbar-demo.dart",
+        "5": false
+      },
+      {
+        "1": "components/rating/rating-demo.dart",
+        "5": false
+      },
+      {
+        "1": "components/tabs/tabs-demo.dart",
+        "5": false
+      },
+      {
+        "1": "components/typeahead/typeahead-demo.dart",
+        "5": false
+      },
+      {
+        "1": "components/tooltip/tooltip-demo.dart",
+        "5": false
+      },
+      {
+        "1": "components/timepicker/timepicker-demo.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "Demo",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"app\""
+              },
+              {
+                "1": "templateUrl",
+                "2": "'demo.html'"
+              },
+              {
+                "1": "directives",
+                "2": "const [NgClass, DemoHeader, DemoSection, AccordionDemo, AlertDemo, ButtonsDemo, CarouselDemo, CollapseDemo, DatepickerDemo, DropdownDemo, PaginationDemo, ProgressbarDemo, RatingDemo, TabsDemo, TimepickerDemo, TooltipDemo, TypeaheadDemo]"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "ViewContainerRef",
+            "3": [
+              "const Inject(ViewContainerRef)"
+            ],
+            "4": "viewRef"
+          }
+        ],
+        "6": [
+          "OnInit"
+        ],
+        "8": [
+          {
+            "2": "NgClass"
+          },
+          {
+            "2": "DemoHeader"
+          },
+          {
+            "2": "DemoSection"
+          },
+          {
+            "2": "AccordionDemo"
+          },
+          {
+            "2": "AlertDemo"
+          },
+          {
+            "2": "ButtonsDemo"
+          },
+          {
+            "2": "CarouselDemo"
+          },
+          {
+            "2": "CollapseDemo"
+          },
+          {
+            "2": "DatepickerDemo"
+          },
+          {
+            "2": "DropdownDemo"
+          },
+          {
+            "2": "PaginationDemo"
+          },
+          {
+            "2": "ProgressbarDemo"
+          },
+          {
+            "2": "RatingDemo"
+          },
+          {
+            "2": "TabsDemo"
+          },
+          {
+            "2": "TimepickerDemo"
+          },
+          {
+            "2": "TooltipDemo"
+          },
+          {
+            "2": "TypeaheadDemo"
+          }
+        ]
+      }
+    ],
+    "6": "index.dart",
+    "10": [
+      {
+        "1": "package:angular2/angular2.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:ng2_strap/index.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "package:angular2/bootstrap_static.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "components/demo-header.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "components/demo-section.ng_deps.dart",
+        "4": "i4"
+      },
+      {
+        "1": "components/accordion/accordion-demo.ng_deps.dart",
+        "4": "i5"
+      },
+      {
+        "1": "components/alert/alert-demo.ng_deps.dart",
+        "4": "i6"
+      },
+      {
+        "1": "components/buttons/buttons-demo.ng_deps.dart",
+        "4": "i7"
+      },
+      {
+        "1": "components/carousel/carousel-demo.ng_deps.dart",
+        "4": "i8"
+      },
+      {
+        "1": "components/datepicker/datepicker-demo.ng_deps.dart",
+        "4": "i9"
+      },
+      {
+        "1": "components/collapse/collapse-demo.ng_deps.dart",
+        "4": "i10"
+      },
+      {
+        "1": "components/dropdown/dropdown-demo.ng_deps.dart",
+        "4": "i11"
+      },
+      {
+        "1": "components/pagination/pagination-demo.ng_deps.dart",
+        "4": "i12"
+      },
+      {
+        "1": "components/progressbar/progressbar-demo.ng_deps.dart",
+        "4": "i13"
+      },
+      {
+        "1": "components/rating/rating-demo.ng_deps.dart",
+        "4": "i14"
+      },
+      {
+        "1": "components/tabs/tabs-demo.ng_deps.dart",
+        "4": "i15"
+      },
+      {
+        "1": "components/typeahead/typeahead-demo.ng_deps.dart",
+        "4": "i16"
+      },
+      {
+        "1": "components/tooltip/tooltip-demo.ng_deps.dart",
+        "4": "i17"
+      },
+      {
+        "1": "components/timepicker/timepicker-demo.ng_deps.dart",
+        "4": "i18"
+      }
+    ]
+  },
+  "Demo": {
+    "kind": "type",
+    "value": {
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "app",
+      "exportAs": null,
+      "type": {
+        "name": "Demo",
+        "moduleUrl": "asset:ng2_strap/web/index.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": {
+        "encapsulation": 2,
+        "template": "<demo-header>Loading header</demo-header>\n\n<main class=\"bd-pageheader\">\n    <div class=\"container\">\n        <h1>ng2-bootstrap</h1>\n\n        <p>Native Angular2 directives for Bootstrap</p>\n        <a class=\"btn btn-primary\" href=\"https://github.com/luisvt/ng2-strap\">View on GitHub</a>\n\n        <div class=\"row\">\n            <div class=\"col-lg-1\">\n                <iframe src=\"https://ghbtns.com/github-btn.html?user=luisvt&repo=ng2-strap&type=star&count=true\"\n                        frameborder=\"0\" scrolling=\"0\" width=\"170px\" height=\"20px\"></iframe>\n            </div>\n            <div class=\"col-lg-1\">\n                <iframe src=\"https://ghbtns.com/github-btn.html?user=luisvt&repo=ng2-strap&type=fork&count=true\"\n                        frameborder=\"0\" scrolling=\"0\" width=\"170px\" height=\"20px\"></iframe>\n            </div>\n        </div>\n    </div>\n</main>\n\n<div class=\"container\">\n    <div class=\"col-md-12 card card-block panel panel-default\">\n        <selection>\n            <h1>ng2-bootstrap available with:\n                <a class=\"btn btn-default btn-secondary btn-lg\" [ngClass]=\"{active: isBs3}\" href=\"./\">Bootstrap 3</a>\n                <a class=\"btn btn-default btn-secondary btn-lg\" [ngClass]=\"{active: !isBs3}\" href=\"./index-bs4.html\">Bootstrap\n                    4</a>\n            </h1>\n        </selection>\n    </div>\n    <br>\n    <section id=\"getting-started\"></section>\n\n    <demo-section class=\"col-md-12\" name=\"Accordion\"><accordion-demo></accordion-demo></demo-section>\n    <demo-section class=\"col-md-12\" name=\"Alert\"><alert-demo></alert-demo></demo-section>\n    <demo-section class=\"col-md-12\" name=\"Buttons\"><buttons-demo></buttons-demo></demo-section>\n    <demo-section class=\"col-md-12\" name=\"Carousel\"><carousel-demo></carousel-demo></demo-section>\n    <demo-section class=\"col-md-12\" name=\"Collapse\"><collapse-demo></collapse-demo></demo-section>\n    <demo-section class=\"col-md-12\" name=\"Datepicker\"><datepicker-demo></datepicker-demo></demo-section>\n    <demo-section class=\"col-md-12\" name=\"Dropdown\"><dropdow-demo></dropdow-demo></demo-section>\n    <demo-section class=\"col-md-12\" name=\"Pagination\"><pagination-demo></pagination-demo></demo-section>\n    <demo-section class=\"col-md-12\" name=\"Progressbar\"><progressbar-demo></progressbar-demo></demo-section>\n    <demo-section class=\"col-md-12\" name=\"Rating\"><rating-demo></rating-demo></demo-section>\n    <demo-section class=\"col-md-12\" name=\"Tabs\"><tabs-demo></tabs-demo></demo-section>\n    <demo-section class=\"col-md-12\" name=\"Timepicker\"><timepicker-demo></timepicker-demo></demo-section>\n    <demo-section class=\"col-md-12\" name=\"Tooltip\"><tooltip-demo></tooltip-demo></demo-section>\n    <demo-section class=\"col-md-12\" name=\"Typeahead\"><typeahead-demo></typeahead-demo></demo-section>\n</div>\n\n<footer class=\"footer\">\n    <div class=\"container\">\n        <p class=\"text-muted text-center\"><a href=\"https://github.com/valor-software/ng2-bootstrap\">ng2-bootstrap</a> is\n            maintained by <a href=\"https://github.com/valor-software\">valor-software</a>.</p>\n    </div>\n</footer>",
+        "templateUrl": "asset:ng2_strap/web/demo.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      }
+    }
+  }
+}

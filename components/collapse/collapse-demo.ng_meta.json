@@ -1,0 +1,89 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/collapse/collapse.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "CollapseDemo",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"collapse-demo\""
+              },
+              {
+                "1": "templateUrl",
+                "2": "'collapse-demo.html'"
+              },
+              {
+                "1": "directives",
+                "2": "const [Collapse]"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          }
+        ],
+        "8": [
+          {
+            "2": "Collapse"
+          }
+        ]
+      }
+    ],
+    "6": "collapse-demo.dart",
+    "10": [
+      {
+        "1": "package:angular2/angular2.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:ng2_strap/collapse/collapse.ng_deps.dart",
+        "4": "i1"
+      }
+    ]
+  },
+  "CollapseDemo": {
+    "kind": "type",
+    "value": {
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "collapse-demo",
+      "exportAs": null,
+      "type": {
+        "name": "CollapseDemo",
+        "moduleUrl": "asset:ng2_strap/web/components/collapse/collapse-demo.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "<button type=\"button\" class=\"btn btn-primary\"\n        (click)=\"isCollapsed = !isCollapsed\">Toggle collapse\n</button>\n<hr>\n<div [collapse]=\"isCollapsed\" class=\"card card-block card-header\">\n  <div class=\"well well-lg\">Some content</div>\n</div>\n",
+        "templateUrl": "asset:ng2_strap/web/components/collapse/collapse-demo.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      }
+    }
+  }
+}

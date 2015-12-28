@@ -1,0 +1,85 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/index.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "DemoHeader",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"demo-header\""
+              },
+              {
+                "1": "template",
+                "2": "'''\n    <header class=\"navbar navbar-default navbar-fixed-top navbar-inner bg-faded\">\n    <div class=\"container\">\n      <div class=\"navbar-header hidden-md-up\">\n        <button type=\"button\" class=\"navbar-toggle navbar-toggler pull-right\" (click)=\"isCollapsed = !isCollapsed\">\n          <span class=\"sr-only\">Toggle navigation</span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </button>\n        <a class=\"navbar-brand visible-xs\" href=\"{{prefix}}#\">ng2-bootstrap</a>\n      </div>\n      <nav class=\"hidden-xs hidden-xs-down\">\n        <ul class=\"nav navbar-nav\">\n          <li class=\"nav-item\"><a href=\"{{prefix}}#top\" role=\"button\" class=\"navbar-brand\">ng2-bootstrap</a></li>\n          <li class=\"nav-item dropdown\" dropdown>\n            <a role=\"button\" class=\"nav-link dropdown-toggle\" dropdown-toggle>Directives <b class=\"caret\"></b></a>\n            <ul class=\"dropdown-menu\">\n              <li *ngFor=\"#comp of components\"><a class=\"dropdown-item\" href=\"{{prefix}}#{{comp.toLowerCase()}}\">{{comp}}</a></li>\n            </ul>\n          </li>\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#getting-started\">Getting started</a></li>\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#migration\">Migration</a></li>\n        </ul>\n      </nav>\n      <nav class=\"visible-xs hidden-md-up\">\n        <ul class=\"nav nav-pills nav-stacked scrollable-menu\" [collapse]=\"!isCollapsed\" (click)=\"isCollapsed = !isCollapsed; true\">\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#getting-started\">Getting started</a></li>\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#migration\">Migration</a></li>\n          <li *ngFor=\"#comp of components\" class=\"nav-item\"><a class=\"dropdown-item nav-link\" href=\"{{prefix}}#{{comp.toLowerCase()}}\">{{comp}}</a></li>\n        </ul>\n      </nav>\n    </div>\n  </header>'''"
+              },
+              {
+                "1": "directives",
+                "2": "const [NgFor, Collapse, DROPDOWN_DIRECTIVES]"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          }
+        ],
+        "8": [
+          {
+            "2": "NgFor"
+          },
+          {
+            "2": "Collapse"
+          },
+          {
+            "2": "DROPDOWN_DIRECTIVES"
+          }
+        ]
+      }
+    ],
+    "6": "demo-header.dart"
+  },
+  "DemoHeader": {
+    "kind": "type",
+    "value": {
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "demo-header",
+      "exportAs": null,
+      "type": {
+        "name": "DemoHeader",
+        "moduleUrl": "asset:ng2_strap/web/components/demo-header.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "    <header class=\"navbar navbar-default navbar-fixed-top navbar-inner bg-faded\">\n    <div class=\"container\">\n      <div class=\"navbar-header hidden-md-up\">\n        <button type=\"button\" class=\"navbar-toggle navbar-toggler pull-right\" (click)=\"isCollapsed = !isCollapsed\">\n          <span class=\"sr-only\">Toggle navigation</span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </button>\n        <a class=\"navbar-brand visible-xs\" href=\"{{prefix}}#\">ng2-bootstrap</a>\n      </div>\n      <nav class=\"hidden-xs hidden-xs-down\">\n        <ul class=\"nav navbar-nav\">\n          <li class=\"nav-item\"><a href=\"{{prefix}}#top\" role=\"button\" class=\"navbar-brand\">ng2-bootstrap</a></li>\n          <li class=\"nav-item dropdown\" dropdown>\n            <a role=\"button\" class=\"nav-link dropdown-toggle\" dropdown-toggle>Directives <b class=\"caret\"></b></a>\n            <ul class=\"dropdown-menu\">\n              <li *ngFor=\"#comp of components\"><a class=\"dropdown-item\" href=\"{{prefix}}#{{comp.toLowerCase()}}\">{{comp}}</a></li>\n            </ul>\n          </li>\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#getting-started\">Getting started</a></li>\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#migration\">Migration</a></li>\n        </ul>\n      </nav>\n      <nav class=\"visible-xs hidden-md-up\">\n        <ul class=\"nav nav-pills nav-stacked scrollable-menu\" [collapse]=\"!isCollapsed\" (click)=\"isCollapsed = !isCollapsed; true\">\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#getting-started\">Getting started</a></li>\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#migration\">Migration</a></li>\n          <li *ngFor=\"#comp of components\" class=\"nav-item\"><a class=\"dropdown-item nav-link\" href=\"{{prefix}}#{{comp.toLowerCase()}}\">{{comp}}</a></li>\n        </ul>\n      </nav>\n    </div>\n  </header>",
+        "templateUrl": "asset:ng2_strap/web/components/demo-header.dart",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      }
+    }
+  }
+}

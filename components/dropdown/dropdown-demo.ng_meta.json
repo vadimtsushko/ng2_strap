@@ -1,0 +1,96 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/dropdown/index.dart",
+        "5": false
+      },
+      {
+        "1": "dart:html",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "DropdownDemo",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"dropdown-demo\""
+              },
+              {
+                "1": "templateUrl",
+                "2": "'dropdown-demo.html'"
+              },
+              {
+                "1": "directives",
+                "2": "const [DROPDOWN_DIRECTIVES, CORE_DIRECTIVES]"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          }
+        ],
+        "8": [
+          {
+            "2": "DROPDOWN_DIRECTIVES"
+          },
+          {
+            "2": "CORE_DIRECTIVES"
+          }
+        ]
+      }
+    ],
+    "6": "dropdown-demo.dart",
+    "10": [
+      {
+        "1": "package:angular2/angular2.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:ng2_strap/dropdown/index.ng_deps.dart",
+        "4": "i1"
+      }
+    ]
+  },
+  "DropdownDemo": {
+    "kind": "type",
+    "value": {
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "dropdown-demo",
+      "exportAs": null,
+      "type": {
+        "name": "DropdownDemo",
+        "moduleUrl": "asset:ng2_strap/web/components/dropdown/dropdown-demo.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "<div (click)=\"$event.preventDefault()\">\n  <!-- Simple dropdown -->\n  <span dropdown (on-toggle)=\"toggled($event)\">\n    <a href id=\"simple-dropdown\" dropdown-toggle>\n      Click me for a dropdown, yo!\n    </a>\n    <ul class=\"dropdown-menu\" aria-labelledby=\"simple-dropdown\">\n      <li *ngFor=\"#choice of items\">\n        <a class=\"dropdown-item\" href=\"#\">{{choice}}</a>\n      </li>\n    </ul>\n  </span>\n\n  <!-- Single button -->\n  <div class=\"btn-group\" dropdown [is-open]=\"status['isopen']\">\n    <button id=\"single-button\" type=\"button\" class=\"btn btn-primary\" dropdown-toggle [disabled]=\"disabled\">\n      Button dropdown <span class=\"caret\"></span>\n    </button>\n    <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"single-button\">\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Action</a></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Another action</a></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Something else here</a></li>\n      <li class=\"divider dropdown-divider\"></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Separated link</a></li>\n    </ul>\n  </div>\n\n  <!-- Split button -->\n  <div class=\"btn-group\" dropdown>\n    <button id=\"split-button\" type=\"button\" class=\"btn btn-danger\">Action</button>\n    <button type=\"button\" class=\"btn btn-danger dropdown-toggle\" dropdown-toggle>\n      <span class=\"caret\"></span>\n      <span class=\"sr-only\">Split button!</span>\n    </button>\n    <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"split-button\">\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Action</a></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Another action</a></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Something else here</a></li>\n      <li class=\"divider dropdown-divider\"></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Separated link</a></li>\n    </ul>\n  </div>\n\n  <hr/>\n  <p>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"toggleDropdown($event)\">Toggle button dropdown\n    </button>\n    <button type=\"button\" class=\"btn btn-warning btn-sm\" (click)=\"disabled = !disabled\">Enable/Disable</button>\n  </p>\n\n  <hr>\n  <!-- Single button with keyboard nav -->\n  <div class=\"btn-group\" dropdown [keyboard-nav]=\"true\">\n    <button id=\"simple-btn-keyboard-nav\" type=\"button\" class=\"btn btn-primary\" dropdown-toggle>\n      Dropdown with keyboard navigation <span class=\"caret\"></span>\n    </button>\n    <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"simple-btn-keyboard-nav\">\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Action</a></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Another action</a></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Something else here</a></li>\n      <li class=\"divider dropdown-divider\"></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Separated link</a></li>\n    </ul>\n  </div>\n</div>\n",
+        "templateUrl": "asset:ng2_strap/web/components/dropdown/dropdown-demo.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      }
+    }
+  }
+}

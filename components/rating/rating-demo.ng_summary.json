@@ -1,0 +1,101 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/rating/rating.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "RatingDemo",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"rating-demo\""
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          },
+          {
+            "1": "View",
+            "3": [
+              {
+                "1": "templateUrl",
+                "2": "\"rating-demo.html\""
+              },
+              {
+                "1": "directives",
+                "2": "const [Rating, NgClass, NgStyle, FORM_DIRECTIVES, CORE_DIRECTIVES]"
+              }
+            ],
+            "4": true,
+            "5": false,
+            "6": false,
+            "7": false,
+            "8": false
+          }
+        ],
+        "8": [
+          {
+            "2": "Rating"
+          },
+          {
+            "2": "NgClass"
+          },
+          {
+            "2": "NgStyle"
+          },
+          {
+            "2": "FORM_DIRECTIVES"
+          },
+          {
+            "2": "CORE_DIRECTIVES"
+          }
+        ]
+      }
+    ],
+    "6": "rating-demo.dart"
+  },
+  "RatingDemo": {
+    "kind": "type",
+    "value": {
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "rating-demo",
+      "exportAs": null,
+      "type": {
+        "name": "RatingDemo",
+        "moduleUrl": "asset:ng2_strap/web/components/rating/rating-demo.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "<h4>Default</h4>\n<n2s-rating [(ngModel)]=\"rate\" [max]=\"max\" [readonly]=\"isReadonly\"\n        (onHover)=\"hoveringOver($event)\" (onLeave)=\"resetStar()\"\n        [titles]=\"['one','two','three']\"></n2s-rating>\n<span class=\"label\"\n      [ngClass]=\"{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}\"\n      [ngStyle]=\"{display: (overStar != null && !isReadonly) ? 'inline' : 'none'}\">{{percent}}%</span>\n\n<pre class=\"card card-block card-header\" style=\"margin:15px 0;\">Rate: <b>{{rate}}</b> - Readonly is: <i>{{isReadonly}}</i> - Hovering over: <b>{{overStar != null ? overStar : \"none\"}}</b></pre>\n\n<button type=\"button\" class=\"btn btn-sm btn-danger\" (click)=\"rate = 0\"\n        [disabled]=\"isReadonly\">Clear\n</button>\n<button type=\"button\" class=\"btn btn-sm btn-primary\"\n        (click)=\"isReadonly = !isReadonly\">Toggle Readonly\n</button>\n<hr/>\n\n<h4>Custom icons</h4>\n<div>\n  <n2s-rating [(ngModel)]=\"x\" [max]=\"15\" stateOn=\"glyphicon-ok-sign\"\n          stateOff=\"glyphicon-ok-circle\"></n2s-rating>\n  <b>(<i>Rate:</i> {{x}})</b>\n</div>\n<div>\n  <n2s-rating [(ngModel)]=\"y\" [ratingStates]=\"ratingStates\"></n2s-rating>\n  <b>(<i>Rate:</i> {{y}})</b>\n</div>\n",
+        "templateUrl": "asset:ng2_strap/web/components/rating/rating-demo.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/index.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "DatepickerDemo",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"datepicker-demo\""
+              },
+              {
+                "1": "templateUrl",
+                "2": "'datepicker-demo.html'"
+              },
+              {
+                "1": "directives",
+                "2": "const [DATEPICKER_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES]"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          }
+        ],
+        "8": [
+          {
+            "2": "DATEPICKER_DIRECTIVES"
+          },
+          {
+            "2": "CORE_DIRECTIVES"
+          },
+          {
+            "2": "FORM_DIRECTIVES"
+          }
+        ]
+      }
+    ],
+    "6": "datepicker-demo.dart"
+  },
+  "DatepickerDemo": {
+    "kind": "type",
+    "value": {
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "datepicker-demo",
+      "exportAs": null,
+      "type": {
+        "name": "DatepickerDemo",
+        "moduleUrl": "asset:ng2_strap/web/components/datepicker/datepicker-demo.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 0,
+        "template": "<style>\n  .full button span {\n    background-color: limegreen;\n    border-radius: 32px;\n    color: black;\n  }\n  .partially button span {\n    background-color: orange;\n    border-radius: 32px;\n    color: black;\n  }\n</style>\n\n<div>\n  <pre>Selected date is: <em>{{dt}}</em></pre>\n  <h4>Inline</h4>\n  <div style=\"display:inline-block; min-height:290px;\">\n    <n2s-datepicker [(ngModel)]=\"dt\" [minDate]=\"minDate\" [showWeeks]=\"true\"></n2s-datepicker>\n  </div>\n\n  <hr />\n  <button type=\"button\" class=\"btn btn-sm btn-info\" (click)=\"today()\">Today</button>\n  <button type=\"button\" class=\"btn btn-sm btn-default btn-secondary\" (click)=\"d20090824();\">2009-08-24</button>\n  <button type=\"button\" class=\"btn btn-sm btn-danger\" (click)=\"clear()\">Clear</button>\n  <button type=\"button\" class=\"btn btn-sm btn-default btn-secondary\" (click)=\"toggleMin()\" tooltip=\"After today restriction\">Min date</button>\n</div>\n",
+        "templateUrl": "asset:ng2_strap/web/components/datepicker/datepicker-demo.html",
+        "styles": [
+          "\n  .full button span {\n    background-color: limegreen;\n    border-radius: 32px;\n    color: black;\n  }\n  .partially button span {\n    background-color: orange;\n    border-radius: 32px;\n    color: black;\n  }\n"
+        ],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      }
+    }
+  }
+}

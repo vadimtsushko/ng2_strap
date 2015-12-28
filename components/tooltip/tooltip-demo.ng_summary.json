@@ -1,0 +1,101 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/tooltip/tooltip.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "TooltipDemo",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"tooltip-demo\""
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          },
+          {
+            "1": "View",
+            "3": [
+              {
+                "1": "templateUrl",
+                "2": "'tooltip-demo.html'"
+              },
+              {
+                "1": "directives",
+                "2": "const [TOOLTIP_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES]"
+              },
+              {
+                "1": "styles",
+                "2": "const ['''\n    /* Specify styling for tooltip contents */\n    .tooltip.customClass .tooltip-inner {\n        color: #880000;\n        background-color: #ffff66;\n        box-shadow: 0 6px 12px rgba(0,0,0,.175);\n    }\n    /* Hide arrow */\n    .tooltip.customClass .tooltip-arrow {\n        display: none;\n    }\n  ''']"
+              }
+            ],
+            "4": true,
+            "5": false,
+            "6": false,
+            "7": false,
+            "8": false
+          }
+        ],
+        "8": [
+          {
+            "2": "TOOLTIP_DIRECTIVES"
+          },
+          {
+            "2": "CORE_DIRECTIVES"
+          },
+          {
+            "2": "FORM_DIRECTIVES"
+          }
+        ]
+      }
+    ],
+    "6": "tooltip-demo.dart"
+  },
+  "TooltipDemo": {
+    "kind": "type",
+    "value": {
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "tooltip-demo",
+      "exportAs": null,
+      "type": {
+        "name": "TooltipDemo",
+        "moduleUrl": "asset:ng2_strap/web/components/tooltip/tooltip-demo.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 0,
+        "template": "<div class=\"form-group\">\n  <label>Dynamic Tooltip Text</label>\n  <input type=\"text\" [(ngModel)]=\"dynamicTooltipText\" class=\"form-control\">\n</div>\n<div class=\"form-group\">\n  <label>Dynamic Tooltip Popup Text</label>\n  <input type=\"text\" [(ngModel)]=\"dynamicTooltip\" class=\"form-control\">\n</div>\n<p>\n  Pellentesque <a href=\"#\" [tooltip]=\"dynamicTooltip\">{{dynamicTooltipText}}</a>,\n  sit amet venenatis urna cursus eget nunc scelerisque viverra mauris, in\n  aliquam. Tincidunt lobortis feugiat vivamus at\n  <a href=\"#\" tooltip-placement=\"left\" tooltip=\"On the Left!\">left</a> eget\n  arcu dictum varius duis at consectetur lorem. Vitae elementum curabitur\n  <a href=\"#\" tooltip-placement=\"right\" tooltip=\"On the Right!\">right</a>\n  nunc sed velit dignissim sodales ut eu sem integer vitae. Turpis egestas\n  <a href=\"#\" tooltip-placement=\"bottom\" tooltip=\"On the Bottom!\">bottom</a>\n  pharetra convallis posuere morbi leo urna,\n  <a href=\"#\" tooltip-animation=\"false\" tooltip=\"I don't fade. :-(\">fading</a>\n  at elementum eu, facilisis sed odio morbi quis commodo odio. In cursus\n  <a href=\"#\" tooltip-popup-delay='1000' tooltip='appears with delay'>delayed</a> turpis massa tincidunt dui ut.\n  <a href=\"#\" tooltip-template=\"'myTooltipTemplate.html'\">Custom template</a>\n  nunc sed velit dignissim sodales ut eu sem integer vitae. Turpis egestas\n</p>\n\n<p>\n  I can even contain HTML. <a href=\"#\" tooltip-html=\"htmlTooltip\">Check me out!</a>\n</p>\n\n<p>\n  I can have a custom class. <a href=\"#\" tooltip=\"I can have a custom class applied to me!\" tooltip-class=\"customClass\">Check me out!</a>\n</p>\n\n<form role=\"form\">\n  <div class=\"form-group\">\n    <label>Or use custom triggers, like focus: </label>\n    <input type=\"text\" value=\"Click me!\" tooltip=\"See? Now click away...\"  tooltip-trigger=\"focus\" tooltip-placement=\"right\" class=\"form-control\" />\n  </div>\n\n  <div class=\"form-group\" ngClass=\"{'has-error' : !inputModel}\">\n    <label>Disable tooltips conditionally:</label>\n    <input type=\"text\" [(ngModel)]=\"inputModel\" class=\"form-control\"\n           placeholder=\"Hover over this for a tooltip until this is filled\"\n           tooltip=\"Enter something in this input field to disable this tooltip\"\n           tooltip-placement=\"top\"\n           tooltip-trigger=\"mouseenter\"\n           [tooltip-enable]=\"inputModel != ''\" />\n  </div>\n</form>\n",
+        "templateUrl": "asset:ng2_strap/web/components/tooltip/tooltip-demo.html",
+        "styles": [
+          "    /* Specify styling for tooltip contents */\n    .tooltip.customClass .tooltip-inner {\n        color: #880000;\n        background-color: #ffff66;\n        box-shadow: 0 6px 12px rgba(0,0,0,.175);\n    }\n    /* Hide arrow */\n    .tooltip.customClass .tooltip-arrow {\n        display: none;\n    }\n  "
+        ],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      }
+    }
+  }
+}

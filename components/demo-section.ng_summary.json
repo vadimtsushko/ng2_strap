@@ -1,0 +1,122 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/index.dart",
+        "5": false
+      },
+      {
+        "1": "accordion/accordion-demo.dart",
+        "5": false
+      },
+      {
+        "1": "dart:html",
+        "5": false
+      },
+      {
+        "1": "package:markdown/markdown.dart",
+        "3": [
+          "Element"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "DemoSection",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"demo-section\""
+              },
+              {
+                "1": "inputs",
+                "2": "const ['name']"
+              },
+              {
+                "1": "templateUrl",
+                "2": "'demo-section.html'"
+              },
+              {
+                "1": "directives",
+                "2": "const [AccordionDemo, TABS_DIRECTIVES, CORE_DIRECTIVES]"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "ViewContainerRef",
+            "3": [
+              "const Inject(ViewContainerRef)"
+            ],
+            "4": "viewRef"
+          }
+        ],
+        "6": [
+          "OnInit"
+        ],
+        "8": [
+          {
+            "2": "AccordionDemo"
+          },
+          {
+            "2": "TABS_DIRECTIVES"
+          },
+          {
+            "2": "CORE_DIRECTIVES"
+          }
+        ]
+      }
+    ],
+    "6": "demo-section.dart"
+  },
+  "DemoSection": {
+    "kind": "type",
+    "value": {
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "demo-section",
+      "exportAs": null,
+      "type": {
+        "name": "DemoSection",
+        "moduleUrl": "asset:ng2_strap/web/components/demo-section.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "name": "name"
+      },
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": {
+        "encapsulation": 2,
+        "template": "<br>\n<section id=\"{{name.toLowerCase()}}\">\n    <div class=\"row\">\n        <h1>{{name}}\n            <small>(<a href=\"{{src}}\">src</a>)\n            </small>\n        </h1>\n    </div>\n\n    <hr>\n\n    <div class=\"row\">\n        <div class=\"col-md-12\" id=\"titleDoc\"></div>\n    </div>\n\n    <div class=\"row\">\n        <h2>Example</h2>\n\n        <div class=\"card card-block panel panel-default panel-body\">\n            <ng-content></ng-content>\n        </div>\n    </div>\n\n    <br>\n\n    <div class=\"row\">\n        <n2s-tabset>\n            <n2s-tab heading=\"Markup\">\n                <div class=\"card card-block panel panel-default panel-body\">\n                    <pre class=\"language-html\"><code class=\"language-html\">{{html}}</code></pre>\n                </div>\n            </n2s-tab>\n            <n2s-tab heading=\"Dart\">\n                <div class=\"card card-block panel panel-default panel-body\">\n                    <pre class=\"language-typescript\"><code class=\"language-typescript\">{{dart}}</code></pre>\n                </div>\n            </n2s-tab>\n        </n2s-tabset>\n    </div>\n\n    <br>\n\n    <div class=\"row\">\n        <h2>API</h2>\n\n        <div class=\"card card-block panel panel-default panel-body\" id=\"doc\"></div>\n    </div>\n</section>\n",
+        "templateUrl": "asset:ng2_strap/web/components/demo-section.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": [
+          "*"
+        ]
+      }
+    }
+  }
+}

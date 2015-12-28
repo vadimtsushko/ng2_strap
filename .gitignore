@@ -5,3 +5,6 @@ typings
 dist
 # web storm
 .idea
+*.iml
+**/packages
+**/*.ts
