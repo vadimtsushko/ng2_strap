@@ -6,10 +6,6 @@ npm-debug.log
 # type script artifacts
 /typings
 
-# WebStorm
-.idea
-*.iml
-
 # ignore build and dist for now
 /build
 /dist
