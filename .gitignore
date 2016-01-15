@@ -12,6 +12,6 @@ npm-debug.log
 
 # ignore incline compiling
 .pub
-**/packages
+/**/packages
 pubspec.lock
 .packages
