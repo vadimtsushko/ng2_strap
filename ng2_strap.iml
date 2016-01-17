@@ -2,8 +2,32 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/assets/css/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/assets/fonts/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/assets/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/components/accordion/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/components/alert/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/components/buttons/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/components/carousel/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/components/collapse/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/components/datepicker/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/components/dropdown/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/components/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/components/pagination/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/components/progressbar/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/components/rating/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/components/tabs/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/components/timepicker/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/components/tooltip/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/components/typeahead/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/packages" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Dart SDK" level="application" />
+    <orderEntry type="library" name="Dart Packages" level="project" />
   </component>
 </module>

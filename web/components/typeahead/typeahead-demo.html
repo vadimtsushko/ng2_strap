@@ -1,6 +1,6 @@
 <div class='container-fluid'>
     <h4>Static arrays</h4>
-    <pre>Model: {{selected | json}}</pre>
+    <pre>Model: {{selected}}</pre>
     <n2s-typeahead [(ngModel)]="selected"
            [source]="statesComplex"
            (onSelect)="typeaheadOnSelect($event)"
@@ -8,7 +8,7 @@
            ></n2s-typeahead>
 
     <h4>Asynchronous results</h4>
-    <pre>Model: {{asyncSelected | json}}</pre>
+    <pre>Model: {{asyncSelected}}</pre>
     <n2s-typeahead [(ngModel)]="asyncSelected"
            [source]="getAsyncData"
            [context]="context"

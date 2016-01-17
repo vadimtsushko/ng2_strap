@@ -20,6 +20,6 @@ class DropdownDemo {
   void toggleDropdown(MouseEvent $event) {
     $event.preventDefault();
     $event.stopPropagation();
-    this.status['isopen'] = !this.status['isopen'];
+    status['isopen'] = !status['isopen'];
   }
 }

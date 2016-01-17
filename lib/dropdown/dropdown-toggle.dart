@@ -1,6 +1,6 @@
-part of ns_dropdown;
+part of n2s_dropdown;
 
-@Directive (selector: "[dropdown-toggle]",
+@Directive (selector: "n2s-dropdown-toggle, .dropdown-toggle",
     inputs: const [ "disabled"],
     host: const {
       "(click)" : "toggleDropdown(\$event)",

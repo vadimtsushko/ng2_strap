@@ -1,4 +1,4 @@
-library ns_dropdown;
+library n2s_dropdown;
 
 import "package:angular2/angular2.dart";
 import "dropdown.interfaces.dart";

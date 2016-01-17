@@ -1,6 +1,6 @@
-part of ns_dropdown;
+part of n2s_dropdown;
 
-@Directive (selector: "[dropdown]",
+@Directive (selector: "n2s-dropdown, .dropdown",
     inputs: const [
       "isOpen", "autoClose", "keyboardNav", "dropdownAppendToBody"],
     outputs: const ["onToggle"],
@@ -31,7 +31,7 @@ class Dropdown implements OnInit, OnDestroy {
   // not implemented:
   String dropdownMenuTemplateUrl;
 
-  Dropdown(this .el);
+  Dropdown(this.el);
 
   ngOnInit() {
 //    this.autoClose ?? ALWAYS;

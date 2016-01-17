@@ -1,6 +1,6 @@
 <div (click)="$event.preventDefault()">
   <!-- Simple dropdown -->
-  <span dropdown (on-toggle)="toggled($event)">
+  <n2s-dropdown (on-toggle)="toggled($event)">
     <a href id="simple-dropdown" dropdown-toggle>
       Click me for a dropdown, yo!
     </a>
@@ -9,29 +9,29 @@
         <a class="dropdown-item" href="#">{{choice}}</a>
       </li>
     </ul>
-  </span>
+  </n2s-dropdown>
 
   <!-- Single button -->
-  <div class="btn-group" dropdown [is-open]="status['isopen']">
-    <button id="single-button" type="button" class="btn btn-primary" dropdown-toggle [disabled]="disabled">
+  <n2s-dropdown class="btn-group" [isOpen]="status['isopen']">
+    <n2s-dropdown-toggle id="single-button" type="button" class="btn btn-primary" dropdown-toggle [disabled]="disabled">
       Button dropdown <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
-      <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-      <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
-      <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+    </n2s-dropdown-toggle>
+    <ul class="dropdown-menu" aria-labelledby="single-button">
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><a class="dropdown-item" href="#">Another action</a></li>
+      <li><a class="dropdown-item" href="#">Something else here</a></li>
       <li class="divider dropdown-divider"></li>
-      <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
+      <li><a class="dropdown-item" href="#">Separated link</a></li>
     </ul>
-  </div>
+  </n2s-dropdown>
 
   <!-- Split button -->
-  <div class="btn-group" dropdown>
+  <n2s-dropdown class="btn-group">
     <button id="split-button" type="button" class="btn btn-danger">Action</button>
-    <button type="button" class="btn btn-danger dropdown-toggle" dropdown-toggle>
+    <n2s-dropdown-toggle type="button" class="btn btn-danger">
       <span class="caret"></span>
       <span class="sr-only">Split button!</span>
-    </button>
+    </n2s-dropdown-toggle>
     <ul class="dropdown-menu" role="menu" aria-labelledby="split-button">
       <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
       <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
@@ -39,7 +39,7 @@
       <li class="divider dropdown-divider"></li>
       <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
     </ul>
-  </div>
+  </n2s-dropdown>
 
   <hr/>
   <p>
@@ -50,16 +50,16 @@
 
   <hr>
   <!-- Single button with keyboard nav -->
-  <div class="btn-group" dropdown [keyboard-nav]="true">
-    <button id="simple-btn-keyboard-nav" type="button" class="btn btn-primary" dropdown-toggle>
+  <n2s-dropdown class="btn-group" [keyboardNav]="true">
+    <n2s-dropdown-toggle id="simple-btn-keyboard-nav" type="button" class="btn btn-primary" dropdown-toggle>
       Dropdown with keyboard navigation <span class="caret"></span>
-    </button>
+    </n2s-dropdown-toggle>
     <ul class="dropdown-menu" role="menu" aria-labelledby="simple-btn-keyboard-nav">
-      <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-      <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
-      <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><a class="dropdown-item" href="#">Another action</a></li>
+      <li><a class="dropdown-item" href="#">Something else here</a></li>
       <li class="divider dropdown-divider"></li>
-      <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
+      <li><a class="dropdown-item" href="#">Separated link</a></li>
     </ul>
-  </div>
+  </n2s-dropdown>
 </div>

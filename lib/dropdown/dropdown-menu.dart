@@ -1,4 +1,4 @@
-part of ns_dropdown;
+part of n2s_dropdown;
 
 @Directive (selector: "[dropdown-menu], .dropdown-menu",
     inputs: const [ "templateUrl"])

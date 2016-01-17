@@ -1,4 +1,4 @@
-part of ns_dropdown;
+part of n2s_dropdown;
 
 const ALWAYS = "always";
 
