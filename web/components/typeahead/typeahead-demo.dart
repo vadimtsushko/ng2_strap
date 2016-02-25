@@ -4,11 +4,15 @@ import 'dart:async';
 
 @Component (selector: "typeahead-demo",
     templateUrl: 'typeahead-demo.html',
-    directives: const [Typeahead, CORE_DIRECTIVES, FORM_DIRECTIVES])
+    directives: const [Typeahead, N2sRenderer])
 class TypeaheadDemo {
   String selected = "";
 
-  String asyncSelected = "";
+  var selectedItem;
+
+  String selectedAsync = "";
+
+  var selectedItemAsync;
 
   bool typeaheadLoading = false;
 
@@ -122,10 +126,10 @@ class TypeaheadDemo {
 
   TypeaheadDemo get context => this;
 
-  Function getAsyncData = (TypeaheadDemo _context) =>
-    new Future<List<String>>.delayed(new Duration(seconds: 2), () {
-      var query = new RegExp(_context.asyncSelected);
-      return _context.states.where(query.hasMatch).toList();
+  Future<Iterable<String>> getAsyncData(String queryStr) =>
+    new Future<Iterable<String>>.delayed(const Duration(seconds: 2), () {
+      var query = new RegExp(queryStr);
+      return states.where(query.hasMatch);
     });
 
   changeTypeaheadLoading(e) {
@@ -137,6 +141,6 @@ class TypeaheadDemo {
   }
 
   typeaheadOnSelect(e) {
-    print('Selected value: ${e['item']}');
+    print('Selected value: ${e}');
   }
 }

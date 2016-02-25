@@ -5,36 +5,17 @@ import 'package:node_shims/js.dart';
 
 // todo: fix? mixing static and dynamic tabs position tabs in order of creation
 @Component (
-    selector: "n2s-tabset", inputs: const [ "vertical", "justified", "type"],
-    template: '''
-    <ul class="nav"
-        [ngClass]="{
-          'nav-stacked' : vertical,
-          'nav-justified' : justified,
-          'nav-tabs' : type == 'tabs',
-          'nav-pills' : type == 'pills'
-        }"
-        (click)="\$event.preventDefault()">
-        <li *ngFor="#tabz of tabs" class="nav-item" [ngClass]="{active: tabz.active, disabled: tabz.disabled}">
-          <a href class="nav-link" [ngClass]="{active: tabz.active, disabled: tabz.disabled}" (click)="tabz.active = true">
-            <span ng-transclude [ngTransclude]="tabz.headingRef">{{tabz.heading}}</span>
-          </a>
-        </li>
-    </ul>
-    <div class="tab-content">
-      <ng-content></ng-content>
-    </div>
-  ''', directives: const [CORE_DIRECTIVES, NgTransclude])
+    selector: "n2s-tabset",
+    templateUrl: 'tabset.html',
+    directives: const [N2sTransclude])
 class Tabset implements OnInit {
-  bool vertical = false;
+  @Input() bool vertical = false;
 
-  bool justified = false;
+  @Input() bool justified = false;
 
-  String type;
+  @Input() String type;
 
   List<Tab> tabs = [];
-
-  Tabset();
 
   ngOnInit() {
     type ??= "tabs";
@@ -61,7 +42,7 @@ class Tabset implements OnInit {
     slice(tabs, index, 1);
   }
 }
-// TODO: templateUrl?
+
 @Directive (selector: "n2s-tab",
     inputs: const [ "active", "disable", "disabled", "heading"],
     outputs: const [ "select", "deselect"],

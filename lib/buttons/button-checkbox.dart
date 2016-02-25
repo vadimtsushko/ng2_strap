@@ -1,11 +1,12 @@
 import "package:angular2/angular2.dart";
+import 'dart:async';
 
 @Directive(
     selector: "n2s-btn-checkbox",
     inputs: const ["trueValue", "falseValue"],
-    host: const { "(click)" : "onClick()", "[class.active]" : "state"}
+    host: const { "(click)" : "onClick()", "[class.active]" : "active"}
 )
-class ButtonCheckbox extends DefaultValueAccessor implements OnInit {
+class ButtonCheckbox extends DefaultValueAccessor {
   ButtonCheckbox(this.ngModel, Renderer renderer, ElementRef elementRef) : super(renderer, elementRef) {
     ngModel.valueAccessor = this;
   }
@@ -18,27 +19,19 @@ class ButtonCheckbox extends DefaultValueAccessor implements OnInit {
 
   var _value;
 
-  bool state = false;
+  bool get active => trueValue == _value;
 
-
-  @override
-  ngOnInit() {
-    state = trueValue == _value;
+  writeValue(value) async {
+      _value = value;
+      super.writeValue(_value);
   }
 
-  writeValue(value) {
-    _value = value;
-    state = trueValue == _value;
-    super.writeValue(_value);
-  }
-
-  toggle(bool _state) {
-    state = _state;
-    _value = state ? trueValue : falseValue;
+  toggle(bool checked) {
+    _value = checked ? trueValue : falseValue;
     ngModel.viewToModelUpdate(_value);
   }
 
   onClick() {
-    toggle(!state);
+    toggle(!active);
   }
 }

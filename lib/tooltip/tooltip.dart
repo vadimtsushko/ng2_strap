@@ -1,6 +1,7 @@
-import "package:angular2/angular2.dart";
-import "package:ng2_strap/position.dart";
+import 'package:angular2/angular2.dart';
+import 'package:ng2_strap/position.dart';
 import 'dart:async';
+import 'dart:html';
 
 class TooltipOptions {
   String placement;
@@ -22,17 +23,8 @@ class TooltipOptions {
   });
 }
 
-@Component (selector: "n2s-tooltip-container",
-    template: '''
-    <div class="tooltip" role="tooltip"
-     [ngStyle]="{top: top, left: left, display: display}"
-     [ngClass]="classMap" >
-      <div class="tooltip-arrow"></div>
-      <div class="tooltip-inner">
-        {{content}}
-      </div>
-    </div>''',
-    directives: const [NgClass, NgStyle],
+@Component (selector: 'n2s-tooltip-container',
+    templateUrl: 'tooltip_container.html',
     encapsulation: ViewEncapsulation.None)
 class TooltipContainer {
   ElementRef element;
@@ -49,7 +41,7 @@ class TooltipContainer {
 
   String content;
 
-  String placement = "top";
+  String placement = 'top';
 
   bool appendToBody = false;
 
@@ -60,7 +52,7 @@ class TooltipContainer {
   bool animation;
 
   TooltipContainer(this.element, TooltipOptions options) {
-    classMap = { "in" : false};
+    classMap = { 'in' : false};
     placement = options.placement;
     popupClass = options.popupClass;
     animation = options.animation;
@@ -70,63 +62,67 @@ class TooltipContainer {
   }
 
   position(ElementRef hostEl) {
-    display = "block";
-    top = "0px";
-    left = "0px";
+    display = 'block';
+    top = '0px';
+    left = '0px';
     var p = positionElements(
         hostEl.nativeElement,
         element.nativeElement.children[0],
         placement,
         appendToBody);
-    top = p.top.toString() + "px";
-    left = p.left.toString() + "px";
-    classMap [ "in" ] = true;
+    top = p.top.toString() + 'px';
+    left = p.left.toString() + 'px';
+    classMap['in'] = true;
   }
 }
 
-@Directive (selector: "[tooltip]",
-    inputs: const [
-      "content:tooltip",
-      "placement:tooltip-placement",
-      "appendToBody",
-      "isOpen: tooltip-is-open",
-      "enable: tooltip-enable"
-    ],
-    host: const {
-      "(mouseenter)" : "show(\$event)",
-      "(mouseleave)" : "hide(\$event)",
-      "(focusin)" : "show(\$event)",
-      "(focusout)" : "hide(\$event)"
-    })
+@Directive(selector: '[n2sTooltip]')
 class Tooltip {
+  Tooltip(this.element, this.loader);
+
   ElementRef element;
 
   DynamicComponentLoader loader;
 
   bool visible = false;
 
-  String content;
+  @Input('n2sTooltip') String content;
 
-  String placement = "top";
+  @Input('n2sTooltipPlacement') String placement = 'top';
 
   // todo:
-  bool appendToBody;
+  @Input('n2sTooltipAppendToBody') bool appendToBody;
 
-  bool isOpen;
+  @Input('n2sTooltipIsOpen') bool isOpen;
 
-  bool enable;
+  bool _enable = true;
+
+  @Input('n2sTooltipEnable') set enable(bool enable) {
+    _enable = enable ?? true;
+    if(!_enable) {
+      hide();
+    }
+  }
+
+  @Input('n2sTooltipTrigger') String trigger;
+
+  @Input('n2sTooltipClass') String popupClass;
 
   Future<ComponentRef> tooltip;
 
-  Tooltip(this.element, this.loader);
-
   // todo: filter triggers
-  show(event) {
-    if (visible) {
+  @HostListener('mouseenter', const ['\$event'])
+  @HostListener('focusin', const ['\$event'])
+  show([Event event]) {
+    if(event is MouseEvent && trigger == 'focus'
+      ||event is FocusEvent && trigger == 'mouse') {
+      return;
+    }
+    if (visible || !_enable) {
       return;
     }
     visible = true;
-    var options = new TooltipOptions (content: content, placement: placement);
+    var options = new TooltipOptions(content: content, placement: placement, popupClass: popupClass);
     var binding = Injector.resolve([bind(TooltipOptions).toValue(options)]);
     tooltip = loader.loadNextToLocation(TooltipContainer, element, binding)
         .then((ComponentRef componentRef) {
@@ -137,7 +133,13 @@ class Tooltip {
     });
   }
 
-  hide(event) {
+  @HostListener('mouseleave', const ['\$event'])
+  @HostListener('focusout', const ['\$event'])
+  hide([Event event]) {
+    if(event is MouseEvent && trigger == 'focus'
+        ||event is FocusEvent && trigger == 'mouse') {
+      return;
+    }
     if (!visible) {
       return;
     }
@@ -149,4 +151,4 @@ class Tooltip {
   }
 }
 
-const List<dynamic> TOOLTIP_DIRECTIVES = const [Tooltip, TooltipContainer];
+const TOOLTIP_DIRECTIVES = const [Tooltip, TooltipContainer];

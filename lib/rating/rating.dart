@@ -4,18 +4,8 @@ import 'package:node_shims/js.dart';
 
 // TODO: templateUrl
 @Component (selector: "n2s-rating",
-    inputs: const [
-      "max", "readonly", "titles", "stateOn", "stateOff", "ratingStates"],
-    outputs: const [ "onHover", "onLeave"],
     host: const { "(keydown)" : "onKeydown(\$event)"},
-    template: '''
-    <span (mouseleave)="reset()" (keydown)="onKeydown(\$event)" tabindex="0" role="slider" aria-valuemin="0" [attr.aria-valuemax]="range.length" [attr.aria-valuenow]="value">
-      <template ngFor #r [ngForOf]="range" #index="index">
-        <span class="sr-only">({{ index < value ? '*' : ' ' }})</span>
-        <i (mouseenter)="enter(index + 1)" (click)="rate(index + 1)" class="glyphicon" [ngClass]="index < value ? r['stateOn'] : r['stateOff']" [title]="r['title']" ></i>
-      </template>
-    </span>
-  ''', directives: const [NgClass, NgFor])
+    templateUrl: 'rating.html')
 class Rating extends DefaultValueAccessor implements OnInit {
   Rating(this.cd, Renderer renderer, ElementRef elementRef)
       : super (renderer, elementRef) {
@@ -24,27 +14,27 @@ class Rating extends DefaultValueAccessor implements OnInit {
 
   NgModel cd;
 
-  num max;
+  @Input() num max;
 
-  List range;
+  @Input() List range;
 
   num value;
 
   num preValue;
 
-  List<String> titles;
+  @Input() List<String> titles;
 
-  String stateOn;
+  @Input() String stateOn;
 
-  String stateOff;
+  @Input() String stateOff;
 
-  bool readonly;
+  @Input() bool readonly;
 
-  List ratingStates;
+  @Input() List ratingStates;
 
-  EventEmitter onHover = new EventEmitter ();
+  @Output() EventEmitter onHover = new EventEmitter ();
 
-  EventEmitter onLeave = new EventEmitter ();
+  @Output() EventEmitter onLeave = new EventEmitter ();
 
   ngOnInit() {
     max ??= 5;

@@ -4,26 +4,25 @@ import 'dart:math';
 
 @Component (selector: "progressbar-demo")
 @View (templateUrl: "progressbar-demo.html",
-    directives: const [ PROGRESSBAR_DIRECTIVES, CORE_DIRECTIVES, NgStyle])
+    directives: const [PROGRESSBAR_DIRECTIVES])
 class ProgressbarDemo {
   num max = 200;
 
   bool showWarning;
 
-  num dynamic;
+  num value;
 
   String type;
 
   List stacked = [];
 
   ProgressbarDemo() {
-    this.random();
-    this.randomStacked();
+    random();
+    randomStacked();
   }
 
   random() {
-    var value = new Random().nextInt(100);
-    var type;
+    value = new Random().nextInt(100);
     if (value < 25) {
       type = "success";
     } else if (value < 50) {
@@ -33,21 +32,18 @@ class ProgressbarDemo {
     } else {
       type = "danger";
     }
-    this.showWarning =
-    (identical(type, "danger") || identical(type, "warning"));
-    this.dynamic = value;
-    this.type = type;
+    showWarning = type == "danger" || type == "warning";
   }
 
   randomStacked() {
     var types = [ "success", "info", "warning", "danger"];
-    this.stacked = [];
+    stacked = [];
     var total = 0;
     for (var i = 0, n = new Random().nextInt(5); i < n; i ++) {
       var index = new Random().nextInt(4);
       var value = new Random().nextInt(30);
       total += value;
-      this.stacked.add({'value': value, 'max': value, 'type': types[index]});
+      stacked.add({'value': value, 'max': value, 'type': types[index]});
     }
   }
 }

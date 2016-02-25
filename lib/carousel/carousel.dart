@@ -28,20 +28,14 @@ Ng2BootstrapTheme.BS4 :
   '''
 };
 
-@Component (selector: "n2s-carousel",
-    inputs: const [ "interval", "noTransition", "noPause", "noWrap"],
-    template: '''
-<div (mouseenter)="pause()" (mouseleave)="play()" class="carousel slide">
-  <ol class="carousel-indicators" [hidden]="slides.length <= 1">
-     <li *ngFor="#slidez of slides" [ngClass]="{active: slidez.active === true}" (click)="select(slidez)"></li>
-  </ol>
-  <div class="carousel-inner"><ng-content></ng-content></div>
-</div>
-  ''', directives: const [ CORE_DIRECTIVES, NgClass])
+@Component(selector: "n2s-carousel",
+    templateUrl: 'carousel.html')
 class Carousel implements OnDestroy {
-  bool noPause = false;
+  @Input() bool noPause = false;
 
-  bool noWrap;
+  @Input() bool noWrap;
+
+  @Input() bool noTransition;
 
   List<Slide> slides = [];
 
@@ -53,10 +47,10 @@ class Carousel implements OnDestroy {
 
   Slide currentSlide;
 
-  num interval;
+  @Input() num interval;
 
   ngOnDestroy() {
-    this.destroyed = true;
+    destroyed = true;
   }
 
 //  String get interval => _interval.toString();

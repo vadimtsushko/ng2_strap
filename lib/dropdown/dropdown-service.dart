@@ -70,4 +70,4 @@ class DropdownService {
   }
 }
 
-var dropdownService = new DropdownService ();
+DropdownService dropdownService = new DropdownService();

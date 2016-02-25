@@ -6,8 +6,8 @@ import 'dart:async';
 import 'package:node_shims/js.dart';
 
 const TEMPLATE = const {
-Ng2BootstrapTheme.BS4 :
-'''
+  Ng2BootstrapTheme.BS4 :
+  '''
   <div class="dropdown-menu"
       [ng-style]="{top: top, left: left, display: display}"
       style="display: block">
@@ -42,23 +42,13 @@ class TypeaheadOptions {
 }
 
 @Component (selector: "n2s-typeahead-dropdown",
-    template: '''
-  <ul class="dropdown-menu"
-      [ng-style]="{top: top, left: left, display: display}"
-      style="display: block">
-    <li *ngFor="#match of matches"
-        [ngClass]="{active: isActive(match) }"
-        (mouseenter)="selectActive(match)">
-        <a href="#" (click)="selectMatch(match, \$event)" tabindex="-1" [innerHtml]="hightlight(match, query)"></a>
-    </li>
-  </ul>
-  ''',
+    templateUrl: 'typeahead_container.html',
     styles: const ['''
 n2s-typeahead-dropdown {
-  position: absolute;
+  position: static;
 }
-'''],
-    directives: const [CORE_DIRECTIVES],
+'''
+    ],
     encapsulation: ViewEncapsulation.None)
 class TypeaheadContainer {
   ElementRef element;
@@ -67,9 +57,9 @@ class TypeaheadContainer {
 
   String query;
 
-  List<String> _matches = [];
+  List _matches = [];
 
-  String _active;
+  var _active;
 
   String top;
 
@@ -81,7 +71,8 @@ class TypeaheadContainer {
 
   bool animation;
 
-  TypeaheadContainer(this.element, TypeaheadOptions typeaheadOptions) :
+  TypeaheadContainer(this.element, TypeaheadOptions typeaheadOptions)
+      :
         placement = typeaheadOptions.placement,
         animation = typeaheadOptions.animation;
 
@@ -92,7 +83,7 @@ class TypeaheadContainer {
   set matches(List<String> value) {
     _matches = value;
     if (_matches.length > 0) {
-      _active = _matches [ 0 ];
+      _active = _matches[0];
     }
   }
 
@@ -101,10 +92,10 @@ class TypeaheadContainer {
     top = "0px";
     left = "0px";
     var p = positionElements(
-        hostEl.nativeElement, element.nativeElement.children [ 0 ],
+        hostEl.nativeElement, element.nativeElement.children[0],
         placement, false);
-    top = p.top.toString() + "px";
-    left = p.left.toString() + "px";
+    top = p.topPx;
+    left = p.leftPx;
   }
 
   selectActiveMatch() {
@@ -114,16 +105,16 @@ class TypeaheadContainer {
   prevActiveMatch() {
     var index = matches.indexOf(_active);
     _active =
-    matches [ index - 1 < 0 ? matches.length - 1 : index - 1 ];
+    matches[index - 1 < 0 ? matches.length - 1 : index - 1];
   }
 
   nextActiveMatch() {
     var index = matches.indexOf(_active);
     _active =
-    matches [ index + 1 > matches.length - 1 ? 0 : index + 1 ];
+    matches[index + 1 > matches.length - 1 ? 0 : index + 1];
   }
 
-  selectActive(String value) {
+  selectActive(value) {
     _active = value;
   }
 
@@ -131,71 +122,49 @@ class TypeaheadContainer {
     return _active == value;
   }
 
-  selectMatch(String value, [Event e = null]) {
+  selectMatch(value, [Event e = null]) {
     if (e != null) {
       e.stopPropagation();
       e.preventDefault();
     }
-    parent.changeModel(value);
-    parent.onSelect.add({'item': value});
+    parent.changeModel(_itemString(value, parent.optionField));
+    parent.selectedItemChange.add(value);
     return false;
   }
 
-  String escapeRegexp(String queryToEscape) {
-    // Regex: capture the whole query string and replace it with the string that will be used to match
+  /// captures the whole query string and replace it with the string that will be used to match
+  /// the results, for example if the capture is "a" the result will be \a
+  RegExp escapeRegexp(String queryToEscape) =>
+      new RegExp(queryToEscape.replaceAll(new RegExp(r'([.?*+^$[\]\\(){}|-])'), r"\$1"), caseSensitive: false);
 
-    // the results, for example if the capture is "a" the result will be \a
-    return queryToEscape.replaceAll(new RegExp(r'([.?*+^$[\]\\(){}|-])'), "\\\$1");
-  }
-
-  hightlight(String item, String query) {
+  hightlight(item, String query) {
+    String itemStr = _itemString(item, parent.optionField);
     // Replaces the capture string with a the same string inside of a "strong" tag
     return query != null && !query.isEmpty
-        ? item.replaceAllMapped(new RegExp(escapeRegexp(query), caseSensitive: false), (m) => "<strong>${m[0]}</strong>")
-        : item;
+        ? itemStr.replaceAllMapped(escapeRegexp(query), (m) => "<strong>${m[0]}</strong>")
+        : itemStr;
   }
 }
+/// Returns the item as string
+_itemString(item, String optionField) =>
+    item is String ? item : item[optionField];
+
 // todo: options loading by http not yet implemented
-@Component (
+@Component(
     selector: "n2s-typeahead",
-    inputs: const [
-      'context',
-      "source",
-      // todo: not yet implemented
-      "appendToBody",
-      // todo: not yet implemented
-      "editable",
-      // todo: not yet implemented
-      "focusFirst",
-      // todo: not yet implemented
-      "inputFormatter",
-      "minLength",
-      // todo: not yet implemented
-      "selectOnExact",
-      // todo: not yet implemented
-      "templateUrl",
-      // todo: not yet implemented
-      "popupTemplateUrl",
-      "waitMs",
-      "optionsLimit",
-      // todo: not yet implemented
-      "selectOnBlur",
-      // todo: not yet implemented
-      "focusOnSelect",
-      "optionField",
-      "async"
-    ],
-    outputs: const [
-      "onLoading",
-      "onNoResults",
-      "onSelect"
-    ],
-    template: '<input type="text"[(ngModel)]="cd.model" (keyup)="onTypeaheadChange(\$event)" class="form-control">',
-    directives: const [FORM_DIRECTIVES])
+    template: '<input type="text"[(ngModel)]="cd.model" (keyup)="onTypeaheadChange(\$event)" class="form-control">')
 class Typeahead extends DefaultValueAccessor implements OnInit {
+
+  Typeahead(this.cd, Renderer renderer, ElementRef elementRef, this.loader)
+      : element = elementRef,
+        renderer = renderer,
+        super(renderer, elementRef) {
+    cd.valueAccessor = this;
+  }
+
   NgModel cd;
 
-  var context;
+  @Input() var context;
 
   ElementRef element;
 
@@ -203,60 +172,64 @@ class Typeahead extends DefaultValueAccessor implements OnInit {
 
   DynamicComponentLoader loader;
 
-  EventEmitter onLoading = new EventEmitter ();
-
-  EventEmitter onNoResults = new EventEmitter ();
-
-  EventEmitter onSelect = new EventEmitter ();
-
   TypeaheadContainer container;
 
-  num minLength = 1;
+  @Output() EventEmitter onLoading = new EventEmitter();
 
-  num waitMs = 0;
+  @Output() EventEmitter onNoResults = new EventEmitter();
 
-  num optionsLimit = 20;
+  @Output() EventEmitter selectedItemChange = new EventEmitter();
 
-  bool appendToBody;
+  @Input() num minLength = 1;
 
-  bool editable;
+  @Input() num waitMs = 0;
 
-  bool focusFirst;
+  @Input() num optionsLimit = 20;
 
-  dynamic inputFormatter;
+  // todo: not yet implemented
+  @Input() bool appendToBody;
 
-  bool selectOnExact;
+  // todo: not yet implemented
+  @Input() bool editable;
 
-  String templateUrl;
+  // todo: not yet implemented
+  @Input() bool focusFirst;
 
-  String popupTemplateUrl;
+  // todo: not yet implemented
+  @Input() dynamic inputFormatter;
 
-  bool selectOnBlur;
+  // todo: not yet implemented
+  @Input() bool selectOnExact;
 
-  bool focusOnSelect;
+  // todo: not yet implemented
+  @Input() String templateUrl;
 
-  String optionField;
+  // todo: not yet implemented
+  @Input() String popupTemplateUrl;
 
-  bool async = false;
+  // todo: not yet implemented
+  @Input() bool selectOnBlur;
+
+  // todo: not yet implemented
+  @Input() bool focusOnSelect;
+
+  @Input() String optionField;
+
+  @Input() bool async = false;
 
   Function debouncer;
 
-  dynamic source;
+  @Input() dynamic source;
 
-  List<String> _matches = [];
+  List _matches = [];
+
+  get matches => _matches;
+
+  @Input() bool autocomplete;
 
   String placement = "bottom-left";
 
   Future<ComponentRef> popup;
-
-  Typeahead(this.cd, Renderer renderer, ElementRef elementRef, this.loader)  :
-        element = elementRef,
-        renderer = renderer,
-        super(renderer, elementRef) {
-    cd.valueAccessor = this;
-  }
-
-  get matches => _matches;
 
   Function debounce(Function func, num wait) {
     dynamic timeout;
@@ -274,11 +247,13 @@ class Typeahead extends DefaultValueAccessor implements OnInit {
       // we should use standard 'wait'('waitOriginal') in case of
 
       // popup is opened, otherwise - 'typeaheadWaitMs' parameter
-      wait =truthy(container) ? waitOriginal : waitMs;
+      wait = truthy(container) ? waitOriginal : waitMs;
       // this is where the magic happens
       later() {
         // how long ago was the last call
-        var last = new DateTime.now().difference(timestamp).inMilliseconds;
+        var last = new DateTime.now()
+            .difference(timestamp)
+            .inMilliseconds;
         // if the latest call was less than the wait period ago
         // then we reset the timeout to wait for the difference
         if (last < wait) {
@@ -296,38 +271,37 @@ class Typeahead extends DefaultValueAccessor implements OnInit {
   }
 
   processMatches() {
-    _matches = [];
-    if (cd.model.toString().length >= minLength) {
-      for (var i = 0; i < source.length; i ++) {
-        String match;
-        if (source[i] is Map && truthy(source[i][optionField])) {
-          match = source[i][optionField];
-        }
-        if (source[i] is String) {
-          match = source[i];
-        }
-        if (falsey(match)) {
-          print("Invalid match type $optionField");
-          continue;
-        }
-        if (match.toLowerCase().indexOf(cd.model.toString().toLowerCase()) >= 0) {
-          _matches.add(match);
-          if (_matches.length > optionsLimit - 1) {
-            break;
-          }
-        }
+    if (cd.model.length >= minLength) {
+      mapper(item) =>
+          //todo: add check for complex objects
+      item is String
+          ? item
+          : item[optionField];
+      if (source is Function) {
+        source(cd.model).then((Iterable matches) {
+          _matches = matches.take(optionsLimit).toList();
+          finalizeAsyncCall();
+        });
+      } else if (source is Iterable) {
+        var query = new RegExp(cd.model);
+        _matches = source.where((item) => /*
+          */item is Map && item[optionField] != null && query.hasMatch(item[optionField]) ||
+            item is String && query.hasMatch(item)
+        ).take(optionsLimit).toList();
+        finalizeAsyncCall();
       }
     }
   }
 
   finalizeAsyncCall() {
-    onLoading.add(false);
-    onNoResults.add(cd.model.toString().length >= minLength && matches.length <= 0);
-    if (cd.model.toString().length <= 0 || _matches.length <= 0) {
+    onLoading.emit(false);
+    var modelLength = cd.model.length;
+    onNoResults.emit(modelLength >= minLength && matches.length <= 0);
+    if (modelLength <= 0 || _matches.length <= 0) {
       hide();
       return;
     }
-    if (truthy(container) && _matches.length > 0) {
+    if (container != null && _matches.length > 0) {
       container.query = cd.model;
       container.matches = _matches;
     }
@@ -342,42 +316,33 @@ class Typeahead extends DefaultValueAccessor implements OnInit {
 
     if (async == true) {
       debouncer = debounce(() {
-        if (source is Function) {
-          source(context).then((Iterable matches) {
-            _matches = [];
-            if (cd.model.toString().length >= minLength) {
-              for (var i = 0; i < matches.length; i ++) {
-                _matches.add(matches.elementAt(i));
-                if (_matches.length > optionsLimit - 1) {
-                  break;
-                }
-              }
-            }
-            finalizeAsyncCall();
-          });
-        } else if (source is List && source.length > 0) { // source is array
-          processMatches();
-          finalizeAsyncCall();
-        }
+        processMatches();
       }, 100);
     }
   }
 
   onTypeaheadChange(KeyboardEvent e) {
-    if (truthy(container)) {
-      switch(e.keyCode) {
+    if (container != null) {
+      switch (e.keyCode) {
         case KeyCode.ESC:
-        hide();
-        return;
+          hide();
+          return;
         case KeyCode.UP:
-        container.prevActiveMatch();
-        return;
+          container.prevActiveMatch();
+          return;
         case KeyCode.DOWN:
-        container.nextActiveMatch();
-        return;
+          container.nextActiveMatch();
+          return;
         case KeyCode.ENTER:
-        container.selectActiveMatch();
-        return;
+          container.selectActiveMatch();
+          return;
+        case KeyCode.TAB:
+          if (autocomplete == true) {
+            container.selectActiveMatch();
+          } else {
+            hide();
+          }
+          return;
       }
     }
     onLoading.add(true);
@@ -385,19 +350,17 @@ class Typeahead extends DefaultValueAccessor implements OnInit {
       debouncer();
     } else {
       processMatches();
-      finalizeAsyncCall();
     }
   }
 
-  changeModel(value) {
+  changeModel(String value) {
     cd.viewToModelUpdate(value);
-//    setProperty(renderer, element, "value", value);
     hide();
   }
 
   show(List<String> matches) {
     var options = new TypeaheadOptions (placement: placement, animation: false);
-    var binding = Injector.resolve([ bind(TypeaheadOptions).toValue(options)]);
+    var binding = Injector.resolve([bind(TypeaheadOptions).toValue(options)]);
     popup = loader.loadNextToLocation(
         TypeaheadContainer, element, binding).then((ComponentRef componentRef) {
       componentRef.instance.position(element);
@@ -411,7 +374,7 @@ class Typeahead extends DefaultValueAccessor implements OnInit {
   }
 
   hide() {
-    if (truthy(container)) {
+    if (container != null) {
       popup.then((ComponentRef componentRef) {
         componentRef.dispose();
         container = null;
@@ -419,4 +382,15 @@ class Typeahead extends DefaultValueAccessor implements OnInit {
       });
     }
   }
+}
+
+@Directive(selector: '[n2s-renderer]')
+class N2sRenderer {
+
+  N2sRenderer(this.templateRef) {
+
+  }
+
+  TemplateRef templateRef;
+
 }

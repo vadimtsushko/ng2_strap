@@ -1,21 +1,20 @@
 import "package:angular2/angular2.dart";
 
-@Directive (selector: "[ng-transclude]", inputs: const [ "ngTransclude"])
-class NgTransclude {
+@Directive (selector: "n2s-transclude")
+class N2sTransclude {
   ViewContainerRef viewRef;
 
-  TemplateRef _ngTransclude;
+  TemplateRef _templateRef;
 
-  set ngTransclude(TemplateRef templateRef) {
-    _ngTransclude = templateRef;
+  @Input()
+  set templateRef(TemplateRef templateRef) {
+    _templateRef = templateRef;
     if (templateRef != null) {
       viewRef.createEmbeddedView(templateRef);
     }
   }
 
-  get ngTransclude {
-    return _ngTransclude;
-  }
+  get templateRef => _templateRef;
 
-  NgTransclude(@Inject(ViewContainerRef) this.viewRef);
+  N2sTransclude(@Inject(ViewContainerRef) this.viewRef);
 }

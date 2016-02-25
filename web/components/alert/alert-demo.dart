@@ -9,7 +9,8 @@ class AlertDemo {
   List alerts = [
     {
       "type": "danger",
-      "msg": "Oh snap! Change a few things up and try submitting again."
+      "msg": "Oh snap! Change a few things up and try submitting again.",
+      'closable': false
     },
     {
       "type": "success",

@@ -1,8 +1,9 @@
 import "package:angular2/angular2.dart";
+import 'dart:async';
 
 @Directive(selector: "n2s-btn-radio",
     inputs: const [ "option", "uncheckable"],
-    host: const { "(click)" : "onClick()", "[class.active]" : "isActive"})
+    host: const { "(click)" : "onClick()", "[class.active]" : "active"})
 class ButtonRadio extends DefaultValueAccessor {
   ButtonRadio(this.ngModel, Renderer renderer, ElementRef elementRef)
       : super (renderer, elementRef) {
@@ -15,14 +16,14 @@ class ButtonRadio extends DefaultValueAccessor {
 
   bool uncheckable = true;
 
-  bool get isActive => option == _value;
+  bool get active => option == _value;
 
   var _value;
 
   @override
-  writeValue(value) {
-    _value = value;
-    super.writeValue(value);
+  writeValue(value) async {
+      _value = value;
+      super.writeValue(value);
   }
 
   onClick() {

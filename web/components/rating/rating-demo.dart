@@ -4,13 +4,7 @@ import "package:ng2_strap/rating/rating.dart";
 @Component(selector: "rating-demo")
 @View(
     templateUrl: "rating-demo.html",
-    directives: const [
-      Rating,
-      NgClass,
-      NgStyle,
-      FORM_DIRECTIVES,
-      CORE_DIRECTIVES
-    ])
+    directives: const [Rating])
 class RatingDemo {
   num x = 5;
   num y = 2;

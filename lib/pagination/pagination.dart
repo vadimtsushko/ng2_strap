@@ -1,183 +1,78 @@
+library pagination;
+
 import "package:angular2/angular2.dart";
 import 'dart:html';
 import 'dart:math';
 import 'package:node_shims/js.dart';
-// todo: extract base functionality classes
 
-// todo: expose an option to change default configuration
+part 'pager.dart';
 
-// todo: solve problem with .pagination-sm>li:first-child>a and <template/> from ngIf >.<
-const _PAGINATION_CONFIG = const {
-  "maxSize" : null,
-  "itemsPerPage" : 10,
-  "boundaryLinks" : false,
-  "directionLinks" : true,
-  "firstText" : "First",
-  "previousText" : "Previous",
-  "nextText" : "Next",
-  "lastText" : "Last",
-  "rotate" : true
-};
-
-@Component (selector: "n2s-pagination",
+@Component(selector: "n2s-pagination",
+    templateUrl: 'pagination.html',
     inputs: const [
-      "rotate",
-      "disabled",
-      "totalItems",
-      "itemsPerPage",
-      "maxSize",
-      "boundaryLinks",
-      "directionLinks",
-      "firstText",
-      "previousText",
-      "nextText",
-      "lastText"
+      'previousText',
+      'nextText',
+      'align',
+      'disabled',
+      'currentPage',
+      'itemsPerPage',
+      'totalItems'
     ],
-    outputs: const ["numPages"],
-    template: '''
-  <ul class="pagination" [ngClass]="classMap">
-    <li class="pagination-first"
-        [ngClass]="{disabled: noPrevious()||disabled, hidden: !boundaryLinks}"
-        [hidden]="!boundaryLinks">
-      <a href (click)="selectPage(1, \$event)">{{firstText}}</a>
-    </li>
-
-    <li class="pagination-prev"
-        [ngClass]="{disabled: noPrevious()||disabled, hidden: !directionLinks}"
-        [hidden]="!directionLinks">
-      <a href (click)="selectPage(page - 1, \$event)">{{previousText}}</a>
-      </li>
-
-    <li *ngFor="#page of pages" [ngClass]="{active: page['active'], disabled: disabled && !page['active']}" class="pagination-page">
-      <a href (click)="selectPage(page['number'], \$event)">{{page['text']}}</a>
-    </li>
-
-    <li class="pagination-next"
-        [ngClass]="{disabled: noNext()||disabled, hidden: !directionLinks}"
-        [hidden]="!directionLinks">
-      <a href (click)="selectPage(page + 1, \$event)">{{nextText}}</a></li>
-
-    <li class="pagination-last"
-        [ngClass]="{disabled: noNext()||disabled, hidden: !boundaryLinks}"
-        [hidden]="!boundaryLinks">
-      <a href (click)="selectPage(totalPages, \$event)">{{lastText}}</a></li>
-  </ul>
-  ''',
-    directives: const [ CORE_DIRECTIVES, NgClass],
-    encapsulation: ViewEncapsulation.None)
-class Pagination extends DefaultValueAccessor implements OnInit {
-  Pagination(this.ngModel, Renderer renderer, ElementRef elementRef)
-      : super (renderer, elementRef) {
-    this.elementRef = elementRef;
-    ngModel.valueAccessor = this;
+    outputs: const [
+      'totalPagesChange',
+      'currentPageChange'
+    ])
+class Pagination extends Pager implements OnInit {
+  /// Constructor to create a new Pagination component in which [elementRef] is injected.
+  Pagination(ElementRef elementRef) : super(elementRef) {
+    currentPageChange.listen((currentPage) =>
+      pages = getPages(currentPage, totalPages)
+    );
   }
 
-  NgModel ngModel;
+  /// css classes
+  @Input('class') String classes = "";
 
-  Map config;
+  /// limit number for page links in pager
+  @Input() num maxSize;
 
-  String classMap;
+  /// if `true` current page will be in the middle of pages list
+  @Input() bool rotate = true;
 
-  num maxSize;
+  /// if true shows the direction buttons
+  @Input() bool directionLinks = true;
 
-  bool rotate = true;
+  /// if `false` first and last buttons will be hidden
+  @Input() dynamic boundaryLinks = true;
 
-  dynamic boundaryLinks = false;
+  /// label of first text
+  @Input() String firstText = "First";
 
-  // labels
-  String firstText = "First";
+  /// label of last text
+  @Input() String lastText = "Last";
 
-  String previousText = "Previous";
-
-  String nextText = "Next";
-
-  String lastText = "Last";
-
-  bool disabled = false;
-
-  bool directionLinks = true;
-
-  EventEmitter numPages = new EventEmitter ();
-
-  int _itemsPerPage = 10;
-
-  int _totalItems = 10;
-
-  int _totalPages = 10;
-
-  get itemsPerPage => _itemsPerPage;
-
-  set itemsPerPage(int v) {
-    _itemsPerPage = v;
-    totalPages = calculateTotalPages();
-  }
-
-  int get totalItems => _totalItems;
-
-  set totalItems(int v) {
-    _totalItems = v;
-    totalPages = calculateTotalPages();
-  }
-
-  get totalPages {
-    return _totalPages;
-  }
+  /// visible pages
+  List<Map> pages = [];
 
   set totalPages(int v) {
-    _totalPages = v;
-    numPages.add(v);
-    if (page > v) {
+    super.totalPages = v;
+    if (currentPage > v) {
       selectPage(v);
     }
   }
 
-  // ??
-  int page = 1;
-//  int get page => _page;
-//  set page(int page) {
-//    _page = page ?? 1;
-//    pages = getPages(_page, totalPages);
-//    pageEmitter.add(_page);
-//  }
-
-  List<Map> pages = [];
-
-  ElementRef elementRef;
-
   ngOnInit() {
-    classMap = elementRef.nativeElement.getAttribute("class") ?? "";
-    totalPages = calculateTotalPages();
-    pages = getPages(page, totalPages);
+//    classes = elementRef.nativeElement.getAttribute("class") ?? "";
+    totalPages = _calculateTotalPages();
+//    currentPageEmitter.emit(currentPage);
   }
 
-  writeValue(num value) {
-    page = value ?? 1;
-    pages = getPages(page, totalPages);
-  }
-
-  selectPage(num _page, [MouseEvent event]) {
-    if (event != null) {
-      event.preventDefault();
-    }
-    if ((!disabled || event == null) && this.page != _page && _page > 0 &&
-        _page <= totalPages) {
-      dynamic target = event.target;
-      target.blur();
-      page = _page;
-      pages = getPages(_page, totalPages);
-      ngModel.viewToModelUpdate(_page);
-    }
-  }
-
-  noPrevious() => page <= 1;
-
-  noNext() => page >= totalPages;
-
-  // Create page object used in template
+  /// Create page object used in template
   makePage(number, text, isActive) {
     return { "number" : number, "text" : text, "active" : isActive};
   }
 
+  /// get the pages to be viewed in dependence of the [currentPage] and [totalPage]
   getPages(currentPage, totalPages) {
     var pages = [];
     // Default page limits
@@ -220,35 +115,6 @@ class Pagination extends DefaultValueAccessor implements OnInit {
     }
     return pages;
   }
-
-  // base class
-  calculateTotalPages() {
-    var totalPages = itemsPerPage < 1 ? 1 : (
-        totalItems / itemsPerPage).ceil();
-    return max(totalPages ?? 0, 1);
-  }
 }
 
-@Component (selector: "pager[ngModel], [pager][ngModel]",
-    inputs: const [
-      "align", "totalItems", "itemsPerPage", "previousText", "nextText"])
-@View (template: '''
-<ul class="pager">
-  <li [ngClass]="{disabled: noPrevious(), previous: align, \'pull-left\': align}"><a href (click)="selectPage(page - 1, \$event)">{{previousText}}</a></li>
-  <li [ngClass]="{disabled: noNext(), next: align, \'pull-right\': align}"><a href (click)="selectPage(page + 1, \$event)">{{nextText}}</a></li>
-</ul>
-''', directives: const [ NgClass])
-class Pager extends Pagination
-    implements OnInit {
-  bool align = true;
-
-  Pager(@Self() NgModel ngModel, Renderer renderer, ElementRef elementRef)
-      : super (ngModel, renderer, elementRef) {
-    _itemsPerPage = 10;
-    previousText = "« Previous";
-    nextText = "Next »";
-    align = true;
-  }
-}
-
-const PAGINATION_DIRECTIVES = const [ Pagination, Pager];
+const PAGINATION_DIRECTIVES = const [Pagination, Pager];

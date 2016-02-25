@@ -1,137 +1,133 @@
-import "package:angular2/angular2.dart";
+import 'package:angular2/angular2.dart';
 import 'package:node_shims/js.dart';
 import 'dart:html';
-import "package:ng2_strap/collapse/collapse.dart";
+import 'package:ng2_strap/collapse/collapse.dart';
+import 'package:ng2_strap/common.dart';
+import 'dart:async';
 
-// todo: support template url
-@Component (selector: "n2s-accordion",
-    inputs: const [ "templateUrl", "closeOthers"],
-    host: const { "[class.panel-group]" : "true"},
-    template: '''<ng-content></ng-content>''')
-class Accordion {
-  String templateUrl;
+/// Build on top of the [Collapse] directive to provide a list of items, with collapsible bodies that
+/// are collapsed or expanded by clicking on the item's header.
+///
+/// Base specifications: [bootstrap 3](http://getbootstrap.com/javascript/#collapse-example-accordion)
+/// or [bootstrap 4](http://v4-alpha.getbootstrap.com/components/collapse/#accordion-example)
+///
+/// [demo](http://luisvt.github.io/ng2_strap/#accordion)
+@Component (selector: 'n2s-accordion',
+    host: const { '[class.panel-group]' : 'true'},
+    template: '<ng-content></ng-content>')
+class N2sAccordion {
+  /// if `true` expanding one item will close all others
+  @Input() bool closeOthers;
 
-  bool closeOthers;
+  /// provides the list of children panels
+  List<N2sAccordionPanel> panels = [];
 
-  List<AccordionPanel> groups = [];
-
-  closeOtherGroups(AccordionPanel openGroup) {
+  /// close other panels
+  closeOtherPanels(N2sAccordionPanel openGroup) {
     if (!closeOthers) {
       return;
     }
-    groups.forEach((AccordionPanel group) {
+    panels.forEach((N2sAccordionPanel group) {
       if (!identical(group, openGroup)) {
         group.isOpen = false;
       }
     });
   }
 
-  addGroup(AccordionPanel group) {
-    push(groups, group);
+  /// adds a new [panel] at the bottom
+  addPanel(N2sAccordionPanel panel) {
+    panels.add(panel);
   }
 
-  removeGroup(AccordionPanel group) {
-    var index = groups.indexOf(group);
-    if (!identical(index, -1)) {
-      slice(groups, index, 1);
-    }
-  }
-}
-
-@Directive (selector: "accordion-transclude, [accordion-transclude]",
-    inputs: const [ "accordionTransclude"])
-class AccordionTransclude implements OnInit {
-  ViewContainerRef viewRef;
-
-  TemplateRef accordionTransclude;
-
-  AccordionTransclude(@Inject(ViewContainerRef) this .viewRef) {}
-
-  ngOnInit() {
-    if (truthy(accordionTransclude)) {
-      viewRef.createEmbeddedView(accordionTransclude);
-    }
+  /// removes specified [panel]
+  removePanel(N2sAccordionPanel panel) {
+    panels.remove(panel);
   }
 }
-// todo: support template url
 
-// todo: support custom `open class`
-@Component(selector: "n2s-accordion-panel",
-    inputs: const ["heading", "isOpen", "isDisabled", "panelClass"],
-    host: const { "[class.panel-open]" : "isOpen"},
-    template: '''
-  <div class="panel" [ngClass]="panelClass">
-    <div class="panel-heading" (click)="toggleOpen(\$event)">
-      <h4 class="panel-title">
-        <a href tabindex="0" class="accordion-toggle">
-          <span [ngClass]="{\'text-muted\': isDisabled}">
-            {{heading}}
-            <ng-content select="n2s-accordion-heading"></ng-content>
-          </span>
-        </a>
-      </h4>
-    </div>
-    <div class="panel-collapse collapse" [collapse]="!isOpen">
-      <div class="panel-body">
-        <ng-content></ng-content>
-      </div>
-    </div>
-  </div>
-  ''', directives: const [Collapse, NgClass])
-class AccordionPanel
-    implements OnInit, OnDestroy {
-  Accordion accordion;
+/// Creates an accordion-panel
+///
+/// [demo](http://luisvt.github.io/ng2_strap/#accordion)
+@Component(selector: 'n2s-accordion-panel',
+    host: const { '[class.panel-open]' : 'isOpen'},
+    templateUrl: 'accordion_panel.html',
+    directives: const [Collapse, N2sTransclude])
+class N2sAccordionPanel implements OnInit, OnDestroy {
+  /// Constructs a new [N2sAccordionPanel] injecting the parent [N2sAccordion]
+  N2sAccordionPanel(this.accordion);
 
-  String templateUrl;
+  /// instance of the parent [N2sAccordion]
+  N2sAccordion accordion;
 
-  String panelClass;
+  /// provides an HTML template of the Heading
+  TemplateRef headingTemplate;
 
-  String heading;
+  /// provides an ability to use Bootstrap's contextual panel classes (`panel-primary`, `panel-success`,
+  /// `panel-info`, etc...). List of all available classes [link](http://getbootstrap.com/components/#panels-alternatives)
+  @Input() String panelClass;
+
+  /// clickable text in accordion's group header
+  @Input() String heading;
+
+  /// if `true` disables accordion group
+  @Input() bool isDisabled = false;
 
   bool _isOpen;
 
-  bool isDisabled = false;
+  /// is accordion group open or closed
+  bool get isOpen => _isOpen;
 
-  TemplateRef headingTemplate;
+  /// emits if the panel [isOpen]
+  @Output() EventEmitter<bool> isOpenChange = new EventEmitter<bool>();
 
-  AccordionPanel(this.accordion);
+  /// if `true` opens the panel
+  @Input()
+  set isOpen(bool value) {
+    // Future.delayed added to avoid error EXCEPTION: Expression has changed after it was checked.
+    new Future.delayed(Duration.ZERO, () {
+      _isOpen = value;
+      if (truthy(value)) {
+        accordion.closeOtherPanels(this);
+      }
+      isOpenChange.emit(value);
+    });
+  }
 
+  /// initialize the default values of the attributes
+  @override
   ngOnInit() {
-    panelClass = or(panelClass, "panel-default");
-    accordion.addGroup(this);
-    if (isOpen == null) isOpen = false;
+    panelClass = or(panelClass, 'panel-default');
+    accordion.addPanel(this);
+    _isOpen ??= false;
   }
 
+  /// destroys the panel
+  @override
   ngOnDestroy() {
-    accordion.removeGroup(this);
+    accordion.removePanel(this);
   }
 
+  /// toggles the [isOpen] state of the panel
   toggleOpen(MouseEvent event) {
     event.preventDefault();
     if (!isDisabled) {
       isOpen = !isOpen;
     }
   }
+}
 
-  bool get isOpen => _isOpen;
+/// Build a accordion heading template.
+///
+/// [demo](http://luisvt.github.io/ng2_strap/#accordion)
+@Directive(selector: '[n2s-accordion-heading]')
+class N2sAccordionHeading {
+  TemplateRef templateRef;
 
-  set isOpen(bool value) {
-    _isOpen = value;
-    if (truthy(value)) {
-      accordion.closeOtherGroups(this);
-    }
+  N2sAccordionHeading(this.templateRef, N2sAccordionPanel panel) {
+    panel.headingTemplate = templateRef;
   }
 }
 
-//@Directive (selector: "accordion-heading, [accordion-heading]")
-//class AccordionHeading {
-//  AccordionPanel panel;
-//
-//  TemplateRef templateRef;
-//
-//  AccordionHeading(this.templateRef) {
-//    panel.headingTemplate = templateRef;
-//  }
-//}
-
-const List<dynamic> ACCORDION_DIRECTIVES = const [Accordion, AccordionPanel];
+/// List of directives needed to create an accordion
+const List<dynamic> N2S_ACCORDION_DIRECTIVES = const [
+  N2sAccordion, N2sAccordionPanel, N2sAccordionHeading];

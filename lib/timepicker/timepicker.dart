@@ -12,71 +12,32 @@ import 'dart:html';
 DateTime addMinutes(DateTime time, minutes) => time.add(new Duration(minutes: minutes));
 
 // TODO: templateUrl
-@Component (selector: "timepicker[ngModel]",
-    inputs: const [
-      "hourStep",
-      "minuteStep",
-      "meridians",
-      "showMeridian",
-      "readonlyInput",
-      "mousewheel",
-      "arrowkeys",
-      "showSpinners",
-      "min",
-      "max"
-    ],
-    template: '''
-    <table>
-      <tbody>
-        <tr class="text-center" [ngClass]="{hidden: !showSpinners}">
-          <td><a (click)="incrementHours()" [ngClass]="{disabled: noIncrementHours()}" class="btn btn-link"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
-          <td>&nbsp;</td>
-          <td><a (click)="incrementMinutes()" [ngClass]="{disabled: noIncrementMinutes()}" class="btn btn-link"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
-          <td [ngClass]="{hidden: !showMeridian}" [hidden]="!showMeridian"></td>
-        </tr>
-        <tr>
-          <td class="form-group" [ngClass]="{\'has-error\': invalidHours}">
-            <input style="width:50px;" type="text" [(ngModel)]="hours" (change)="updateHours()" class="form-control text-center" [readonly]="readonlyInput" (blur)="hoursOnBlur(\$event)" maxlength="2">
-          </td>
-          <td>:</td>
-          <td class="form-group" [ngClass]="{\'has-error\': invalidMinutes}">
-            <input style="width:50px;" type="text" [(ngModel)]="minutes" (change)="updateMinutes()" class="form-control text-center" [readonly]="readonlyInput" (blur)="minutesOnBlur(\$event)" maxlength="2">
-          </td>
-          <td [ngClass]="{hidden: !showMeridian}" [hidden]="!showMeridian"><button type="button" [ngClass]="{disabled: noToggleMeridian()}" class="btn btn-default text-center" (click)="toggleMeridian()">{{meridian}}</button></td>
-        </tr>
-        <tr class="text-center" [ngClass]="{hidden: !showSpinners}">
-          <td><a (click)="decrementHours()" [ngClass]="{disabled: noDecrementHours()}" class="btn btn-link"><span class="glyphicon glyphicon-chevron-down"></span></a></td>
-          <td>&nbsp;</td>
-          <td><a (click)="decrementMinutes()" [ngClass]="{disabled: noDecrementMinutes()}" class="btn btn-link"><span class="glyphicon glyphicon-chevron-down"></span></a></td>
-          <td [ngClass]="{hidden: !showMeridian}" [hidden]="!showMeridian"></td>
-        </tr>
-      </tbody>
-    </table>
-  ''', directives: const [ FORM_DIRECTIVES, NgClass])
+@Component (selector: "n2s-timepicker",
+    templateUrl: 'timepicker.html')
 class Timepicker extends DefaultValueAccessor implements OnInit {
   // result value
   DateTime _selected = new DateTime.now();
 
   // config
-  num hourStep = 1;
+  @Input() num hourStep = 1;
 
-  num minuteStep = 1;
+  @Input() num minuteStep = 1;
 
   dynamic meridian;
 
-  List<String> meridians = [ "AM", "PM"];
+  @Input() List<String> meridians = ["AM", "PM"];
 
-  bool readonlyInput = false;
+  @Input() bool readonlyInput = false;
 
-  bool mousewheel = true;
+  @Input() bool mousewheel = true;
 
-  bool arrowkeys = true;
+  @Input() bool arrowkeys = true;
 
-  bool showSpinners = true;
+  @Input() bool showSpinners = true;
 
-  DateTime min;
+  @Input() DateTime min;
 
-  DateTime max;
+  @Input() DateTime max;
 
   // input values
   String hours;
