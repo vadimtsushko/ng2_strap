@@ -22,17 +22,22 @@
   <n2s-accordion-panel heading="{{group['title']}}" *ngFor="#group of groups">
     {{group['content']}}
   </n2s-accordion-panel>
-  <n2s-accordion-panel heading="Dynamic Body Content">
+  <n2s-accordion-panel heading="Dynamic Body Content," #ap4>
+    <n2s-accordion-heading>
+      I can have markup, too!
+      <i class="pull-right glyphicon"
+         [ngClass]="{'glyphicon-chevron-down': ap4.isOpen, 'glyphicon-chevron-right': !ap4.isOpen}"></i>
+    </n2s-accordion-heading>
     <p>The body of the accordion group grows to fit the contents</p>
     <button type="button" class="btn btn-primary btn-sm" (click)="addItem()">Add Item</button>
     <div *ngFor="#item of items">{{item}}</div>
   </n2s-accordion-panel>
   <n2s-accordion-panel [(isOpen)]="status['isLastOpen']">
-    <template n2s-accordion-heading>
+    <n2s-accordion-heading>
       I can have markup, too!
       <i class="pull-right glyphicon"
          [ngClass]="{'glyphicon-chevron-down': status['isLastOpen'], 'glyphicon-chevron-right': !status['isLastOpen']}"></i>
-    </template>
+    </n2s-accordion-heading>
     This is just some content to illustrate fancy headings.
   </n2s-accordion-panel>
 </n2s-accordion>

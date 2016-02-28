@@ -4,7 +4,7 @@ import 'dart:async';
 
 @Component (selector: "typeahead-demo",
     templateUrl: 'typeahead-demo.html',
-    directives: const [Typeahead, N2sRenderer])
+    directives: const [N2sTypeAhead, N2sRenderer])
 class TypeaheadDemo {
   String selected = "";
 

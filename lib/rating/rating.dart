@@ -2,9 +2,13 @@ import "package:angular2/angular2.dart";
 import 'dart:html';
 import 'package:node_shims/js.dart';
 
-// TODO: templateUrl
+/// Rating component that will take care of visualising a star rating bar
+///
+/// *Note*: Bootstrap 4 do not include glyphicons anymore, so if you want to continue use this font,
+/// you will need to add a link to [`glyphicons.css`](https://github.com/valor-software/ng2-bootstrap/blob/master/demo/assets/css/glyphicons.css)
+///
+/// [demo](http://luisvt.github.io/ng2_strap/#accordion)
 @Component (selector: "n2s-rating",
-    host: const { "(keydown)" : "onKeydown(\$event)"},
     templateUrl: 'rating.html')
 class Rating extends DefaultValueAccessor implements OnInit {
   Rating(this.cd, Renderer renderer, ElementRef elementRef)
@@ -12,30 +16,43 @@ class Rating extends DefaultValueAccessor implements OnInit {
     cd.valueAccessor = this;
   }
 
+  ///
   NgModel cd;
 
+  /// maximum number of icons
   @Input() num max;
 
+  ///
   @Input() List range;
 
+  ///
   num value;
 
+  ///
   num preValue;
 
+  /// array of icons titles, default: (`["one", "two", "three", "four", "five"]`)
   @Input() List<String> titles;
 
+  /// selected icon class
   @Input() String stateOn;
 
+  /// unselected icon class
   @Input() String stateOff;
 
+  /// if `true` will not react on any user events
   @Input() bool readonly;
 
+  /// array of custom icons classes
   @Input() List ratingStates;
 
+  /// fired when icon selected, `$event:number` equals to selected rating
   @Output() EventEmitter onHover = new EventEmitter ();
 
+  /// fired when icon selected, `$event:number` equals to previous rating value
   @Output() EventEmitter onLeave = new EventEmitter ();
 
+  /// initialize attributes
   ngOnInit() {
     max ??= 5;
     readonly = readonly == true;
@@ -46,7 +63,7 @@ class Rating extends DefaultValueAccessor implements OnInit {
     range = _buildTemplateObjects();
   }
 
-  // model -> view
+  /// update model to view
   writeValue(num _value) {
     _value ??= 0;
     if (_value != 0) {
@@ -59,6 +76,7 @@ class Rating extends DefaultValueAccessor implements OnInit {
 
   }
 
+  /// build the template of the objects that will be rendered
   _buildTemplateObjects() {
     var count = or(ratingStates.length, max) ;
     var result = [];
@@ -73,6 +91,7 @@ class Rating extends DefaultValueAccessor implements OnInit {
     return result;
   }
 
+  /// change the value of the model
   rate(num value) {
     if (!readonly && value >= 0 && value <= range.length) {
       writeValue(value);
@@ -80,6 +99,7 @@ class Rating extends DefaultValueAccessor implements OnInit {
     }
   }
 
+  /// fired when a mouse enters to the icon, and it change the [value] of the rating
   enter(num _value) {
     if (!readonly) {
       value = _value;
@@ -87,13 +107,16 @@ class Rating extends DefaultValueAccessor implements OnInit {
     }
   }
 
+  /// fired when the mouse leave the icon, and it resets the [value] of the rating
   reset() {
     value = preValue;
     onLeave.add(value);
   }
 
+  /// listen when the user does a key-down on the elements
+  @HostListener('keydown', const ['\$event'])
   onKeydown(KeyboardEvent event) {
-    if (![37, 38, 39, 40].contains(event.which)) {
+    if (![KeyCode.LEFT, KeyCode.UP, KeyCode.RIGHT, KeyCode.DOWN].contains(event.which)) {
       return;
     }
     event.preventDefault();

@@ -3,7 +3,7 @@ import "package:ng2_strap/timepicker/timepicker.dart";
 
 @Component(selector: "timepicker-demo",
     templateUrl: 'timepicker-demo.html',
-    directives: const [Timepicker])
+    directives: const [N2sTimePicker])
 class TimepickerDemo {
   String hstep = '1';
   get hstepInt => int.parse(hstep);

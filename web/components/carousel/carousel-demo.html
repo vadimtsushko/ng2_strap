@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-md-6">
+<div>
+  <div>
     <n2s-carousel [interval]="myIntervalInMs" [noWrap]="noWrapSlides">
       <n2s-slide *ngFor="#slide of slides; #index=index"
              [active]="slide['active'] != null ? slide['active'] : false ">
@@ -13,8 +13,8 @@
       </n2s-slide>
     </n2s-carousel>
   </div>
-
-  <div class="col-md-6">
+  <br>
+  <div>
     <button type="button" class="btn btn-info"
             (click)="addSlide()">Add Slide
     </button>

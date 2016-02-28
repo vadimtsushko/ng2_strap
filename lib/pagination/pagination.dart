@@ -7,6 +7,10 @@ import 'package:node_shims/js.dart';
 
 part 'pager.dart';
 
+/// **Pager** - quick previous and next links for simple pagination implementations with light
+/// markup and styles. It's great for simple sites like blogs or magazines.
+///
+/// [demo](http://luisvt.github.io/ng2_strap/#pagination)
 @Component(selector: "n2s-pagination",
     templateUrl: 'pagination.html',
     inputs: const [
@@ -22,13 +26,9 @@ part 'pager.dart';
       'totalPagesChange',
       'currentPageChange'
     ])
-class Pagination extends Pager implements OnInit {
+class N2sPagination extends N2sPager implements OnInit {
   /// Constructor to create a new Pagination component in which [elementRef] is injected.
-  Pagination(ElementRef elementRef) : super(elementRef) {
-    currentPageChange.listen((currentPage) =>
-      pages = getPages(currentPage, totalPages)
-    );
-  }
+  N2sPagination(ElementRef elementRef) : super(elementRef);
 
   /// css classes
   @Input('class') String classes = "";
@@ -115,6 +115,10 @@ class Pagination extends Pager implements OnInit {
     }
     return pages;
   }
+
+  @HostListener('currentPageChange', const ['\$event'])
+  onCurrentPageChange(currentPage) =>
+      pages = getPages(currentPage, totalPages);
 }
 
-const PAGINATION_DIRECTIVES = const [Pagination, Pager];
+const PAGINATION_DIRECTIVES = const [N2sPagination, N2sPager];

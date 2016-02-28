@@ -34,57 +34,14 @@ const DateTime MAX_DATE = null;
 
 const bool SHORTCUT_PROPAGATION = false;
 
-const DAYS_IN_MONTH = const [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-const KEYS = const {
-  13 : "enter",
-  32 : "space",
-  33 : "pageup",
-  34 : "pagedown",
-  35 : "end",
-  36 : "home",
-  37 : "left",
-  38 : "up",
-  39 : "right",
-  40 : "down"
-};
-
 @Component (selector: "n2s-datepicker-inner",
-    outputs: const [ "update"],
-    inputs: const [
-      "activeDate",
-      "datepickerMode",
-      "initDate",
-      "minDate",
-      "maxDate",
-      "minMode",
-      "maxMode",
-      "showWeeks",
-      "formatDay",
-      "formatMonth",
-      "formatYear",
-      "formatDayHeader",
-      "formatDayTitle",
-      "formatMonthTitle",
-      "startingDay",
-      "yearRange",
-      "shortcutPropagation",
-      "customClass",
-      "dateDisabled",
-      "templateUrl"
-    ])
-@View (template: '''
-<div [hidden]="datepickerMode == null" class="well well-sm bg-faded p-a card" role="application" ><!--&lt;!&ndash;ng-keydown="keydown(\$event)"&ndash;&gt;-->
-  <ng-content></ng-content>
-</div>
-  ''', directives: const [ FORM_DIRECTIVES, CORE_DIRECTIVES, NgClass, NgModel])
-class DatePickerInner
-    implements OnInit {
-  String datepickerMode;
+    templateUrl: 'datepicker_inner.html')
+class DatePickerInner implements OnInit {
+  @Input() String datepickerMode;
 
   num startingDay;
 
-  num yearRange;
+  @Input() num yearRange;
 
   Map stepDay = {};
 
@@ -92,49 +49,43 @@ class DatePickerInner
 
   Map stepYear = {};
 
-  List<String> modes = [ "day", "month", "year"];
+  @Input() List<String> modes = ["day", "month", "year"];
 
-  DateFormatter dateFormatter = new DateFormatter ();
+  @Input() DateFormatter dateFormatter = new DateFormatter ();
 
-  String uniqueId;
+  @Input() String uniqueId;
 
-  DateTime _initDate;
+  @Input() String activeDateId;
 
-  DateTime _activeDate;
+  @Input() DateTime minDate;
 
-  String activeDateId;
+  @Input() DateTime maxDate;
 
-  DateTime minDate;
+  @Input() String minMode;
 
-  DateTime maxDate;
+  @Input() String maxMode;
 
-  String minMode;
+  @Input() bool showWeeks;
 
-  String maxMode;
+  @Input() String formatDay;
 
-  bool showWeeks;
+  @Input() String formatMonth;
 
-  String formatDay;
+  @Input() String formatYear;
 
-  String formatMonth;
+  @Input() String formatDayHeader;
 
-  String formatYear;
+  @Input() String formatDayTitle;
 
-  String formatDayHeader;
+  @Input() String formatMonthTitle;
 
-  String formatDayTitle;
-
-  String formatMonthTitle;
-
-  bool shortcutPropagation;
+  @Input() bool shortcutPropagation;
 
   // todo: change type during implementation
-  dynamic customClass;
+  @Input() dynamic customClass;
 
   // todo: change type during implementation
-  dynamic dateDisabled;
-
-  String templateUrl;
+  @Input() dynamic dateDisabled;
 
   Function refreshViewHandlerDay;
 
@@ -148,21 +99,25 @@ class DatePickerInner
 
   Function compareHandlerYear;
 
-  EventEmitter update = new EventEmitter ();
+  @Output() EventEmitter update = new EventEmitter ();
+
+  DateTime _initDate;
 
   DateTime get initDate {
     return _initDate;
   }
 
-  set initDate(DateTime value) {
+  @Input() set initDate(DateTime value) {
     _initDate = value;
   }
+
+  DateTime _activeDate;
 
   DateTime get activeDate {
     return _activeDate;
   }
 
-  set activeDate(DateTime value) {
+  @Input() set activeDate(DateTime value) {
     _activeDate = value;
     refreshView();
   }
@@ -255,49 +210,37 @@ class DatePickerInner
   }
 
   Map createDateObject(DateTime date, String format) {
-    var dateObject = {};
-    dateObject['date'] = date;
-    dateObject['label'] = dateFilter(date, format);
-    dateObject['selected'] = identical(compare(date, activeDate), 0);
-    dateObject['disabled'] = isDisabled(date);
-    dateObject['current'] = identical(compare(date, new DateTime.now()), 0);
+    var dateObject = {
+
+      'date': date,
+      'label': dateFilter(date, format),
+      'selected': identical(compare(date, activeDate), 0),
+      'disabled': isDisabled(date),
+      'current': identical(compare(date, new DateTime.now()), 0)
+    };
     // todo: do it
 
     // dateObject['customClass'] = customClass({date: date, mode: datepickerMode}) || {};
     return dateObject;
   }
 
+  /// returns `true`
   bool isDisabled(DateTime date) {
     // todo: implement dateDisabled attribute
     return ((truthy(minDate) && compare(date, minDate) < 0) ||
         (truthy(maxDate) && compare(date, maxDate) > 0));
   }
 
-  split(List<dynamic> arr, num size) {
-    List arrays = [];
-    for (var i = 0;arr.length > i * size;i++) {
-      arrays.add(arr.getRange(i * size, i*size + size).toList());
+  /// splits the [arr] into a list of array of size [size]
+  List split(List arr, num size) {
+    var arrays = [];
+    for (var i = 0; arr.length > i * size; i++) {
+      arrays.add(arr.getRange(i * size, i * size + size).toList());
     }
     return arrays;
   }
 
-  // Fix a hard-reprodusible bug with timezones
-
-  // The bug depends on OS, browser, current timezone and current date
-
-  // i.e.
-
-  // var date = new DateTime(2014, 0, 1);
-
-  // console.log(date.year, date.getMonth(), date.day, date.getHours());
-
-  // can result in "2013 11 31 23" because of the bug.
-  fixTimeZone(DateTime date) {
-//    var hours = date.hour;
-//    date.hour = hours == 23 ? hours + 2 : 0;
-    return date;
-  }
-
+  /// fired when user clicks one of the date buttons
   select(DateTime date) {
     if (datepickerMode == minMode) {
       if (falsey(activeDate)) {
@@ -314,10 +257,10 @@ class DatePickerInner
   }
 
   move(num direction) {
-    var expectedStep = datepickerMode ==  "day"  ? stepDay
-                     : datepickerMode == "month" ? stepMonth
-                     : datepickerMode == "year"  ? stepYear
-                     : null;
+    var expectedStep = datepickerMode == "day" ? stepDay
+        : datepickerMode == "month" ? stepMonth
+        : datepickerMode == "year" ? stepYear
+        : null;
 
     if (expectedStep != null) {
       var year = activeDate.year +

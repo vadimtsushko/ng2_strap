@@ -83,7 +83,6 @@ class MonthPicker
       var date;
       for (var i = 0; i < 12; i ++) {
         date = new DateTime (year, i, 1);
-        datePicker.fixTimeZone(date);
         months[i] = datePicker.createDateObject(date, datePicker.formatMonth);
         months[i]['uid'] = datePicker.uniqueId + "-" + i.toString();
       }

@@ -8,46 +8,66 @@ import 'dart:html';
 // todo: implement `time` validator
 
 // todo: replace increment/decrement blockers with getters, or extract
+/// add [minutes] to [time]
+DateTime addMinutes(DateTime time, int minutes) => time.add(new Duration(minutes: minutes));
 
-DateTime addMinutes(DateTime time, minutes) => time.add(new Duration(minutes: minutes));
-
-// TODO: templateUrl
-@Component (selector: "n2s-timepicker",
+/// A lightweight & configurable timepicker directive
+///
+/// [demo](http://luisvt.github.io/ng2_strap/#timepicker)
+@Component (selector: "n2s-time-picker",
     templateUrl: 'timepicker.html')
-class Timepicker extends DefaultValueAccessor implements OnInit {
-  // result value
+class N2sTimePicker extends DefaultValueAccessor implements OnInit {
+  ///
+  N2sTimePicker(this.cd, Renderer renderer, ElementRef elementRef)
+      : super (renderer, elementRef) {
+    cd.valueAccessor = this;
+  }
+
+  /// result value
   DateTime _selected = new DateTime.now();
 
-  // config
+  /// hours change step
   @Input() num hourStep = 1;
 
+  /// minutes change step
   @Input() num minuteStep = 1;
 
+  /// ['AM', 'PM'] - meridian labels based on locale (*will be based later*)
   dynamic meridian;
 
+  /// works in 12H mode and displays AM/PM. If `false` works in 24H mode and hides AM/PM
   @Input() List<String> meridians = ["AM", "PM"];
 
+  /// if `true` hours and minutes fields will be readonly
   @Input() bool readonlyInput = false;
 
+  /// if `true` scroll inside hours and minutes inputs will change time
   @Input() bool mousewheel = true;
 
+  /// if `true` up/down arrowkeys inside hours and minutes inputs will change time
   @Input() bool arrowkeys = true;
 
+  /// if `true` spinner arrows above and below the inputs will be shown
   @Input() bool showSpinners = true;
 
+  /// minimum time user can select
   @Input() DateTime min;
 
+  /// maximum time user can select
   @Input() DateTime max;
 
-  // input values
+  /// value of hours shown in the input
   String hours;
 
+  /// value of minutes shown in the input
   String minutes;
 
+  /// selected DateTime to handle time
   DateTime get selected {
     return _selected;
   }
 
+  /// selected DateTime to handle time
   set selected(DateTime v) {
     if (v != null) {
       this._selected = v;
@@ -56,17 +76,20 @@ class Timepicker extends DefaultValueAccessor implements OnInit {
     }
   }
 
-  // validation
+  /// check if hours value is invalid
   bool invalidHours = false;
 
+  /// check if minutes value is invalid
   bool invalidMinutes = false;
 
   bool _showMeridian = true;
 
+  /// if `true` works in 12H mode and displays AM/PM. If `false` works in 24H mode and hides AM/PM
   get showMeridian {
     return this._showMeridian;
   }
 
+  /// sets the value of showing meridian, if `true` works in 12H mode and displays AM/PM. If `false` works in 24H mode and hides AM/PM
   set showMeridian(bool value) {
     this._showMeridian = value;
     // || !this.$error.DateTime
@@ -83,12 +106,8 @@ class Timepicker extends DefaultValueAccessor implements OnInit {
     }
   }
 
+  /// binds to Date object
   NgModel cd;
-
-  Timepicker(this.cd, Renderer renderer, ElementRef elementRef)
-      : super (renderer, elementRef) {
-    cd.valueAccessor = this;
-  }
 
   // todo: add formatter value to DateTime object
   ngOnInit() {
@@ -102,22 +121,25 @@ class Timepicker extends DefaultValueAccessor implements OnInit {
     setupInputEvents();
   }
 
+  /// writes value to selected datetime whenever the inputs change
   writeValue(v) {
     selected = DateTime.parse(v ?? '1971-01-01T00:00:00');
   }
 
+  /// refresh the template
   refresh([ String type ]) {
     // this.makeValid();
     updateTemplate();
     cd.viewToModelUpdate(selected.toIso8601String());
   }
 
-  updateTemplate([ dynamic keyboardChange ]) {
+  /// updates the template
+  updateTemplate([dynamic keyboardChange]) {
     var _hours = selected.hour;
     var _minutes = selected.minute;
     if (showMeridian) {
       // Convert 24 to 12 hour system
-      _hours = (identical(_hours, 0) || identical(_hours, 12)) ? 12 : _hours % 12;
+      _hours = (_hours ==  0 || _hours ==  12) ? 12 : _hours % 12;
     }
     // this.hours = keyboardChange === 'h' ? hours : this.pad(hours);
 
@@ -131,6 +153,7 @@ class Timepicker extends DefaultValueAccessor implements OnInit {
     meridian = selected.hour < 12 ? meridians[0] : meridians[1];
   }
 
+  /// get the value of hours from template
   getHoursFromTemplate() {
     var hours = int.parse(this.hours);
     var valid = showMeridian ? (hours > 0 && hours < 13) : (hours >= 0 &&
@@ -142,30 +165,35 @@ class Timepicker extends DefaultValueAccessor implements OnInit {
       if (hours == 12) {
         hours = 0;
       }
-      if (identical(meridian, meridians [ 1 ])) {
+      if (meridian ==  meridians [ 1 ]) {
         hours = hours + 12;
       }
     }
     return hours;
   }
 
+  /// parse the minutes string from the template
   getMinutesFromTemplate() {
-    var minutes = int.parse(this.minutes);
-    return (minutes >= 0 && minutes < 60) ? minutes : null;
+    var _minutes = int.parse(minutes);
+    return (_minutes >= 0 && _minutes < 60) ? _minutes : null;
   }
 
-  pad(value) {
-    return (value != null && value.toString().length < 2)
+  /// add zeroes at the left if [value] has one digit
+  pad(value) =>
+      (value != null && value.toString().length < 2)
         ? "0" + value.toString()
         : value.toString();
-  }
 
+  ///
   setupMousewheelEvents() {}
 
+  ///
   setupArrowkeyEvents() {}
 
+  ///
   setupInputEvents() {}
 
+  /// updates the value of hour
   updateHours() {
     if (readonlyInput) {
       return;
@@ -179,6 +207,7 @@ class Timepicker extends DefaultValueAccessor implements OnInit {
     }
   }
 
+  /// fired when the hours input blur
   hoursOnBlur(Event event) {
     if (readonlyInput) {
       return;
@@ -189,6 +218,7 @@ class Timepicker extends DefaultValueAccessor implements OnInit {
     }
   }
 
+  /// update the minutes value
   updateMinutes() {
     if (readonlyInput) {
       return;
@@ -203,6 +233,7 @@ class Timepicker extends DefaultValueAccessor implements OnInit {
     }
   }
 
+  /// update the whole datetime value
   _updateDateTime(DateTime selected, {int minutes, int hours}) =>
       new DateTime(
           selected.year,
@@ -212,6 +243,7 @@ class Timepicker extends DefaultValueAccessor implements OnInit {
           minutes ?? selected.minute,
           selected.second);
 
+  /// fired when minutes input blur
   minutesOnBlur(Event event) {
     if (readonlyInput) {
       return;
@@ -221,36 +253,42 @@ class Timepicker extends DefaultValueAccessor implements OnInit {
     }
   }
 
-  noIncrementHours() {
+  /// check if hours should be incremented
+  bool noIncrementHours() {
     var incrementedSelected = addMinutes(selected, hourStep * 60);
     return min != null && incrementedSelected.isBefore(min)
         || max != null && incrementedSelected.isAfter(selected) && incrementedSelected.isAfter(max);
   }
 
-  noDecrementHours() {
+  /// check if hours should be decremented
+  bool noDecrementHours() {
     var decrementedSelected = addMinutes(selected, -hourStep * 60);
     return min != null && decrementedSelected.isBefore(min)
         || max != null && decrementedSelected.isAfter(selected) && decrementedSelected.isAfter(max);
   }
 
-  noIncrementMinutes() {
+  /// check if minutes should be incremented
+  bool noIncrementMinutes() {
     var incrementedSelected = addMinutes(selected, minuteStep);
     return min != null && incrementedSelected.isBefore(min)
         || max != null && incrementedSelected.isAfter(selected) && incrementedSelected.isAfter(max);
   }
 
-  noDecrementMinutes() {
+  /// check if minutes should be decremented
+  bool noDecrementMinutes() {
     var decrementedSelected = addMinutes(selected, -minuteStep);
     return min != null && decrementedSelected.isBefore(min)
         || max != null && decrementedSelected.isAfter(selected) && decrementedSelected.isAfter(max);
   }
 
-  addMinutesToSelected(minutes) {
+  /// add [minutes] to [selected]
+  void addMinutesToSelected(minutes) {
     selected = addMinutes(selected, minutes);
     refresh();
   }
 
-  noToggleMeridian() {
+  /// check if meridian should be showed
+  bool noToggleMeridian() {
     if (selected.hour < 13) {
       return max != null && addMinutes(selected, 12 * 60).isAfter(max);
     } else {
@@ -258,30 +296,35 @@ class Timepicker extends DefaultValueAccessor implements OnInit {
     }
   }
 
+  /// increment hours using [hourStep]
   incrementHours() {
     if (!noIncrementHours()) {
       addMinutesToSelected(hourStep * 60);
     }
   }
 
+  /// decrement hours using [hourStep]
   decrementHours() {
     if (!noDecrementHours()) {
       addMinutesToSelected(-hourStep * 60);
     }
   }
 
+  /// increment minutes using [minuteStep]
   incrementMinutes() {
     if (!noIncrementMinutes()) {
       addMinutesToSelected(minuteStep);
     }
   }
 
+  /// decrement minutes using [minuteStep]
   decrementMinutes() {
     if (!noDecrementMinutes()) {
       addMinutesToSelected(-minuteStep);
     }
   }
 
+  /// toggle the status of meridian
   toggleMeridian() {
     if (!noToggleMeridian()) {
       var sign = selected.hour < 12 ? 1 : -1;

@@ -5,7 +5,7 @@ import 'package:ng2_strap/collapse/collapse.dart';
 import 'package:ng2_strap/common.dart';
 import 'dart:async';
 
-/// Build on top of the [Collapse] directive to provide a list of items, with collapsible bodies that
+/// Build on top of the [N2sCollapse] directive to provide a list of items, with collapsible bodies that
 /// are collapsed or expanded by clicking on the item's header.
 ///
 /// Base specifications: [bootstrap 3](http://getbootstrap.com/javascript/#collapse-example-accordion)
@@ -51,7 +51,7 @@ class N2sAccordion {
 @Component(selector: 'n2s-accordion-panel',
     host: const { '[class.panel-open]' : 'isOpen'},
     templateUrl: 'accordion_panel.html',
-    directives: const [Collapse, N2sTransclude])
+    directives: const [N2sCollapse, N2sTransclude])
 class N2sAccordionPanel implements OnInit, OnDestroy {
   /// Constructs a new [N2sAccordionPanel] injecting the parent [N2sAccordion]
   N2sAccordionPanel(this.accordion);
@@ -116,18 +116,6 @@ class N2sAccordionPanel implements OnInit, OnDestroy {
   }
 }
 
-/// Build a accordion heading template.
-///
-/// [demo](http://luisvt.github.io/ng2_strap/#accordion)
-@Directive(selector: '[n2s-accordion-heading]')
-class N2sAccordionHeading {
-  TemplateRef templateRef;
-
-  N2sAccordionHeading(this.templateRef, N2sAccordionPanel panel) {
-    panel.headingTemplate = templateRef;
-  }
-}
-
 /// List of directives needed to create an accordion
 const List<dynamic> N2S_ACCORDION_DIRECTIVES = const [
-  N2sAccordion, N2sAccordionPanel, N2sAccordionHeading];
+  N2sAccordion, N2sAccordionPanel];

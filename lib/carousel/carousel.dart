@@ -1,66 +1,56 @@
 import "package:angular2/angular2.dart";
-import "../ng2-bootstrap-config.dart";
 
 import "package:node_shims/js.dart";
 import 'dart:async';
 
+/// Provides the direction of the Carousel
 enum Direction { UNKNOWN, NEXT, PREV }
-// todo: add animate
-const NAVIGATION = const {
-Ng2BootstrapTheme.BS4 :
-'''
-<a class="left carousel-control" (click)="prev()" [hidden]="!slides.length">
-  <span class="icon-prev" aria-hidden="true"></span>
-  <span class="sr-only">Previous</span>
-</a>
-<a class="right carousel-control" (click)="next()" [hidden]="!slides.length">
-  <span class="icon-next" aria-hidden="true"></span>
-  <span class="sr-only">Next</span>
-</a>
-  ''',
-  Ng2BootstrapTheme.BS3 : '''
-<a class="left carousel-control" (click)="prev()" [hidden]="!slides.length">
-  <span class="glyphicon glyphicon-chevron-left"></span>
-</a>
-<a class="right carousel-control" (click)="next()" [hidden]="!slides.length">
-  <span class="glyphicon glyphicon-chevron-right"></span>
-</a>
-  '''
-};
 
+/// A slideshow component for cycling through elements—images or slides of text—like a carousel.
+/// *Nested carousels are not supported.*
+///
+/// Base specifications: [bootstrap 3](http://getbootstrap.com/javascript/#carousel) or
+/// [bootstrap 4](http://v4-alpha.getbootstrap.com/components/carousel/)
+///
+/// [demo](http://luisvt.github.io/ng2_strap/#carousel)
 @Component(selector: "n2s-carousel",
     templateUrl: 'carousel.html')
-class Carousel implements OnDestroy {
+class N2sCarousel implements OnDestroy {
+
+  /// if `true` will disable pausing on carousel mouse hover
   @Input() bool noPause = false;
 
+  /// if `true` the carousel will not cycle continuously and will have hard stops (prevent looping)
   @Input() bool noWrap;
 
+  /// if `true` the carousel is not going to have transitions between slides
   @Input() bool noTransition;
 
-  List<Slide> slides = [];
+  /// provides the slides of the carousel
+  List<N2sSlide> slides = [];
 
+  /// the interval of time of the current slide
   Timer currentInterval;
 
+  /// check if the carousel is playing, in that case slides are changing
   bool isPlaying = false;
 
+  /// checks if the carousel is destroyed
   bool destroyed = false;
 
-  Slide currentSlide;
+  /// currently active slide
+  N2sSlide currentSlide;
 
+  /// amount of time in milliseconds to delay between automatically cycling an item. If `false`, carousel will not automatically cycle
   @Input() num interval;
 
+  /// Listen when the Carousel is destroyed
   ngOnDestroy() {
     destroyed = true;
   }
 
-//  String get interval => _interval.toString();
-//
-//  set interval(String value) {
-//    _interval = int.parse(value);
-//    restartTimer();
-//  }
-
-  select(Slide nextSlide, [ Direction direction = Direction.UNKNOWN ]) {
+  /// listen when an slide is selected
+  select(N2sSlide nextSlide, [ Direction direction = Direction.UNKNOWN ]) {
     var nextIndex = nextSlide.index;
     if (identical(direction, Direction.UNKNOWN)) {
       direction =
@@ -72,7 +62,8 @@ class Carousel implements OnDestroy {
     }
   }
 
-  goNext(Slide slide, Direction direction) {
+  /// go to next slide after beeing selected
+  goNext(N2sSlide slide, Direction direction) {
     if (destroyed) {
       return;
     }
@@ -87,6 +78,7 @@ class Carousel implements OnDestroy {
     restartTimer();
   }
 
+  /// gets the slide by index
   getSlideByIndex(num index) {
     var len = slides.length;
     for (var i = 0; i < len; ++i) {
@@ -96,10 +88,12 @@ class Carousel implements OnDestroy {
     }
   }
 
+  /// gets the index of the current selected slide
   int getCurrentIndex() {
     return falsey(currentSlide) ? 0 : currentSlide.index;
   }
 
+  /// listen when a user wants to go to next slide
   next() {
     var newIndex = (getCurrentIndex() + 1) % slides.length;
     if (identical(newIndex, 0) && noWrap) {
@@ -109,6 +103,7 @@ class Carousel implements OnDestroy {
     return select(getSlideByIndex(newIndex), Direction.NEXT);
   }
 
+  /// listen when a user wants to go to a previous slide
   prev() {
     var newIndex = getCurrentIndex() - 1 < 0
         ? slides.length - 1
@@ -120,6 +115,7 @@ class Carousel implements OnDestroy {
     return select(getSlideByIndex(newIndex), Direction.PREV);
   }
 
+  /// restart the timer of the slides
   restartTimer() {
     resetTimer();
     var intervalAux = interval.toInt();
@@ -136,6 +132,7 @@ class Carousel implements OnDestroy {
     }
   }
 
+  /// stops the slides timer and reset its value
   resetTimer() {
     if (truthy(currentInterval)) {
       currentInterval.cancel();
@@ -143,6 +140,7 @@ class Carousel implements OnDestroy {
     }
   }
 
+  /// starts the slides timer
   play() {
     if (!isPlaying) {
       isPlaying = true;
@@ -150,6 +148,7 @@ class Carousel implements OnDestroy {
     }
   }
 
+  /// event group name which pauses the cycling of the carousel, if `hover` pauses on mouseenter and resumes on mouseleave
   pause() {
     if (!noPause) {
       isPlaying = false;
@@ -157,7 +156,8 @@ class Carousel implements OnDestroy {
     }
   }
 
-  addSlide(Slide slide) {
+  /// add an slide to the carousel
+  addSlide(N2sSlide slide) {
     slide.index = slides.length;
     push(slides, slide);
     if (identical(slides.length, 1) || slide.active) {
@@ -170,7 +170,8 @@ class Carousel implements OnDestroy {
     }
   }
 
-  removeSlide(Slide slide) {
+  /// removes an slide to the carousel
+  removeSlide(N2sSlide slide) {
     splice(slides, slide.index, 1);
     if (identical(slides.length, 0)) {
       currentSlide = null;
@@ -182,6 +183,9 @@ class Carousel implements OnDestroy {
   }
 }
 
+/// Creates the slide element that will be displayed in the carousel
+///
+/// [demo](http://luisvt.github.io/ng2_strap/#carousel)
 @Component (selector: "n2s-slide",
     inputs: const [ "direction", "active", "index"],
     host: const {
@@ -194,24 +198,32 @@ class Carousel implements OnDestroy {
     <ng-content></ng-content>
   </div>
   ''', directives: const [NgClass])
-class Slide implements OnInit, OnDestroy {
-  Carousel carousel;
+class N2sSlide implements OnInit, OnDestroy {
+  /// Constructs a new slide injecting the parent carousel
+  N2sSlide(this.carousel);
 
+  /// parent carousel
+  N2sCarousel carousel;
+
+  /// if `true` the slide is been showed
   bool active;
 
+  /// provides the direction of the slides
   Direction direction;
 
+  /// provides the position of the slide
   num index;
 
-  Slide(this.carousel) {}
-
+  /// add slide to the parent carousel on init
   ngOnInit() {
     carousel.addSlide(this);
   }
 
+  /// removes the slide from the parent carousel on destroy
   ngOnDestroy() {
     carousel.removeSlide(this);
   }
 }
 
-const CAROUSEL_DIRECTIVES = const [Carousel, Slide];
+/// List of Directives needed to create a carousel
+const N2S_CAROUSEL_DIRECTIVES = const [N2sCarousel, N2sSlide];

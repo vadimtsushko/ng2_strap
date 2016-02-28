@@ -5,7 +5,7 @@ import 'package:ng2_strap/collapse/collapse.dart';
 @Component(
     selector: "collapse-demo",
     templateUrl: 'collapse-demo.html',
-    directives: const [Collapse])
+    directives: const [N2sCollapse])
 class CollapseDemo {
   bool isCollapsed = false;
 }

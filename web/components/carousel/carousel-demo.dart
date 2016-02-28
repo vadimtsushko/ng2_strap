@@ -4,7 +4,7 @@ import 'package:node_shims/js.dart';
 
 @Component(selector: "carousel-demo",
     templateUrl: "carousel-demo.html",
-    directives: const [CAROUSEL_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES])
+    directives: const [N2S_CAROUSEL_DIRECTIVES])
 class CarouselDemo {
   num myIntervalInSeconds = 1;
   num get myIntervalInMs => myIntervalInSeconds * 1000;
@@ -21,8 +21,8 @@ class CarouselDemo {
     slides.add({
         'image': '''//placekitten.com/${newWidth}/300''',
         'text': '''
-${[ "More" , "Extra" , "Lots of" , "Surplus"][slides.length % 4]}
-${["Cats" , "Kittys" , "Felines" , "Cutes"] [ slides.length % 4]}'''
+${["More" , "Extra" , "Lots of" , "Surplus"][slides.length % 4]}
+${["Cats" , "Kittys" , "Felines" , "Cutes"][slides.length % 4]}'''
     });
   }
 

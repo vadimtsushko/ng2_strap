@@ -1,10 +1,10 @@
-import "package:angular2/angular2.dart" show Component, View, NgFor;
-import "package:ng2_strap/alert/alert.dart" show Alert;
+import "package:angular2/angular2.dart";
+import "package:ng2_strap/alert/alert.dart";
 
 @Component(
     selector: "alert-demo",
     templateUrl: "alert-demo.html",
-    directives: const [Alert, NgFor])
+    directives: const [N2sAlert])
 class AlertDemo {
   List alerts = [
     {

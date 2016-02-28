@@ -1,32 +1,48 @@
 import "package:angular2/angular2.dart";
 import 'package:ng2_strap/common.dart';
 import 'package:node_shims/js.dart';
+
 // todo: add active event to tab
 
 // todo: fix? mixing static and dynamic tabs position tabs in order of creation
+/// Add quick, dynamic tab functionality to transition through panes of local content, even via
+/// dropdown menus. **Nested tabs are not supported.**
+///
+/// Base specifications: [bootstrap 3](http://getbootstrap.com/javascript/#tabs) or
+/// [bootstrap 4](http://v4-alpha.getbootstrap.com/components/navs/)
+///
+/// [demo](http://luisvt.github.io/ng2_strap/#tabs)
 @Component (
-    selector: "n2s-tabset",
+    selector: "n2s-tab-set",
     templateUrl: 'tabset.html',
     directives: const [N2sTransclude])
-class Tabset implements OnInit {
+class N2sTabSet implements OnInit {
+
+  /// if `true` tabs will be placed vertically
   @Input() bool vertical = false;
 
+  /// if `true` tabs will be justified
   @Input() bool justified = false;
 
+  /// navigation context class: 'tabs' or 'pills'
   @Input() String type;
 
-  List<Tab> tabs = [];
+  /// List of sub tabs
+  List<N2sTab> tabs = [];
 
+  /// initialize attributes
   ngOnInit() {
     type ??= "tabs";
   }
 
-  addTab(Tab tab) {
+  /// adds a new tab at the end
+  addTab(N2sTab tab) {
     tabs.add(tab);
     tab.active = tabs.length == 1 && tab.active != false;
   }
 
-  removeTab(Tab tab) {
+  /// removes the specified tab
+  removeTab(N2sTab tab) {
     var index = tabs.indexOf(tab);
     if (identical(index, -1)) {
       return;
@@ -43,47 +59,42 @@ class Tabset implements OnInit {
   }
 }
 
+/// Creates a tab which will be inside the [N2sTabSet]
+///
+/// [demo](http://luisvt.github.io/ng2_strap/#tab)
 @Directive (selector: "n2s-tab",
-    inputs: const [ "active", "disable", "disabled", "heading"],
-    outputs: const [ "select", "deselect"],
     host: const { "[class.tab-pane]" : "true", "[class.active]" : "active"})
-class Tab implements OnInit, OnDestroy, DoCheck {
-  Tabset tabset;
+class N2sTab implements OnInit, OnDestroy {
+  /// Construct a tab injecting the parent [tabset], and adding itself to the parent.
+  N2sTab(this.tabset);
+
+  /// provides the injected parent tabset
+  N2sTabSet tabset;
+
+  /// if `true` tab can not be activated
+  @Input() bool disabled = false;
+
+  /// tab header text
+  @Input() String heading;
+
+  /// Template reference to the heading template
+  TemplateRef headingRef;
+
+  /// emits the selected element change
+  @Output() EventEmitter select = new EventEmitter ();
+
+  /// emits the deselected element change
+  @Output() EventEmitter deselect = new EventEmitter ();
 
   bool _active = true;
 
-  bool disabled = false;
-
-  String heading;
-
-  TemplateRef headingRef;
-
-  EventEmitter select = new EventEmitter ();
-
-  EventEmitter deselect = new EventEmitter ();
-
-  Tab(this.tabset) {
-    tabset.addTab(this);
-  }
-
-  @deprecated
-  set disable(bool v) {
-    print("DEPRECATED use `disabled` property (not `disable`)");
-    disabled = v;
-  }
-
-  /** DEPRECATE disable */
-  @deprecated
-  get disable {
-    return disabled;
-  }
-
-  /** tab active state toogle */
+  /// if tab is active equals true, or set `true` to activate tab
   get active {
     return _active;
   }
 
-  set active(bool active) {
+  /// if tab is active equals true, or set `true` to activate tab
+  @Input() set active(bool active) {
     active ??= true;
     if (disabled && active != null || !active) {
       if (!active) {
@@ -94,31 +105,35 @@ class Tab implements OnInit, OnDestroy, DoCheck {
     }
     _active = active;
     select.add(this);
-    tabset.tabs.forEach((Tab tab) {
+    tabset.tabs.forEach((N2sTab tab) {
       if (!identical(tab, this)) {
         tab.active = false;
       }
     });
   }
 
-  bool ngDoCheck() {
-    return true;
+  /// add itself to its parent tabset
+  ngOnInit() {
+    tabset.addTab(this);
   }
 
-  ngOnInit() {}
-
+  /// remove itself from its parent
   ngOnDestroy() {
     tabset.removeTab(this);
   }
 }
 
+/// Creates a new tab header template
 @Directive (selector: "[n2s-tab-heading]")
-class TabHeading {
-  TemplateRef templateRef;
-
-  TabHeading(this.templateRef, Tab tab) {
+class N2sTabHeading {
+  /// constructs a [N2sTabHeading] injecting its own [templateRef] and its parent [tab]
+  N2sTabHeading(this.templateRef, N2sTab tab) {
     tab.headingRef = templateRef;
   }
+
+  /// DOM template reference
+  TemplateRef templateRef;
 }
 
-const TABS_DIRECTIVES = const [Tab, TabHeading, Tabset];
+/// Directives needed to create a tab-set
+const N2S_TABS_DIRECTIVES = const [N2sTab, N2sTabHeading, N2sTabSet];

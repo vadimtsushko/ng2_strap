@@ -4,6 +4,6 @@
   <li *ngFor="#match of matches"
       [ngClass]="{active: isActive(match) }"
       (mouseenter)="selectActive(match)">
-    <a href="#" (click)="selectMatch(match, $event)" tabindex="-1" [innerHtml]="hightlight(match, query)"></a>
+    <a href="#" (click)="selectMatch(match, $event)" tabindex="-1" [innerHtml]="highlight(match, query)"></a>
   </li>
 </ul>

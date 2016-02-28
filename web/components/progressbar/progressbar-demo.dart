@@ -4,7 +4,7 @@ import 'dart:math';
 
 @Component (selector: "progressbar-demo")
 @View (templateUrl: "progressbar-demo.html",
-    directives: const [PROGRESSBAR_DIRECTIVES])
+    directives: const [N2S_PROGRESSBAR_DIRECTIVES])
 class ProgressbarDemo {
   num max = 200;
 
@@ -38,11 +38,11 @@ class ProgressbarDemo {
   randomStacked() {
     var types = [ "success", "info", "warning", "danger"];
     stacked = [];
-    var total = 0;
+//    var total = 0;
     for (var i = 0, n = new Random().nextInt(5); i < n; i ++) {
       var index = new Random().nextInt(4);
       var value = new Random().nextInt(30);
-      total += value;
+//      total += value;
       stacked.add({'value': value, 'max': value, 'type': types[index]});
     }
   }

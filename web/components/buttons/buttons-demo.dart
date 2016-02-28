@@ -6,8 +6,8 @@ import 'package:ng2_strap/buttons/button-radio.dart';
     selector: "buttons-demo",
     templateUrl: "buttons-demo.html",
     directives: const [
-      ButtonCheckbox,
-      ButtonRadio,
+      N2sButtonCheckbox,
+      N2sButtonRadio,
       CORE_DIRECTIVES,
       FORM_DIRECTIVES
     ])

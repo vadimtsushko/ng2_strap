@@ -4,7 +4,7 @@ import "package:ng2_strap/index.dart";
 
 @Component(selector: "datepicker-demo",
     templateUrl: 'datepicker-demo.html',
-    directives: const [DATEPICKER_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES])
+    directives: const [N2S_DATEPICKER_DIRECTIVES])
 class DatepickerDemo {
   String dt = new DateTime.now().toIso8601String();
   List<Map> events;

@@ -1,21 +1,21 @@
 part of n2s_dropdown;
 
-const ALWAYS = "always";
+const _ALWAYS = "always";
 
-const DISABLED = "disabled";
+const _DISABLED = "disabled";
 
-const OUTSIDECLICK = "outsideClick";
+const _OUTSIDECLICK = "outsideClick";
 
 class DropdownService {
-  Dropdown openScope;
+  N2sDropdown openScope;
 
-  Dropdown dropdownScope;
+  N2sDropdown dropdownScope;
 
   StreamSubscription closeDropdownStSub;
 
   StreamSubscription keybindFilterStSub;
 
-  open(Dropdown dropdownScope) {
+  open(N2sDropdown dropdownScope) {
     if (openScope == null) {
       closeDropdownStSub = window.onClick.listen(closeDropdown);
       keybindFilterStSub = window.onKeyDown.listen(keybindFilter);
@@ -26,7 +26,7 @@ class DropdownService {
     openScope = dropdownScope;
   }
 
-  close(Dropdown dropdownScope) {
+  close(N2sDropdown dropdownScope) {
     if (openScope != dropdownScope) {
       return;
     }
@@ -39,7 +39,7 @@ class DropdownService {
     if (openScope == null) {
       return;
     }
-    if (event != null && identical(openScope.autoClose, DISABLED)) {
+    if (event != null && identical(openScope.autoClose, _DISABLED)) {
       return;
     }
     if (event != null
@@ -47,7 +47,7 @@ class DropdownService {
         && openScope.toggleEl.nativeElement == event.target) {
       return;
     }
-    if (event != null && openScope.autoClose == OUTSIDECLICK &&
+    if (event != null && openScope.autoClose == _OUTSIDECLICK &&
         openScope.menuEl != null &&
         openScope.menuEl.nativeElement == event.target) {
       return;

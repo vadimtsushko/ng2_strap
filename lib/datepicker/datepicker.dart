@@ -1,122 +1,102 @@
 part of ns_datepicker;
 
+/// Highly configurable component that adds datepicker functionality to
+/// your pages. You can customize the date format and language, restrict the selectable date ranges.
+///
+/// Base specifications: [jquery-ui](https://api.jqueryui.com/datepicker/)
+///
+/// [demo](http://luisvt.github.io/ng2_strap/#datepicker)
 @Component (selector: "n2s-datepicker",
-    inputs: const [
-      "datepickerMode",
-      "minDate",
-      "maxDate",
-      "dateDisabled",
-      "activeDate",
-      "showWeeks",
-      "startingDay",
-      "initDate",
-      "minMode",
-      "maxMode",
-      "formatDay",
-      "formatMonth",
-      "formatYear",
-      "formatDayHeader",
-      "formatDayTitle",
-      "formatMonthTitle",
-      "yearRange",
-      "shortcutPropagation"
-    ],
-    template: '''
-    <n2s-datepicker-inner [activeDate]="activeDate"
-                      (update)="onUpdate(\$event)"
-                      [datepicker-mode]="datepickerMode"
-                      [initDate]="initDate"
-                      [minDate]="minDate"
-                      [maxDate]="maxDate"
-                      [minDode]="minMode"
-                      [maxDode]="maxMode"
-                      [showDeeks]="showWeeks"
-                      [formatDay]="formatDay"
-                      [formatMonth]="formatMonth"
-                      [formatYear]="formatYear"
-                      [formatDayHeader]="formatDayHeader"
-                      [formatDayTitle]="formatDayTitle"
-                      [formatMonthTitle]="formatMonthTitle"
-                      [startingDay]="startingDay"
-                      [yearRange]="yearRange"
-                      [customClass]="customClass"
-                      [dateDisabled]="dateDisabled"
-                      [templateUrl]="templateUrl"
-                      [shortcutPropagation]="shortcutPropagation">
-      <n2s-daypicker tabindex="0"></n2s-daypicker>
-      <n2s-monthpicker tabindex="0"></n2s-monthpicker>
-      <n2s-yearpicker tabindex="0"></n2s-yearpicker>
-    </n2s-datepicker-inner>
-    ''',
+    templateUrl: 'datepicker.html',
     directives: const [
       DatePickerInner,
       DayPicker,
       MonthPicker,
-      YearPicker,
-      FORM_DIRECTIVES,
-      CORE_DIRECTIVES
+      YearPicker
     ])
-class DatePicker extends DefaultValueAccessor {
-  DatePicker(this.cd, Renderer renderer, ElementRef elementRef)
+class N2sDatePicker extends DefaultValueAccessor {
+  /// Constructs a [N2sDatePicker] component injecting [NgModel], [Renderer], and [ElementRef]
+  N2sDatePicker(this.cd, Renderer renderer, ElementRef elementRef)
       : super (renderer, elementRef) {
     cd.valueAccessor = this;
   }
 
-  DateTime _activeDate;
+  /// sets datepicker mode, supports: `day`, `month`, `year`
+  @Input() String datepickerMode;
 
-  String datepickerMode;
+  @Input() DateTime initDate;
 
-  DateTime initDate;
+  /// oldest selectable date
+  @Input() DateTime minDate;
 
-  DateTime minDate;
+  /// latest selectable date
+  @Input() DateTime maxDate;
 
-  DateTime maxDate;
+  /// set lower datepicker mode, supports: `day`, `month`, `year`
+  @Input() String minMode;
 
-  String minMode;
+  /// sets upper datepicker mode, supports: `day`, `month`, `year`
+  @Input() String maxMode;
 
-  String maxMode;
+  /// if `false` week numbers will be hidden
+  @Input() bool showWeeks;
 
-  bool showWeeks;
+  /// format of day in month
+  @Input() String formatDay;
 
-  String formatDay;
+  /// format of month in year
+  @Input() String formatMonth;
 
-  String formatMonth;
+  /// format of year in year range
+  @Input() String formatYear;
 
-  String formatYear;
+  /// format of day in week header
+  @Input() String formatDayHeader;
 
-  String formatDayHeader;
+  /// format of title when selecting day
+  @Input() String formatDayTitle;
 
-  String formatDayTitle;
+  /// format of title when selecting month
+  @Input() String formatMonthTitle;
 
-  String formatMonthTitle;
+  /// starting day of the week from 0-6 (0=Sunday, ..., 6=Saturday).
+  @Input() num startingDay;
 
-  num startingDay;
+  /// number of years displayed in year selection
+  @Input() num yearRange;
 
-  num yearRange;
+  /// if `true` shortcut`s event propagation will be disabled
+  @Input() bool shortcutPropagation;
 
-  bool shortcutPropagation;
-
+  /// array of custom classes to be applied to targeted dates
   // todo: change type during implementation
   dynamic customClass;
 
+  /// array of disabled dates if `mode` is `day`, or years, etc.
   // todo: change type during implementation
-  dynamic dateDisabled;
+  @Input() dynamic dateDisabled;
 
-  String templateUrl;
-
+  ///
   NgModel cd;
 
+  ///
+  DateTime _activeDate;
+
+  ///
   DateTime get activeDate => _activeDate;
 
-  set activeDate(DateTime value) {
+  ///
+  @Input() set activeDate(DateTime value) {
     _activeDate = value;
     cd.viewToModelUpdate(this.activeDate.toString());
   }
 
+  ///
   onUpdate(event) {
     this.writeValue(event);
   }
 
+  ///
   writeValue(dynamic value) {
     if (value != null) {
       if (value is String) {

@@ -51,9 +51,9 @@ class Demo implements OnInit {
   Demo(@Inject(ViewContainerRef) this.viewRef);
   @override
   ngOnInit() {
-    HttpRequest.getString('./getting-started.md').then((result) {
-      (viewRef.element.nativeElement as Element).querySelector('#getting-started').innerHtml = markdownToHtml(result);
-    });
+//    HttpRequest.getString('./getting-started.md').then((result) {
+//      (viewRef.element.nativeElement as Element).querySelector('#getting-started').innerHtml = markdownToHtml(result);
+//    });
   }
 }
 

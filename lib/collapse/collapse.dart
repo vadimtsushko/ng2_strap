@@ -2,9 +2,15 @@ import "package:angular2/angular2.dart";
 import 'dart:async';
 // todo: add animate
 
-// todo: add init and on change
-@Directive (selector: "[collapse]",
-    inputs: const [ "collapse"],
+/// Collapse component allows you to toggle content on your pages with a bit of JavaScript and some
+/// classes. Flexible component that utilizes a handful of classes (from the **required transitions
+/// component**(*not yet implemented*)) for easy toggle behavior.
+///
+/// Base specifications: [bootstrap 3](http://getbootstrap.com/javascript/#collapse)
+/// or [bootstrap 4](http://v4-alpha.getbootstrap.com/components/collapse/)
+///
+/// [demo](http://luisvt.github.io/ng2_strap/#collapse)
+@Directive(selector: "[n2sCollapse]",
     host: const {
       "[class.in]" : "isExpanded",
       "[class.collapse]" : "isCollapse",
@@ -13,41 +19,33 @@ import 'dart:async';
       "[attr.aria-hidden]" : "isCollapsed",
       "[style.height]" : "height"
     })
-class Collapse {
-  ElementRef el;
+class N2sCollapse {
+  /// Constructs an collapsible component injecting the [elementRef]
+  N2sCollapse(this.elementRef);
 
-  dynamic test = "wtf";
+  /// Contains the element reference of this component
+  ElementRef elementRef;
 
-  // style
+  /// provides the height style of the component in pixels
   String height;
 
   // classes
 
-  // shown
+  /// if `true` the component is shown
   bool isExpanded = true;
 
-  // hidden
+  /// if `true` the component is hidden
   bool isCollapsed = false;
 
-  // stale state
-  bool isCollapse = true;
-
-  // animation state
+  /// provides the animation state
   bool isCollapsing = false;
 
-  Collapse(this.el);
+  /// stale state
+  bool isCollapse = true;
 
-  bool get collapse {
-    return isExpanded;
-  }
-
-  set collapse(bool value) {
-    isExpanded = value;
-    toggle();
-  }
-
-  toggle() {
-    if (isExpanded) {
+  /// sets and fires the collapsed state of the component
+  @Input() set n2sCollapse(bool value) {
+    if (value ?? false) {
       hide();
     } else {
       show();
@@ -55,6 +53,8 @@ class Collapse {
   }
 
   hide() {
+    if(isCollapsed) return;
+
     isCollapse = false;
     isCollapsing = true;
     isExpanded = false;
@@ -67,6 +67,8 @@ class Collapse {
   }
 
   show() {
+    if(isExpanded) return;
+
     isCollapse = false;
     isCollapsing = true;
     isExpanded = true;

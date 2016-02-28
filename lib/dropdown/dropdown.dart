@@ -1,100 +1,110 @@
 part of n2s_dropdown;
-
+/// Dropdowns are toggleable, contextual overlays for displaying lists of links and more.
+/// They’re made interactive with the included dropdown directives.
+///
+/// Base specifications: [bootstrap 3](http://getbootstrap.com/javascript/#dropdowns) or
+/// [bootstrap 4](http://v4-alpha.getbootstrap.com/components/dropdowns/)
+///
+/// [demo](http://luisvt.github.io/ng2_strap/#dropdown)
 @Directive (selector: "n2s-dropdown, .dropdown",
-    inputs: const [
-      "isOpen", "autoClose", "keyboardNav", "dropdownAppendToBody"],
-    outputs: const ["onToggle"],
-    host: const { "[class.dropdown]" : "true", "[class.open]" : "isOpen"})
-class Dropdown implements OnInit, OnDestroy {
-  ElementRef el;
+    host: const {"[class.dropdown]" : "true", "[class.open]" : "isOpen"})
+class N2sDropdown implements OnInit, OnDestroy {
+  /// Constructs a dropdown injecting [elementRef]
+  N2sDropdown(this.elementRef);
 
-  bool _isOpen = false;
+  /// injected [elementRef] to get access to native attributes
+  ElementRef elementRef;
 
-  // enum string: ['always', 'outsideClick', 'disabled']
-  bool dropdownAppendToBody = false;
+  /// if `true` `dropdown-menu` content will be appended to the body. This is useful when
+  /// the dropdown button is inside a div with `overflow: hidden`, and the menu would
+  /// otherwise be hidden
+  @Input() bool dropdownAppendToBody = false;
 
-  EventEmitter onToggle = new EventEmitter ();
+  /// fired when `dropdown` toggles, `$event:boolean` equals dropdown `is-open` state
+  @Output() EventEmitter onToggle = new EventEmitter();
 
-  String autoClose = ALWAYS;
+  /// behaviour vary:
+  ///  * `always` - (default) automatically closes the dropdown when any of its elements is clicked
+  ///  * `outsideClick` - closes the dropdown automatically only when the user clicks any element outside the dropdown
+  ///  * `disabled` - disables the auto close. You can then control the open/close status of the dropdown manually, by using `is-open`. Please notice that the dropdown will still close if the toggle is clicked, the `esc` key is pressed or another dropdown is open
+  @Input() String autoClose = _ALWAYS;
 
-  bool keyboardNav = false;
+  /// if `true` will enable navigation of dropdown list elements with the arrow keys
+  @Input() bool keyboardNav = false;
 
-  // index of selected element
+  /// index of selected element
   num selectedOption;
 
-  // drop menu html
+  /// drop menu html
   ElementRef menuEl;
 
-  // drop down toggle element
+  /// drop down toggle element
   ElementRef toggleEl;
 
-  // not implemented:
-  String dropdownMenuTemplateUrl;
+  /// if `true` dropdown will be opened
+  bool _isOpen = false;
 
-  Dropdown(this.el);
-
-  ngOnInit() {
-//    this.autoClose ?? ALWAYS;
-//    this.keyboardNav ?? true;
-//    this.dropdownAppendToBody ?? true;
-//    if (this.isOpen) {}
+  /// if `true` dropdown will be opened
+  bool get isOpen {
+    return _isOpen;
   }
 
-  ngOnDestroy() {
-    if (this.dropdownAppendToBody && truthy(this.menuEl)) {
-      this.menuEl.nativeElement.remove();
-    }
-  }
-
-  set dropDownMenu(DropdownMenuInterface dropdownMenu) {
-    // init drop down menu
-    this.menuEl = dropdownMenu.el;
-    if (truthy(dropdownMenu.templateUrl)) {
-      this.dropdownMenuTemplateUrl = dropdownMenu.templateUrl;
-    }
-    if (this.dropdownAppendToBody) {
-      window.document.documentElement.children.add(this.menuEl.nativeElement);
-    }
-  }
-
-  set dropDownToggle(DropdownToggleInterface dropdownToggle) {
+  /// sets the element that will fire the toggle of the dropdown
+  set dropDownToggle(N2sDropdownToggle dropdownToggle) {
     // init toggle element
-    this.toggleEl = dropdownToggle.el;
+    toggleEl = dropdownToggle.elementRef;
   }
 
+  /// if `true` the dropdown will be visible
+  @Input() set isOpen(value) {
+    _isOpen = value ?? false;
+    // todo: implement after porting position
+    if (truthy(dropdownAppendToBody) && truthy(menuEl)) {}
+    // todo: $animate open<->close transitions, as soon as ng2Animate will be ready
+    if (isOpen) {
+      focusToggleElement();
+      dropdownService.open(this);
+    } else {
+      dropdownService.close(this);
+      selectedOption = null;
+    }
+    onToggle.add(isOpen);
+    // todo: implement call to setIsOpen if set and function
+  }
+
+  /// initializes the dropdown attributes
+  ngOnInit() {
+//    autoClose ?? ALWAYS;
+//    keyboardNav ?? true;
+//    dropdownAppendToBody ?? true;
+//    if (isOpen) {}
+  }
+
+  /// removes the dropdown from the DOM
+  ngOnDestroy() {
+    if (dropdownAppendToBody && truthy(menuEl)) {
+      menuEl.nativeElement.remove();
+    }
+  }
+
+  /// sets the element that will be showed by the dropdown
+  set dropDownMenu(N2sDropdownMenu dropdownMenu) {
+    // init drop down menu
+    menuEl = dropdownMenu.elementRef;
+    if (dropdownAppendToBody) {
+      window.document.documentElement.children.add(menuEl.nativeElement);
+    }
+  }
+
+  /// toggles the visibility of the dropdown-menu
   bool toggle([ bool open ]) {
     return isOpen = open ?? !isOpen;
   }
 
-  bool get isOpen {
-    return this._isOpen;
-  }
-
-  set isOpen(value) {
-    this._isOpen = value ?? false;
-    // todo: implement after porting position
-    if (truthy(this.dropdownAppendToBody) && truthy(this.menuEl)) {}
-    // todo: $animate open<->close transitions, as soon as ng2Animate will be ready
-    if (isOpen) {
-      if (truthy(this.dropdownMenuTemplateUrl)) {
-        // todo: implement template url option
-      }
-      this.focusToggleElement();
-      dropdownService.open(this);
-    } else {
-      if (truthy(this.dropdownMenuTemplateUrl)) {
-        // todo: implement template url option
-      }
-      dropdownService.close(this);
-      this.selectedOption = null;
-    }
-    this.onToggle.add(this.isOpen);
-    // todo: implement call to setIsOpen if set and function
-  }
-
+  /// focus the specified entry of dropdown in dependence of the [keyCode]
   focusDropdownEntry(num keyCode) {
     // If append to body is used.
-    Element hostEl = this.menuEl?.nativeElement ?? this.el.nativeElement.querySelectorAll("ul")[0];
+    Element hostEl = menuEl?.nativeElement ?? elementRef.nativeElement.querySelectorAll("ul")[0];
     if (hostEl == null) {
       // todo: throw exception?
       return;
@@ -110,31 +120,32 @@ class Dropdown implements OnInit, OnDestroy {
     switch (keyCode) {
       case (40) :
         if (selectedOption is! num) {
-          this.selectedOption = 0;
+          selectedOption = 0;
           break;
         }
-        if (identical(this.selectedOption, elems.length - 1)) {
+        if (identical(selectedOption, elems.length - 1)) {
           break;
         }
-        this.selectedOption ++;
+        selectedOption ++;
         break;
       case (38) :
         if (selectedOption is! num) {
           return;
         }
-        if (identical(this.selectedOption, 0)) {
+        if (identical(selectedOption, 0)) {
           // todo: return?
           break;
         }
-        this.selectedOption --;
+        selectedOption--;
         break;
     }
-    elems [ this.selectedOption ].focus();
+    elems[selectedOption].focus();
   }
 
+  /// focus toggle element
   focusToggleElement() {
-    if (truthy(this.toggleEl)) {
-      this.toggleEl.nativeElement.focus();
+    if (toggleEl != null) {
+      toggleEl.nativeElement.focus();
     }
   }
 }
