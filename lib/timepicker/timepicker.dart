@@ -85,13 +85,13 @@ class N2sTimePicker extends DefaultValueAccessor implements OnInit {
   bool _showMeridian = true;
 
   /// if `true` works in 12H mode and displays AM/PM. If `false` works in 24H mode and hides AM/PM
-  get showMeridian {
+  bool get showMeridian {
     return this._showMeridian;
   }
 
   /// sets the value of showing meridian, if `true` works in 12H mode and displays AM/PM. If `false` works in 24H mode and hides AM/PM
-  set showMeridian(bool value) {
-    this._showMeridian = value;
+  @Input() void set showMeridian(bool value) {
+    _showMeridian = value;
     // || !this.$error.DateTime
     if (true) {
       updateTemplate();

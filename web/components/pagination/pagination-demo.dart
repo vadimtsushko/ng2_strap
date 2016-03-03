@@ -4,7 +4,7 @@ import "package:ng2_strap/pagination/pagination.dart";
 @Component(selector: "pagination-demo")
 @View(
     templateUrl: "pagination-demo.html",
-    directives: const [PAGINATION_DIRECTIVES, FORM_DIRECTIVES, CORE_DIRECTIVES])
+    directives: const [PAGINATION_DIRECTIVES])
 class PaginationDemo {
   int totalItems = 64;
   int currentPage = 4;
