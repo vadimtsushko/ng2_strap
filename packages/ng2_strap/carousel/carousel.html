@@ -1,0 +1,6 @@
+<html><head></head><body><div (mouseenter)="pause()" (mouseleave)="play()" class="carousel slide">
+  <ol class="carousel-indicators" [hidden]="slides.length <= 1">
+    <li *ngfor="#slide of slides" [ngclass]="{active: slide.active === true}" (click)="select(slide)"></li>
+  </ol>
+  <div class="carousel-inner"><ng-content></ng-content></div>
+</div></body></html>

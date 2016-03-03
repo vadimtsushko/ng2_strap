@@ -28,7 +28,7 @@
               },
               {
                 "1": "directives",
-                "2": "const [Collapse]"
+                "2": "const [N2sCollapse]"
               }
             ],
             "4": false,
@@ -40,7 +40,7 @@
         ],
         "8": [
           {
-            "2": "Collapse"
+            "2": "N2sCollapse"
           }
         ]
       }
@@ -48,11 +48,11 @@
     "6": "collapse-demo.dart",
     "10": [
       {
-        "1": "package:angular2/angular2.ng_deps.dart",
+        "1": "package:angular2/angular2.template.dart",
         "4": "i0"
       },
       {
-        "1": "package:ng2_strap/collapse/collapse.ng_deps.dart",
+        "1": "package:ng2_strap/collapse/collapse.template.dart",
         "4": "i1"
       }
     ]
@@ -60,14 +60,19 @@
   "CollapseDemo": {
     "kind": "type",
     "value": {
+      "class": "Directive",
       "isComponent": true,
       "dynamicLoadable": true,
       "selector": "collapse-demo",
       "exportAs": null,
       "type": {
+        "class": "Type",
         "name": "CollapseDemo",
         "moduleUrl": "asset:ng2_strap/web/components/collapse/collapse-demo.dart",
-        "isHost": false
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": []
       },
       "changeDetection": 5,
       "inputs": {},
@@ -78,12 +83,14 @@
       "lifecycleHooks": [],
       "template": {
         "encapsulation": 2,
-        "template": "<button type=\"button\" class=\"btn btn-primary\"\n        (click)=\"isCollapsed = !isCollapsed\">Toggle collapse\n</button>\n<hr>\n<div [collapse]=\"isCollapsed\" class=\"card card-block card-header\">\n  <div class=\"well well-lg\">Some content</div>\n</div>\n",
+        "template": "<button type=\"button\" class=\"btn btn-primary\"\n        (click)=\"isCollapsed = !isCollapsed\">Toggle collapse\n</button>\n<hr>\n<div [n2sCollapse]=\"isCollapsed\" class=\"card card-block card-header\">\n  <div class=\"well well-lg\">Some content</div>\n</div>\n",
         "templateUrl": "asset:ng2_strap/web/components/collapse/collapse-demo.html",
         "styles": [],
         "styleUrls": [],
         "ngContentSelectors": []
-      }
+      },
+      "providers": []
     }
-  }
+  },
+  "definesAlias": false
 }

@@ -1,0 +1,586 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "../position.dart",
+        "5": false
+      },
+      {
+        "1": "dart:html",
+        "5": false
+      },
+      {
+        "1": "dart:async",
+        "5": false
+      },
+      {
+        "1": "package:node_shims/js.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "N2sTypeAheadContainer",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"n2s-type-ahead-dropdown\""
+              },
+              {
+                "1": "templateUrl",
+                "2": "'typeahead_container.html'"
+              },
+              {
+                "1": "styles",
+                "2": "const ['''\nn2s-type-ahead-dropdown {\n  position: static;\n}\n''']"
+              },
+              {
+                "1": "encapsulation",
+                "2": "ViewEncapsulation.None"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "ElementRef",
+            "4": "elementRef"
+          },
+          {
+            "1": "N2sTypeAheadOptions",
+            "4": "typeAheadOptions"
+          }
+        ]
+      },
+      {
+        "1": "N2sTypeAhead",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"n2s-type-ahead\""
+              },
+              {
+                "1": "template",
+                "2": "'<input type=\"text\"[(ngModel)]=\"ngModel.model\" (keyup)=\"onTypeaheadChange(\\$event)\" class=\"form-control\">'"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "NgModel",
+            "4": "ngModel"
+          },
+          {
+            "1": "Renderer",
+            "4": "renderer"
+          },
+          {
+            "1": "ElementRef",
+            "4": "elementRef"
+          },
+          {
+            "1": "DynamicComponentLoader",
+            "4": "loader"
+          }
+        ],
+        "6": [
+          "OnInit"
+        ],
+        "7": [
+          {
+            "1": "loading",
+            "2": [
+              {
+                "1": "Output",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "noResults",
+            "2": [
+              {
+                "1": "Output",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "selectedItemChange",
+            "2": [
+              {
+                "1": "Output",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "minLength",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "waitMs",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "optionsLimit",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "appendToBody",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "editable",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "focusFirst",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "inputFormatter",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "selectOnExact",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "selectOnBlur",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "focusOnSelect",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "optionField",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "async",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "source",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "autocomplete",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "1": "N2sRenderer",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "'template[n2s-renderer]'"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "TemplateRef",
+            "4": "templateRef"
+          }
+        ]
+      }
+    ],
+    "6": "typeahead.dart"
+  },
+  "N2sTypeAheadOptions": {
+    "kind": "type",
+    "value": {
+      "class": "Identifier",
+      "name": "N2sTypeAheadOptions",
+      "moduleUrl": "asset:ng2_strap/lib/typeahead/typeahead.dart",
+      "prefix": null,
+      "constConstructor": null
+    }
+  },
+  "N2sTypeAhead": {
+    "kind": "type",
+    "value": {
+      "class": "Directive",
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "n2s-type-ahead",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "N2sTypeAhead",
+        "moduleUrl": "asset:ng2_strap/lib/typeahead/typeahead.dart",
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": [
+          {
+            "token": null,
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          },
+          {
+            "token": {
+              "class": "Identifier",
+              "name": "Renderer",
+              "moduleUrl": null,
+              "prefix": null,
+              "constConstructor": null
+            },
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          },
+          {
+            "token": {
+              "class": "Identifier",
+              "name": "ElementRef",
+              "moduleUrl": null,
+              "prefix": null,
+              "constConstructor": null
+            },
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          },
+          {
+            "token": null,
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          }
+        ]
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "minLength": "minLength",
+        "waitMs": "waitMs",
+        "optionsLimit": "optionsLimit",
+        "appendToBody": "appendToBody",
+        "editable": "editable",
+        "focusFirst": "focusFirst",
+        "inputFormatter": "inputFormatter",
+        "selectOnExact": "selectOnExact",
+        "selectOnBlur": "selectOnBlur",
+        "focusOnSelect": "focusOnSelect",
+        "optionField": "optionField",
+        "async": "async",
+        "source": "source",
+        "autocomplete": "autocomplete"
+      },
+      "outputs": {
+        "loading": "loading",
+        "noResults": "noResults",
+        "selectedItemChange": "selectedItemChange"
+      },
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": {
+        "encapsulation": 2,
+        "template": "<input type=\"text\"[(ngModel)]=\"ngModel.model\" (keyup)=\"onTypeaheadChange($event)\" class=\"form-control\">",
+        "templateUrl": "asset:ng2_strap/lib/typeahead/typeahead.dart",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      },
+      "providers": []
+    }
+  },
+  "N2sRenderer": {
+    "kind": "type",
+    "value": {
+      "class": "Directive",
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "template[n2s-renderer]",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "N2sRenderer",
+        "moduleUrl": "asset:ng2_strap/lib/typeahead/typeahead.dart",
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": [
+          {
+            "token": null,
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          }
+        ]
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null,
+      "providers": []
+    }
+  },
+  "N2sTypeAheadContainer": {
+    "kind": "type",
+    "value": {
+      "class": "Directive",
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "n2s-type-ahead-dropdown",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "N2sTypeAheadContainer",
+        "moduleUrl": "asset:ng2_strap/lib/typeahead/typeahead.dart",
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": [
+          {
+            "token": null,
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          },
+          {
+            "token": {
+              "class": "Identifier",
+              "name": "N2sTypeAheadOptions",
+              "moduleUrl": null,
+              "prefix": null,
+              "constConstructor": null
+            },
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          }
+        ]
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "<ul class=\"dropdown-menu\"\n    [ngStyle]=\"{top: top, left: left, display: display}\"\n    style=\"display: block\">\n  <li *ngFor=\"#match of matches\"\n      [ngClass]=\"{active: isActive(match) }\"\n      (mouseenter)=\"selectActive(match)\">\n    <a href=\"#\" (click)=\"selectMatch(match, $event)\" tabindex=\"-1\" [innerHtml]=\"highlight(match, query)\"></a>\n  </li>\n</ul>",
+        "templateUrl": "asset:ng2_strap/lib/typeahead/typeahead_container.html",
+        "styles": [
+          "n2s-type-ahead-dropdown {\n  position: static;\n}\n"
+        ],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      },
+      "providers": []
+    }
+  },
+  "definesAlias": false
+}

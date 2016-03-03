@@ -1,23 +1,21 @@
-<html><head></head><body><div class="row">
-  <div class="col-lg-6" style="margin-top: 10px;">
-    <h4>Default</h4>
-    <n2s-pagination [totalitems]="totalItems" [(ngmodel)]="currentPage" (pagechanged)="pageChanged($event)"></n2s-pagination>
-    <n2s-pagination [boundarylinks]="true" [totalitems]="totalItems" [(ngmodel)]="currentPage" class="n2s-pagination-sm" previoustext="‹" nexttext="›" firsttext="«" lasttext="»"></n2s-pagination>
-    <n2s-pagination [direction-links]="false" [boundarylinks]="true" [totalitems]="totalItems" [(ngmodel)]="currentPage"></n2s-pagination>
-    <n2s-pagination [directionlinks]="false" [totalitems]="totalItems" [(ngmodel)]="currentPage" (numpages)="smallnumPages = $event"></n2s-pagination>
-    <pre class="card card-block card-header">The selected page no: {{currentPage}}/{{smallnumPages}}</pre>
-    <button type="button" class="btn btn-info" (click)="setPage(3)">Set current page to: 3</button>
-  </div>
-  <hr class="visible-md visible-xs hidden-lg-up">
-  <div class="col-lg-6" style="margin-top: 10px;">
-    <h4>Pager</h4>
-    <pager [totalitems]="totalItems" [(ngmodel)]="currentPage" (pagechanged)="pageChanged($event)"></pager>
+<html><head></head><body><div>
+  <h4>Default</h4>
+  <n2s-pagination [totalitems]="totalItems" [(currentpage)]="currentPage" (currentpagechange)="pageChanged()" #p1=""></n2s-pagination>
+  <n2s-pagination [boundarylinks]="true" [totalitems]="totalItems" [(currentpage)]="currentPage" class="sm" previoustext="‹" nexttext="›" firsttext="«" lasttext="»"></n2s-pagination>
+  <n2s-pagination [directionlinks]="false" [boundarylinks]="true" [totalitems]="totalItems" [(currentpage)]="currentPage"></n2s-pagination>
+  <n2s-pagination [directionlinks]="false" [totalitems]="totalItems" [(currentpage)]="currentPage" [(totalpages)]="smallnumPages"></n2s-pagination>
+    <pre class="card card-block card-header">      The selected page no: {{currentPage}}/{{smallnumPages}}
+      totalItems: {{totalItems}}
+    </pre>
+  <button class="btn btn-info" (click)="setPage(3)">Set current page to: 3</button>
+  <hr>
+  <h4>Pager</h4>
+  <n2s-pager [totalitems]="totalItems" [(currentpage)]="currentPage" (currentpagechange)="pageChanged()"></n2s-pager>
 
-    <hr>
-    <h4>Limit the maximum visible buttons</h4>
-    <n2s-pagination [totalitems]="bigTotalItems" [(ngmodel)]="bigCurrentPage" [maxsize]="maxSize" class="n2s-pagination-sm" [boundarylinks]="true"></n2s-pagination>
-    <n2s-pagination [totalitems]="bigTotalItems" [(ngmodel)]="bigCurrentPage" [maxsize]="maxSize" class="n2s-pagination-sm" [boundarylinks]="true" [rotate]="false" (numpages)="numPages = $event"></n2s-pagination>
-    <pre class="card card-block card-header">Page: {{bigCurrentPage}} / {{numPages}}</pre>
-  </div>
+  <hr>
+  <h4>Limit the maximum visible buttons</h4>
+  <n2s-pagination [totalitems]="bigTotalItems" [(currentpage)]="bigCurrentPage" [maxsize]="maxSize" class="sm" [boundarylinks]="true"></n2s-pagination>
+  <n2s-pagination [totalitems]="bigTotalItems" [(currentpage)]="bigCurrentPage" [maxsize]="maxSize" class="sm" [boundarylinks]="true" [rotate]="false" [(totalpages)]="numPages"></n2s-pagination>
+  <pre class="card card-block card-header">Page: {{bigCurrentPage}} / {{numPages}}</pre>
 </div>
 </body></html>

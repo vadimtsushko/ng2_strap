@@ -1,0 +1,348 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/position.dart",
+        "5": false
+      },
+      {
+        "1": "dart:async",
+        "5": false
+      },
+      {
+        "1": "dart:html",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "N2sTooltipContainer",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "'n2s-tooltip-container'"
+              },
+              {
+                "1": "templateUrl",
+                "2": "'tooltip_container.html'"
+              },
+              {
+                "1": "encapsulation",
+                "2": "ViewEncapsulation.None"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "ElementRef",
+            "4": "elementRef"
+          },
+          {
+            "1": "N2sTooltipOptions",
+            "4": "options"
+          }
+        ]
+      },
+      {
+        "1": "N2sTooltip",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "'[n2sTooltip]'"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "ElementRef",
+            "4": "element"
+          },
+          {
+            "1": "DynamicComponentLoader",
+            "4": "loader"
+          }
+        ],
+        "7": [
+          {
+            "1": "content",
+            "2": [
+              {
+                "1": "Input",
+                "2": [
+                  "'n2sTooltip'"
+                ],
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "placement",
+            "2": [
+              {
+                "1": "Input",
+                "2": [
+                  "'n2sTooltipPlacement'"
+                ],
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "appendToBody",
+            "2": [
+              {
+                "1": "Input",
+                "2": [
+                  "'n2sTooltipAppendToBody'"
+                ],
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "isOpen",
+            "2": [
+              {
+                "1": "Input",
+                "2": [
+                  "'n2sTooltipIsOpen'"
+                ],
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "enable",
+            "2": [
+              {
+                "1": "Input",
+                "2": [
+                  "'n2sTooltipEnable'"
+                ],
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "trigger",
+            "2": [
+              {
+                "1": "Input",
+                "2": [
+                  "'n2sTooltipTrigger'"
+                ],
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "popupClass",
+            "2": [
+              {
+                "1": "Input",
+                "2": [
+                  "'n2sTooltipClass'"
+                ],
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "6": "tooltip.dart"
+  },
+  "N2S_TOOLTIP_DIRECTIVES": {
+    "kind": "alias",
+    "value": [
+      "N2sTooltip",
+      "N2sTooltipContainer"
+    ]
+  },
+  "N2sTooltipOptions": {
+    "kind": "type",
+    "value": {
+      "class": "Identifier",
+      "name": "N2sTooltipOptions",
+      "moduleUrl": "asset:ng2_strap/lib/tooltip/tooltip.dart",
+      "prefix": null,
+      "constConstructor": null
+    }
+  },
+  "N2sTooltip": {
+    "kind": "type",
+    "value": {
+      "class": "Directive",
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[n2sTooltip]",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "N2sTooltip",
+        "moduleUrl": "asset:ng2_strap/lib/tooltip/tooltip.dart",
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": [
+          {
+            "token": null,
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          },
+          {
+            "token": null,
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          }
+        ]
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "content": "n2sTooltip",
+        "placement": "n2sTooltipPlacement",
+        "appendToBody": "n2sTooltipAppendToBody",
+        "isOpen": "n2sTooltipIsOpen",
+        "enable": "n2sTooltipEnable",
+        "trigger": "n2sTooltipTrigger",
+        "popupClass": "n2sTooltipClass"
+      },
+      "outputs": {},
+      "hostListeners": {
+        "mouseenter": "show($event)",
+        "focusin": "show($event)",
+        "mouseleave": "hide($event)",
+        "focusout": "hide($event)"
+      },
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null,
+      "providers": []
+    }
+  },
+  "N2sTooltipContainer": {
+    "kind": "type",
+    "value": {
+      "class": "Directive",
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "n2s-tooltip-container",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "N2sTooltipContainer",
+        "moduleUrl": "asset:ng2_strap/lib/tooltip/tooltip.dart",
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": [
+          {
+            "token": null,
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          },
+          {
+            "token": {
+              "class": "Identifier",
+              "name": "N2sTooltipOptions",
+              "moduleUrl": null,
+              "prefix": null,
+              "constConstructor": null
+            },
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          }
+        ]
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "<div class=\"tooltip\" role=\"tooltip\"\n     [ngStyle]=\"{top: top, left: left, display: display}\"\n     [ngClass]=\"classMap\" >\n  <div class=\"tooltip-arrow\"></div>\n  <div class=\"tooltip-inner\">\n    {{content}}\n    <!--<ng-content select=\"n2s-tooltip-content\"></ng-content>-->\n  </div>\n</div>",
+        "templateUrl": "asset:ng2_strap/lib/tooltip/tooltip_container.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      },
+      "providers": []
+    }
+  },
+  "definesAlias": true
+}

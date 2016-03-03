@@ -1,49 +1,28 @@
-<html><head></head><body><br>
-<section id="{{name.toLowerCase()}}">
-    <div class="row">
-        <h1>{{name}}
-            <small>(<a href="{{src}}">src</a>)
-            </small>
-        </h1>
+<html><head></head><body><section id="{{name.toLowerCase()}}">
+  <h1>{{name}} <small>(<a href="{{docUrl}}">documentation</a>)</small></h1>
+
+  <hr>
+
+  <div class="col-lg-5">
+    <h2>Example</h2>
+
+    <div class="card card-block panel panel-default panel-body">
+      <ng-content></ng-content>
     </div>
+  </div>
 
-    <hr>
+  <br>
 
-    <div class="row">
-        <div class="col-md-12" id="titleDoc"></div>
-    </div>
+  <div class="col-lg-7">
+    <n2s-tab-set>
+      <n2s-tab heading="Markup">
+        <pre class="prettyprint"><code class="language-html">{{html}}</code></pre>
+      </n2s-tab>
+      <n2s-tab heading="Dart">
+        <pre class="prettyprint"><code class="language-dart">{{dart}}</code></pre>
+      </n2s-tab>
+    </n2s-tab-set>
+  </div>
 
-    <div class="row">
-        <h2>Example</h2>
-
-        <div class="card card-block panel panel-default panel-body">
-            <ng-content></ng-content>
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row">
-        <n2s-tabset>
-            <n2s-tab heading="Markup">
-                <div class="card card-block panel panel-default panel-body">
-                    <pre class="language-html"><code class="language-html">{{html}}</code></pre>
-                </div>
-            </n2s-tab>
-            <n2s-tab heading="Dart">
-                <div class="card card-block panel panel-default panel-body">
-                    <pre class="language-typescript"><code class="language-typescript">{{dart}}</code></pre>
-                </div>
-            </n2s-tab>
-        </n2s-tabset>
-    </div>
-
-    <br>
-
-    <div class="row">
-        <h2>API</h2>
-
-        <div class="card card-block panel panel-default panel-body" id="doc"></div>
-    </div>
 </section>
 </body></html>

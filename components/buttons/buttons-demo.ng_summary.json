@@ -32,7 +32,7 @@
               },
               {
                 "1": "directives",
-                "2": "const [ButtonCheckbox, ButtonRadio, CORE_DIRECTIVES, FORM_DIRECTIVES]"
+                "2": "const [N2sButtonCheckbox, N2sButtonRadio]"
               }
             ],
             "4": false,
@@ -44,16 +44,10 @@
         ],
         "8": [
           {
-            "2": "ButtonCheckbox"
+            "2": "N2sButtonCheckbox"
           },
           {
-            "2": "ButtonRadio"
-          },
-          {
-            "2": "CORE_DIRECTIVES"
-          },
-          {
-            "2": "FORM_DIRECTIVES"
+            "2": "N2sButtonRadio"
           }
         ]
       }
@@ -63,14 +57,19 @@
   "ButtonsDemo": {
     "kind": "type",
     "value": {
+      "class": "Directive",
       "isComponent": true,
       "dynamicLoadable": true,
       "selector": "buttons-demo",
       "exportAs": null,
       "type": {
+        "class": "Type",
         "name": "ButtonsDemo",
         "moduleUrl": "asset:ng2_strap/web/components/buttons/buttons-demo.dart",
-        "isHost": false
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": []
       },
       "changeDetection": 5,
       "inputs": {},
@@ -86,7 +85,9 @@
         "styles": [],
         "styleUrls": [],
         "ngContentSelectors": []
-      }
+      },
+      "providers": []
     }
-  }
+  },
+  "definesAlias": false
 }

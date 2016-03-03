@@ -1,0 +1,24 @@
+<html><head></head><body><n2s-dropdown [(isopen)]="isOpen">
+  <n2s-dropdown-toggle class="input-group">
+    <input type="text" class="form-control" [(ngmodel)]="ngModel.model">
+    <span class="input-group-btn">
+      <n2s-btn-checkbox type="button" class="btn btn-default" [(ngmodel)]="isOpen" (click)="$event.stopPropagation()">
+        <i class="glyphicon glyphicon-calendar"></i>
+      </n2s-btn-checkbox>
+    </span>
+  </n2s-dropdown-toggle>
+  <n2s-dropdown-menu>
+    <n2s-date-picker #datepicker="" [(ngmodel)]="ngModel.model" [showweeks]="true" (ngmodelchange)="ngModel.viewToModelUpdate(ngModel.model)">
+    </n2s-date-picker>
+    <div *ngif="showButtonBar" style="padding:10px 9px 2px">
+      <span class="btn-group pull-left">
+        <button type="button" class="btn btn-sm btn-info" (click)="datePicker.datePickerInner.selectToday()">
+          {{currentText}}
+        </button>
+        <button type="button" class="btn btn-sm btn-danger" (click)="ngModel.model = null; ngModel.viewToModelUpdate(ngModel.model)">{{clearText}}
+        </button>
+      </span>
+      <button type="button" class="btn btn-sm btn-success pull-right">{{closeText}}</button>
+    </div>
+  </n2s-dropdown-menu>
+</n2s-dropdown></body></html>

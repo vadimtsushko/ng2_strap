@@ -1,0 +1,8 @@
+<html><head></head><body><div class="alert" role="alert" [ngclass]="classes" *ngif="!closed">
+    <button *ngif="closeable" type="button" class="close" (click)="onClose()">
+        <span aria-hidden="true">×</span>
+        <span class="sr-only">Close</span>
+    </button>
+    <ng-content></ng-content>
+</div>
+</body></html>

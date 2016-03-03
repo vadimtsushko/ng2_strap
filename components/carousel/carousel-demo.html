@@ -1,19 +1,19 @@
-<html><head></head><body><div class="row">
-  <div class="col-md-6">
-    <n2s-carousel [interval]="myInterval" [nowrap]="noWrapSlides">
-      <n2s-slide *ngfor="#slidez of slides; #index=index" [active]="slidez['active'] != null ? slidez['active'] : false ">
-        <img [src]="slidez['image']">
+<html><head></head><body><div>
+  <div>
+    <n2s-carousel [interval]="myIntervalInMs" [nowrap]="noWrapSlides">
+      <n2s-slide *ngfor="#slide of slides; #index=index" [active]="slide['active'] != null ? slide['active'] : false ">
+        <img [src]="slide['image']">
 
         <div class="carousel-caption">
           <h4>Slide {{index}}</h4>
 
-          <p>{{slidez['text']}}</p>
+          <p>{{slide['text']}}</p>
         </div>
       </n2s-slide>
     </n2s-carousel>
   </div>
-
-  <div class="col-md-6">
+  <br>
+  <div>
     <button type="button" class="btn btn-info" (click)="addSlide()">Add Slide
     </button>
     <!-- issue: removing currently active slide should not lead to white screen? -->
@@ -29,7 +29,7 @@
       </label>
     </div>
 
-    Interval, in milliseconds: <input type="number" class="form-control" [(ngmodel)]="myInterval">
+    Interval, in seconds: <input type="number" class="form-control" [(ngmodel)]="myIntervalInSeconds">
     <br>Enter a negative number or 0 to stop the interval.
   </div>
 </div>

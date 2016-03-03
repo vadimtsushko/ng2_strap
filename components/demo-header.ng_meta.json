@@ -23,12 +23,12 @@
                 "2": "\"demo-header\""
               },
               {
-                "1": "template",
-                "2": "'''\n    <header class=\"navbar navbar-default navbar-fixed-top navbar-inner bg-faded\">\n    <div class=\"container\">\n      <div class=\"navbar-header hidden-md-up\">\n        <button type=\"button\" class=\"navbar-toggle navbar-toggler pull-right\" (click)=\"isCollapsed = !isCollapsed\">\n          <span class=\"sr-only\">Toggle navigation</span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </button>\n        <a class=\"navbar-brand visible-xs\" href=\"{{prefix}}#\">ng2-bootstrap</a>\n      </div>\n      <nav class=\"hidden-xs hidden-xs-down\">\n        <ul class=\"nav navbar-nav\">\n          <li class=\"nav-item\"><a href=\"{{prefix}}#top\" role=\"button\" class=\"navbar-brand\">ng2-bootstrap</a></li>\n          <li class=\"nav-item dropdown\" dropdown>\n            <a role=\"button\" class=\"nav-link dropdown-toggle\" dropdown-toggle>Directives <b class=\"caret\"></b></a>\n            <ul class=\"dropdown-menu\">\n              <li *ngFor=\"#comp of components\"><a class=\"dropdown-item\" href=\"{{prefix}}#{{comp.toLowerCase()}}\">{{comp}}</a></li>\n            </ul>\n          </li>\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#getting-started\">Getting started</a></li>\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#migration\">Migration</a></li>\n        </ul>\n      </nav>\n      <nav class=\"visible-xs hidden-md-up\">\n        <ul class=\"nav nav-pills nav-stacked scrollable-menu\" [collapse]=\"!isCollapsed\" (click)=\"isCollapsed = !isCollapsed; true\">\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#getting-started\">Getting started</a></li>\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#migration\">Migration</a></li>\n          <li *ngFor=\"#comp of components\" class=\"nav-item\"><a class=\"dropdown-item nav-link\" href=\"{{prefix}}#{{comp.toLowerCase()}}\">{{comp}}</a></li>\n        </ul>\n      </nav>\n    </div>\n  </header>'''"
+                "1": "templateUrl",
+                "2": "'demo-header.html'"
               },
               {
                 "1": "directives",
-                "2": "const [NgFor, Collapse, DROPDOWN_DIRECTIVES]"
+                "2": "const [N2sCollapse, N2S_DROPDOWN_DIRECTIVES]"
               }
             ],
             "4": false,
@@ -40,13 +40,10 @@
         ],
         "8": [
           {
-            "2": "NgFor"
+            "2": "N2sCollapse"
           },
           {
-            "2": "Collapse"
-          },
-          {
-            "2": "DROPDOWN_DIRECTIVES"
+            "2": "N2S_DROPDOWN_DIRECTIVES"
           }
         ]
       }
@@ -54,11 +51,11 @@
     "6": "demo-header.dart",
     "10": [
       {
-        "1": "package:angular2/angular2.ng_deps.dart",
+        "1": "package:angular2/angular2.template.dart",
         "4": "i0"
       },
       {
-        "1": "package:ng2_strap/index.ng_deps.dart",
+        "1": "package:ng2_strap/index.template.dart",
         "4": "i1"
       }
     ]
@@ -66,14 +63,19 @@
   "DemoHeader": {
     "kind": "type",
     "value": {
+      "class": "Directive",
       "isComponent": true,
       "dynamicLoadable": true,
       "selector": "demo-header",
       "exportAs": null,
       "type": {
+        "class": "Type",
         "name": "DemoHeader",
         "moduleUrl": "asset:ng2_strap/web/components/demo-header.dart",
-        "isHost": false
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": []
       },
       "changeDetection": 5,
       "inputs": {},
@@ -84,12 +86,14 @@
       "lifecycleHooks": [],
       "template": {
         "encapsulation": 2,
-        "template": "    <header class=\"navbar navbar-default navbar-fixed-top navbar-inner bg-faded\">\n    <div class=\"container\">\n      <div class=\"navbar-header hidden-md-up\">\n        <button type=\"button\" class=\"navbar-toggle navbar-toggler pull-right\" (click)=\"isCollapsed = !isCollapsed\">\n          <span class=\"sr-only\">Toggle navigation</span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </button>\n        <a class=\"navbar-brand visible-xs\" href=\"{{prefix}}#\">ng2-bootstrap</a>\n      </div>\n      <nav class=\"hidden-xs hidden-xs-down\">\n        <ul class=\"nav navbar-nav\">\n          <li class=\"nav-item\"><a href=\"{{prefix}}#top\" role=\"button\" class=\"navbar-brand\">ng2-bootstrap</a></li>\n          <li class=\"nav-item dropdown\" dropdown>\n            <a role=\"button\" class=\"nav-link dropdown-toggle\" dropdown-toggle>Directives <b class=\"caret\"></b></a>\n            <ul class=\"dropdown-menu\">\n              <li *ngFor=\"#comp of components\"><a class=\"dropdown-item\" href=\"{{prefix}}#{{comp.toLowerCase()}}\">{{comp}}</a></li>\n            </ul>\n          </li>\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#getting-started\">Getting started</a></li>\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#migration\">Migration</a></li>\n        </ul>\n      </nav>\n      <nav class=\"visible-xs hidden-md-up\">\n        <ul class=\"nav nav-pills nav-stacked scrollable-menu\" [collapse]=\"!isCollapsed\" (click)=\"isCollapsed = !isCollapsed; true\">\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#getting-started\">Getting started</a></li>\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#migration\">Migration</a></li>\n          <li *ngFor=\"#comp of components\" class=\"nav-item\"><a class=\"dropdown-item nav-link\" href=\"{{prefix}}#{{comp.toLowerCase()}}\">{{comp}}</a></li>\n        </ul>\n      </nav>\n    </div>\n  </header>",
-        "templateUrl": "asset:ng2_strap/web/components/demo-header.dart",
+        "template": "<header class=\"navbar navbar-default navbar-fixed-top navbar-inner bg-faded\">\n  <div class=\"container\">\n    <div class=\"navbar-header hidden-md-up\">\n      <button type=\"button\" class=\"navbar-toggle navbar-toggler pull-right\" (click)=\"isCollapsed = !isCollapsed\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand visible-xs\" href=\"{{prefix}}#\">ng2_strap</a>\n    </div>\n    <nav class=\"hidden-xs hidden-xs-down\">\n      <ul class=\"nav navbar-nav\">\n        <li class=\"nav-item\"><a href=\"{{prefix}}#top\" role=\"button\" class=\"navbar-brand\">ng2_strap</a></li>\n        <li class=\"nav-item dropdown\">\n          <a role=\"button\" class=\"nav-link dropdown-toggle\">Directives <b class=\"caret\"></b></a>\n          <ul class=\"dropdown-menu\">\n            <li *ngFor=\"#comp of components\"><a class=\"dropdown-item\" href=\"{{prefix}}#{{comp.toLowerCase()}}\">{{comp}}</a></li>\n          </ul>\n        </li>\n        <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#getting-started\">Getting started</a></li>\n        <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#migration\">Migration</a></li>\n      </ul>\n    </nav>\n    <nav class=\"visible-xs hidden-md-up\">\n      <ul class=\"nav nav-pills nav-stacked scrollable-menu\" [n2sCollapse]=\"isCollapsed\" (click)=\"isCollapsed = !isCollapsed; true\">\n        <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#getting-started\">Getting started</a></li>\n        <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{prefix}}#migration\">Migration</a></li>\n        <li *ngFor=\"#comp of components\" class=\"nav-item\"><a class=\"dropdown-item nav-link\" href=\"{{prefix}}#{{comp.toLowerCase()}}\">{{comp}}</a></li>\n      </ul>\n    </nav>\n  </div>\n</header>",
+        "templateUrl": "asset:ng2_strap/web/components/demo-header.html",
         "styles": [],
         "styleUrls": [],
         "ngContentSelectors": []
-      }
+      },
+      "providers": []
     }
-  }
+  },
+  "definesAlias": false
 }

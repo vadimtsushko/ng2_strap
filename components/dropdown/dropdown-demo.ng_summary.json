@@ -32,7 +32,7 @@
               },
               {
                 "1": "directives",
-                "2": "const [DROPDOWN_DIRECTIVES, CORE_DIRECTIVES]"
+                "2": "const [N2S_DROPDOWN_DIRECTIVES]"
               }
             ],
             "4": false,
@@ -44,10 +44,7 @@
         ],
         "8": [
           {
-            "2": "DROPDOWN_DIRECTIVES"
-          },
-          {
-            "2": "CORE_DIRECTIVES"
+            "2": "N2S_DROPDOWN_DIRECTIVES"
           }
         ]
       }
@@ -57,14 +54,19 @@
   "DropdownDemo": {
     "kind": "type",
     "value": {
+      "class": "Directive",
       "isComponent": true,
       "dynamicLoadable": true,
       "selector": "dropdown-demo",
       "exportAs": null,
       "type": {
+        "class": "Type",
         "name": "DropdownDemo",
         "moduleUrl": "asset:ng2_strap/web/components/dropdown/dropdown-demo.dart",
-        "isHost": false
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": []
       },
       "changeDetection": 5,
       "inputs": {},
@@ -75,12 +77,14 @@
       "lifecycleHooks": [],
       "template": {
         "encapsulation": 2,
-        "template": "<div (click)=\"$event.preventDefault()\">\n  <!-- Simple dropdown -->\n  <span dropdown (on-toggle)=\"toggled($event)\">\n    <a href id=\"simple-dropdown\" dropdown-toggle>\n      Click me for a dropdown, yo!\n    </a>\n    <ul class=\"dropdown-menu\" aria-labelledby=\"simple-dropdown\">\n      <li *ngFor=\"#choice of items\">\n        <a class=\"dropdown-item\" href=\"#\">{{choice}}</a>\n      </li>\n    </ul>\n  </span>\n\n  <!-- Single button -->\n  <div class=\"btn-group\" dropdown [is-open]=\"status['isopen']\">\n    <button id=\"single-button\" type=\"button\" class=\"btn btn-primary\" dropdown-toggle [disabled]=\"disabled\">\n      Button dropdown <span class=\"caret\"></span>\n    </button>\n    <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"single-button\">\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Action</a></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Another action</a></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Something else here</a></li>\n      <li class=\"divider dropdown-divider\"></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Separated link</a></li>\n    </ul>\n  </div>\n\n  <!-- Split button -->\n  <div class=\"btn-group\" dropdown>\n    <button id=\"split-button\" type=\"button\" class=\"btn btn-danger\">Action</button>\n    <button type=\"button\" class=\"btn btn-danger dropdown-toggle\" dropdown-toggle>\n      <span class=\"caret\"></span>\n      <span class=\"sr-only\">Split button!</span>\n    </button>\n    <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"split-button\">\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Action</a></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Another action</a></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Something else here</a></li>\n      <li class=\"divider dropdown-divider\"></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Separated link</a></li>\n    </ul>\n  </div>\n\n  <hr/>\n  <p>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"toggleDropdown($event)\">Toggle button dropdown\n    </button>\n    <button type=\"button\" class=\"btn btn-warning btn-sm\" (click)=\"disabled = !disabled\">Enable/Disable</button>\n  </p>\n\n  <hr>\n  <!-- Single button with keyboard nav -->\n  <div class=\"btn-group\" dropdown [keyboard-nav]=\"true\">\n    <button id=\"simple-btn-keyboard-nav\" type=\"button\" class=\"btn btn-primary\" dropdown-toggle>\n      Dropdown with keyboard navigation <span class=\"caret\"></span>\n    </button>\n    <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"simple-btn-keyboard-nav\">\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Action</a></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Another action</a></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Something else here</a></li>\n      <li class=\"divider dropdown-divider\"></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Separated link</a></li>\n    </ul>\n  </div>\n</div>\n",
+        "template": "<div (click)=\"$event.preventDefault()\">\n  <!-- Simple dropdown -->\n  <n2s-dropdown (on-toggle)=\"toggled($event)\">\n    <a href id=\"simple-dropdown\" n2s-dropdown-toggle>\n      Click me for a dropdown, yo!\n    </a>\n    <ul class=\"dropdown-menu\" aria-labelledby=\"simple-dropdown\">\n      <li *ngFor=\"#choice of items\">\n        <a class=\"dropdown-item\" href=\"#\">{{choice}}</a>\n      </li>\n    </ul>\n  </n2s-dropdown>\n\n  <!-- Single button -->\n  <n2s-dropdown class=\"btn-group\" [isOpen]=\"status['isopen']\">\n    <n2s-dropdown-toggle id=\"single-button\" type=\"button\" class=\"btn btn-primary\" dropdown-toggle [disabled]=\"disabled\">\n      Button dropdown <span class=\"caret\"></span>\n    </n2s-dropdown-toggle>\n    <ul class=\"dropdown-menu\" aria-labelledby=\"single-button\">\n      <li><a class=\"dropdown-item\" href=\"#\">Action</a></li>\n      <li><a class=\"dropdown-item\" href=\"#\">Another action</a></li>\n      <li><a class=\"dropdown-item\" href=\"#\">Something else here</a></li>\n      <li class=\"divider dropdown-divider\"></li>\n      <li><a class=\"dropdown-item\" href=\"#\">Separated link</a></li>\n    </ul>\n  </n2s-dropdown>\n\n  <!-- Split button -->\n  <n2s-dropdown class=\"btn-group\">\n    <button id=\"split-button\" type=\"button\" class=\"btn btn-danger\">Action</button>\n    <n2s-dropdown-toggle type=\"button\" class=\"btn btn-danger\">\n      <span class=\"caret\"></span>\n      <span class=\"sr-only\">Split button!</span>\n    </n2s-dropdown-toggle>\n    <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"split-button\">\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Action</a></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Another action</a></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Something else here</a></li>\n      <li class=\"divider dropdown-divider\"></li>\n      <li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Separated link</a></li>\n    </ul>\n  </n2s-dropdown>\n\n  <hr/>\n  <p>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"toggleDropdown($event)\">Toggle button dropdown\n    </button>\n    <button type=\"button\" class=\"btn btn-warning btn-sm\" (click)=\"disabled = !disabled\">Enable/Disable</button>\n  </p>\n\n  <hr>\n  <!-- Single button with keyboard nav -->\n  <n2s-dropdown class=\"btn-group\" [keyboardNav]=\"true\">\n    <n2s-dropdown-toggle id=\"simple-btn-keyboard-nav\" type=\"button\" class=\"btn btn-primary\" dropdown-toggle>\n      Dropdown with keyboard navigation <span class=\"caret\"></span>\n    </n2s-dropdown-toggle>\n    <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"simple-btn-keyboard-nav\">\n      <li><a class=\"dropdown-item\" href=\"#\">Action</a></li>\n      <li><a class=\"dropdown-item\" href=\"#\">Another action</a></li>\n      <li><a class=\"dropdown-item\" href=\"#\">Something else here</a></li>\n      <li class=\"divider dropdown-divider\"></li>\n      <li><a class=\"dropdown-item\" href=\"#\">Separated link</a></li>\n    </ul>\n  </n2s-dropdown>\n</div>\n",
         "templateUrl": "asset:ng2_strap/web/components/dropdown/dropdown-demo.html",
         "styles": [],
         "styleUrls": [],
         "ngContentSelectors": []
-      }
+      },
+      "providers": []
     }
-  }
+  },
+  "definesAlias": false
 }

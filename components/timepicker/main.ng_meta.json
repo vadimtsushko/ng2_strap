@@ -14,13 +14,14 @@
     "6": "main.dart",
     "10": [
       {
-        "1": "package:angular2/bootstrap_static.ng_deps.dart",
+        "1": "package:angular2/bootstrap_static.template.dart",
         "4": "i0"
       },
       {
-        "1": "timepicker-demo.ng_deps.dart",
+        "1": "timepicker-demo.template.dart",
         "4": "i1"
       }
     ]
-  }
+  },
+  "definesAlias": false
 }

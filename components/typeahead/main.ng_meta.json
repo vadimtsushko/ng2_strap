@@ -18,17 +18,18 @@
     "6": "main.dart",
     "10": [
       {
-        "1": "package:angular2/bootstrap_static.ng_deps.dart",
+        "1": "package:angular2/bootstrap_static.template.dart",
         "4": "i0"
       },
       {
-        "1": "package:angular2/platform/browser.ng_deps.dart",
+        "1": "package:angular2/platform/browser.template.dart",
         "4": "i1"
       },
       {
-        "1": "typeahead-demo.ng_deps.dart",
+        "1": "typeahead-demo.template.dart",
         "4": "i2"
       }
     ]
-  }
+  },
+  "definesAlias": false
 }

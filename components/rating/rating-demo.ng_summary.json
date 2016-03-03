@@ -38,7 +38,7 @@
               },
               {
                 "1": "directives",
-                "2": "const [Rating, NgClass, NgStyle, FORM_DIRECTIVES, CORE_DIRECTIVES]"
+                "2": "const [Rating]"
               }
             ],
             "4": true,
@@ -51,18 +51,6 @@
         "8": [
           {
             "2": "Rating"
-          },
-          {
-            "2": "NgClass"
-          },
-          {
-            "2": "NgStyle"
-          },
-          {
-            "2": "FORM_DIRECTIVES"
-          },
-          {
-            "2": "CORE_DIRECTIVES"
           }
         ]
       }
@@ -72,14 +60,19 @@
   "RatingDemo": {
     "kind": "type",
     "value": {
+      "class": "Directive",
       "isComponent": true,
       "dynamicLoadable": true,
       "selector": "rating-demo",
       "exportAs": null,
       "type": {
+        "class": "Type",
         "name": "RatingDemo",
         "moduleUrl": "asset:ng2_strap/web/components/rating/rating-demo.dart",
-        "isHost": false
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": []
       },
       "changeDetection": 5,
       "inputs": {},
@@ -95,7 +88,9 @@
         "styles": [],
         "styleUrls": [],
         "ngContentSelectors": []
-      }
+      },
+      "providers": []
     }
-  }
+  },
+  "definesAlias": false
 }

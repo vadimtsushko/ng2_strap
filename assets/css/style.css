@@ -246,3 +246,12 @@ pre {
   white-space: -o-pre-wrap;    /* Opera 7 */
   word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
+
+pre.prettyprint {
+  overflow-x: auto;
+}
+
+pre.prettyprint code {
+  display: block;
+  width: 1500px;
+}

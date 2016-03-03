@@ -1,0 +1,5 @@
+<html><head></head><body><ul class="dropdown-menu" [ngstyle]="{top: top, left: left, display: display}" style="display: block">
+  <li *ngfor="#match of matches" [ngclass]="{active: isActive(match) }" (mouseenter)="selectActive(match)">
+    <a href="#" (click)="selectMatch(match, $event)" tabindex="-1" [innerhtml]="highlight(match, query)"></a>
+  </li>
+</ul></body></html>

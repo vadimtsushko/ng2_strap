@@ -1,0 +1,24 @@
+{
+  "ngDeps": null,
+  "Ng2BootstrapTheme": {
+    "kind": "type",
+    "value": {
+      "class": "Identifier",
+      "name": "Ng2BootstrapTheme",
+      "moduleUrl": "asset:ng2_strap/lib/ng2-bootstrap-config.dart",
+      "prefix": null,
+      "constConstructor": null
+    }
+  },
+  "Ng2BootstrapConfig": {
+    "kind": "type",
+    "value": {
+      "class": "Identifier",
+      "name": "Ng2BootstrapConfig",
+      "moduleUrl": "asset:ng2_strap/lib/ng2-bootstrap-config.dart",
+      "prefix": null,
+      "constConstructor": null
+    }
+  },
+  "definesAlias": false
+}

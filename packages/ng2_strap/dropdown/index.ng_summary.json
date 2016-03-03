@@ -1,0 +1,511 @@
+{
+  "ngDeps": {
+    "1": "n2s_dropdown",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:node_shims/js.dart",
+        "5": false
+      },
+      {
+        "1": "dart:html",
+        "5": false
+      },
+      {
+        "1": "dart:async",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "N2sDropdown",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"n2s-dropdown, .dropdown\""
+              },
+              {
+                "1": "host",
+                "2": "const {\"[class.dropdown]\" : \"true\", \"[class.open]\" : \"isOpen\"}"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "ElementRef",
+            "4": "elementRef"
+          }
+        ],
+        "6": [
+          "OnInit",
+          "OnDestroy"
+        ],
+        "7": [
+          {
+            "1": "dropdownAppendToBody",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "autoClose",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "keyboardNav",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "isOpen",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "isOpenChange",
+            "2": [
+              {
+                "1": "Output",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "1": "N2sDropdownMenu",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"n2s-dropdown-menu, .dropdown-menu\""
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "N2sDropdown",
+            "3": [
+              "const Host()"
+            ],
+            "4": "dropdown"
+          },
+          {
+            "1": "ElementRef",
+            "4": "elementRef"
+          }
+        ],
+        "6": [
+          "OnInit"
+        ]
+      },
+      {
+        "1": "N2sDropdownToggle",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"n2s-dropdown-toggle, [n2s-dropdown-toggle], .dropdown-toggle\""
+              },
+              {
+                "1": "host",
+                "2": "const {\"[class.dropdown-toggle]\" : \"true\", \"[class.disabled]\" : \"disabled\", \"[attr.aria-haspopup]\" : \"true\", \"[attr.aria-expanded]\" : \"isOpen\"}"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "N2sDropdown",
+            "3": [
+              "const Host()"
+            ],
+            "4": "dropdown"
+          },
+          {
+            "1": "ElementRef",
+            "4": "elementRef"
+          }
+        ],
+        "6": [
+          "OnInit"
+        ],
+        "7": [
+          {
+            "1": "disabled",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "1": "KeyboardNav",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"[dropdown][keyboard-nav]\""
+              },
+              {
+                "1": "host",
+                "2": "const {\"(keydown)\" : \"onKeydown(\\$event)\"}"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "N2sDropdown",
+            "4": "dd"
+          },
+          {
+            "1": "ElementRef",
+            "4": "el"
+          }
+        ]
+      }
+    ],
+    "6": "index.dart"
+  },
+  "_ALWAYS": {
+    "kind": "type",
+    "value": {
+      "class": "Identifier",
+      "name": "_ALWAYS",
+      "moduleUrl": "asset:ng2_strap/lib/dropdown/index.dart",
+      "prefix": null,
+      "constConstructor": null
+    }
+  },
+  "_DISABLED": {
+    "kind": "type",
+    "value": {
+      "class": "Identifier",
+      "name": "_DISABLED",
+      "moduleUrl": "asset:ng2_strap/lib/dropdown/index.dart",
+      "prefix": null,
+      "constConstructor": null
+    }
+  },
+  "_OUTSIDECLICK": {
+    "kind": "type",
+    "value": {
+      "class": "Identifier",
+      "name": "_OUTSIDECLICK",
+      "moduleUrl": "asset:ng2_strap/lib/dropdown/index.dart",
+      "prefix": null,
+      "constConstructor": null
+    }
+  },
+  "N2S_DROPDOWN_DIRECTIVES": {
+    "kind": "alias",
+    "value": [
+      "N2sDropdown",
+      "N2sDropdownMenu",
+      "N2sDropdownToggle"
+    ]
+  },
+  "N2sDropdown": {
+    "kind": "type",
+    "value": {
+      "class": "Directive",
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "n2s-dropdown, .dropdown",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "N2sDropdown",
+        "moduleUrl": "asset:ng2_strap/lib/dropdown/index.dart",
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": [
+          {
+            "token": null,
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          }
+        ]
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "dropdownAppendToBody": "dropdownAppendToBody",
+        "autoClose": "autoClose",
+        "keyboardNav": "keyboardNav",
+        "isOpen": "isOpen"
+      },
+      "outputs": {
+        "isOpenChange": "isOpenChange"
+      },
+      "hostListeners": {},
+      "hostProperties": {
+        "class.open": "isOpen",
+        "class.dropdown": "true"
+      },
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0,
+        1
+      ],
+      "template": null,
+      "providers": []
+    }
+  },
+  "N2sDropdownMenu": {
+    "kind": "type",
+    "value": {
+      "class": "Directive",
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "n2s-dropdown-menu, .dropdown-menu",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "N2sDropdownMenu",
+        "moduleUrl": "asset:ng2_strap/lib/dropdown/index.dart",
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": [
+          {
+            "token": null,
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": true,
+            "isSkipSelf": false,
+            "isOptional": false
+          },
+          {
+            "token": null,
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          }
+        ]
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": null,
+      "providers": []
+    }
+  },
+  "N2sDropdownToggle": {
+    "kind": "type",
+    "value": {
+      "class": "Directive",
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "n2s-dropdown-toggle, [n2s-dropdown-toggle], .dropdown-toggle",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "N2sDropdownToggle",
+        "moduleUrl": "asset:ng2_strap/lib/dropdown/index.dart",
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": [
+          {
+            "token": null,
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": true,
+            "isSkipSelf": false,
+            "isOptional": false
+          },
+          {
+            "token": null,
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          }
+        ]
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "disabled": "disabled"
+      },
+      "outputs": {},
+      "hostListeners": {
+        "click": "toggleDropdown($event)"
+      },
+      "hostProperties": {
+        "attr.aria-expanded": "isOpen",
+        "attr.aria-haspopup": "true",
+        "class.disabled": "disabled",
+        "class.dropdown-toggle": "true"
+      },
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": null,
+      "providers": []
+    }
+  },
+  "KeyboardNav": {
+    "kind": "type",
+    "value": {
+      "class": "Directive",
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[dropdown][keyboard-nav]",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "KeyboardNav",
+        "moduleUrl": "asset:ng2_strap/lib/dropdown/index.dart",
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": [
+          {
+            "token": null,
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          },
+          {
+            "token": null,
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          }
+        ]
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {
+        "keydown": "onKeydown($event)"
+      },
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null,
+      "providers": []
+    }
+  },
+  "DropdownService": {
+    "kind": "type",
+    "value": {
+      "class": "Identifier",
+      "name": "DropdownService",
+      "moduleUrl": "asset:ng2_strap/lib/dropdown/index.dart",
+      "prefix": null,
+      "constConstructor": null
+    }
+  },
+  "definesAlias": true
+}

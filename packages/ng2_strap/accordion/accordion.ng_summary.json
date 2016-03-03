@@ -1,0 +1,302 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:node_shims/js.dart",
+        "5": false
+      },
+      {
+        "1": "dart:html",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/collapse/collapse.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/common.dart",
+        "5": false
+      },
+      {
+        "1": "dart:async",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "N2sAccordion",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "'n2s-accordion'"
+              },
+              {
+                "1": "host",
+                "2": "const {'[class.panel-group]' : 'true'}"
+              },
+              {
+                "1": "template",
+                "2": "'<ng-content></ng-content>'"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          }
+        ],
+        "7": [
+          {
+            "1": "closeOthers",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "1": "N2sAccordionPanel",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "'n2s-accordion-panel'"
+              },
+              {
+                "1": "host",
+                "2": "const {'[class.panel-open]' : 'isOpen'}"
+              },
+              {
+                "1": "templateUrl",
+                "2": "'accordion_panel.html'"
+              },
+              {
+                "1": "directives",
+                "2": "const [N2sCollapse, N2sTransclude]"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "N2sAccordion",
+            "4": "accordion"
+          }
+        ],
+        "6": [
+          "OnInit",
+          "OnDestroy"
+        ],
+        "7": [
+          {
+            "1": "panelClass",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "heading",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "isDisabled",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "isOpenChange",
+            "2": [
+              {
+                "1": "Output",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "isOpen",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          }
+        ],
+        "8": [
+          {
+            "2": "N2sCollapse"
+          },
+          {
+            "2": "N2sTransclude"
+          }
+        ]
+      }
+    ],
+    "6": "accordion.dart"
+  },
+  "N2S_ACCORDION_DIRECTIVES": {
+    "kind": "alias",
+    "value": [
+      "N2sAccordion",
+      "N2sAccordionPanel"
+    ]
+  },
+  "N2sAccordion": {
+    "kind": "type",
+    "value": {
+      "class": "Directive",
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "n2s-accordion",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "N2sAccordion",
+        "moduleUrl": "asset:ng2_strap/lib/accordion/accordion.dart",
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": []
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "closeOthers": "closeOthers"
+      },
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {
+        "class.panel-group": "true"
+      },
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "<ng-content></ng-content>",
+        "templateUrl": "asset:ng2_strap/lib/accordion/accordion.dart",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": [
+          "*"
+        ]
+      },
+      "providers": []
+    }
+  },
+  "N2sAccordionPanel": {
+    "kind": "type",
+    "value": {
+      "class": "Directive",
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "n2s-accordion-panel",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "N2sAccordionPanel",
+        "moduleUrl": "asset:ng2_strap/lib/accordion/accordion.dart",
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": [
+          {
+            "token": null,
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          }
+        ]
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "panelClass": "panelClass",
+        "heading": "heading",
+        "isDisabled": "isDisabled",
+        "isOpen": "isOpen"
+      },
+      "outputs": {
+        "isOpenChange": "isOpenChange"
+      },
+      "hostListeners": {},
+      "hostProperties": {
+        "class.panel-open": "isOpen"
+      },
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0,
+        1
+      ],
+      "template": {
+        "encapsulation": 2,
+        "template": "<div class=\"panel\" [ngClass]=\"panelClass\">\n  <div class=\"panel-heading\" (click)=\"toggleOpen($event)\">\n    <h4 class=\"panel-title\">\n      <a href tabindex=\"0\" class=\"accordion-toggle\">\n        {{heading}}\n        <ng-content select=\"n2s-accordion-heading\"></ng-content>\n      </a>\n    </h4>\n  </div>\n  <div class=\"panel-collapse collapse\" [n2sCollapse]=\"!isOpen\">\n    <div class=\"panel-body\">\n      <ng-content></ng-content>\n    </div>\n  </div>\n</div>\n  ",
+        "templateUrl": "asset:ng2_strap/lib/accordion/accordion_panel.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": [
+          "n2s-accordion-heading",
+          "*"
+        ]
+      },
+      "providers": []
+    }
+  },
+  "definesAlias": true
+}

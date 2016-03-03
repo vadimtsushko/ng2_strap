@@ -32,7 +32,7 @@
               },
               {
                 "1": "directives",
-                "2": "const [CAROUSEL_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES]"
+                "2": "const [N2S_CAROUSEL_DIRECTIVES]"
               }
             ],
             "4": false,
@@ -44,13 +44,7 @@
         ],
         "8": [
           {
-            "2": "CAROUSEL_DIRECTIVES"
-          },
-          {
-            "2": "CORE_DIRECTIVES"
-          },
-          {
-            "2": "FORM_DIRECTIVES"
+            "2": "N2S_CAROUSEL_DIRECTIVES"
           }
         ]
       }
@@ -58,11 +52,11 @@
     "6": "carousel-demo.dart",
     "10": [
       {
-        "1": "package:angular2/angular2.ng_deps.dart",
+        "1": "package:angular2/angular2.template.dart",
         "4": "i0"
       },
       {
-        "1": "package:ng2_strap/carousel/carousel.ng_deps.dart",
+        "1": "package:ng2_strap/carousel/carousel.template.dart",
         "4": "i1"
       }
     ]
@@ -70,14 +64,19 @@
   "CarouselDemo": {
     "kind": "type",
     "value": {
+      "class": "Directive",
       "isComponent": true,
       "dynamicLoadable": true,
       "selector": "carousel-demo",
       "exportAs": null,
       "type": {
+        "class": "Type",
         "name": "CarouselDemo",
         "moduleUrl": "asset:ng2_strap/web/components/carousel/carousel-demo.dart",
-        "isHost": false
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": []
       },
       "changeDetection": 5,
       "inputs": {},
@@ -88,12 +87,14 @@
       "lifecycleHooks": [],
       "template": {
         "encapsulation": 2,
-        "template": "<div class=\"row\">\n  <div class=\"col-md-6\">\n    <n2s-carousel [interval]=\"myInterval\" [noWrap]=\"noWrapSlides\">\n      <n2s-slide *ngFor=\"#slidez of slides; #index=index\"\n             [active]=\"slidez['active'] != null ? slidez['active'] : false \">\n        <img [src]=\"slidez['image']\">\n\n        <div class=\"carousel-caption\">\n          <h4>Slide {{index}}</h4>\n\n          <p>{{slidez['text']}}</p>\n        </div>\n      </n2s-slide>\n    </n2s-carousel>\n  </div>\n\n  <div class=\"col-md-6\">\n    <button type=\"button\" class=\"btn btn-info\"\n            (click)=\"addSlide()\">Add Slide\n    </button>\n    <!-- issue: removing currently active slide should not lead to white screen? -->\n    <!--<button type=\"button\" class=\"btn btn-info\"-->\n            <!--(click)=\"removeSlide(2)\">Remove Slide#3-->\n    <!--</button>-->\n    <br>\n\n    <div class=\"checkbox\">\n      <label>\n        <input type=\"checkbox\" [(ngModel)]=\"noWrapSlides\">\n        Disable Slide Looping\n      </label>\n    </div>\n\n    Interval, in milliseconds: <input type=\"number\" class=\"form-control\" [(ngModel)]=\"myInterval\">\n    <br/>Enter a negative number or 0 to stop the interval.\n  </div>\n</div>\n",
+        "template": "<div>\n  <div>\n    <n2s-carousel [interval]=\"myIntervalInMs\" [noWrap]=\"noWrapSlides\">\n      <n2s-slide *ngFor=\"#slide of slides; #index=index\"\n             [active]=\"slide['active'] != null ? slide['active'] : false \">\n        <img [src]=\"slide['image']\">\n\n        <div class=\"carousel-caption\">\n          <h4>Slide {{index}}</h4>\n\n          <p>{{slide['text']}}</p>\n        </div>\n      </n2s-slide>\n    </n2s-carousel>\n  </div>\n  <br>\n  <div>\n    <button type=\"button\" class=\"btn btn-info\"\n            (click)=\"addSlide()\">Add Slide\n    </button>\n    <!-- issue: removing currently active slide should not lead to white screen? -->\n    <!--<button type=\"button\" class=\"btn btn-info\"-->\n            <!--(click)=\"removeSlide(2)\">Remove Slide#3-->\n    <!--</button>-->\n    <br>\n\n    <div class=\"checkbox\">\n      <label>\n        <input type=\"checkbox\" [(ngModel)]=\"noWrapSlides\">\n        Disable Slide Looping\n      </label>\n    </div>\n\n    Interval, in seconds: <input type=\"number\" class=\"form-control\" [(ngModel)]=\"myIntervalInSeconds\">\n    <br/>Enter a negative number or 0 to stop the interval.\n  </div>\n</div>\n",
         "templateUrl": "asset:ng2_strap/web/components/carousel/carousel-demo.html",
         "styles": [],
         "styleUrls": [],
         "ngContentSelectors": []
-      }
+      },
+      "providers": []
     }
-  }
+  },
+  "definesAlias": false
 }

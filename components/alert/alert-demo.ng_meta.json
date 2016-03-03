@@ -4,18 +4,10 @@
     "3": [
       {
         "1": "package:angular2/angular2.dart",
-        "2": [
-          "Component",
-          "View",
-          "NgFor"
-        ],
         "5": false
       },
       {
         "1": "package:ng2_strap/alert/alert.dart",
-        "2": [
-          "Alert"
-        ],
         "5": false
       }
     ],
@@ -36,7 +28,7 @@
               },
               {
                 "1": "directives",
-                "2": "const [Alert, NgFor]"
+                "2": "const [N2sAlert]"
               }
             ],
             "4": false,
@@ -48,10 +40,7 @@
         ],
         "8": [
           {
-            "2": "Alert"
-          },
-          {
-            "2": "NgFor"
+            "2": "N2sAlert"
           }
         ]
       }
@@ -59,11 +48,11 @@
     "6": "alert-demo.dart",
     "10": [
       {
-        "1": "package:angular2/angular2.ng_deps.dart",
+        "1": "package:angular2/angular2.template.dart",
         "4": "i0"
       },
       {
-        "1": "package:ng2_strap/alert/alert.ng_deps.dart",
+        "1": "package:ng2_strap/alert/alert.template.dart",
         "4": "i1"
       }
     ]
@@ -71,14 +60,19 @@
   "AlertDemo": {
     "kind": "type",
     "value": {
+      "class": "Directive",
       "isComponent": true,
       "dynamicLoadable": true,
       "selector": "alert-demo",
       "exportAs": null,
       "type": {
+        "class": "Type",
         "name": "AlertDemo",
         "moduleUrl": "asset:ng2_strap/web/components/alert/alert-demo.dart",
-        "isHost": false
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": []
       },
       "changeDetection": 5,
       "inputs": {},
@@ -89,12 +83,14 @@
       "lifecycleHooks": [],
       "template": {
         "encapsulation": 2,
-        "template": "<n2s-alert [dismissible]=\"true\">This alert is closeable/dismissible</n2s-alert>\n<n2s-alert type=\"info\">This alert is info</n2s-alert>\n\n<n2s-alert *ngFor=\"#alert of alerts;#i = index\" [type]=\"alert['type']\" (close)=\"closeAlert(i)\"\n           [dismissible]=\"alert['closable']\">\n  {{ alert['msg'] }}\n</n2s-alert>\n\n<n2s-alert [dismissOnTimeout]=\"3000\">This alert will dismiss in 3s</n2s-alert>\n\n<button type=\"button\" class='btn btn-primary' (click)=\"addAlert()\">Add Alert</button>\n",
+        "template": "<n2s-alert [closeable]=\"true\">This alert is closeable/dismissible</n2s-alert>\n<n2s-alert type=\"info\">This alert is info</n2s-alert>\n\n<n2s-alert *ngFor=\"#alert of alerts;#i = index\" [type]=\"alert['type']\" (close)=\"closeAlert(i)\"\n           [closeable]=\"alert['closable']\">\n  {{ alert['msg'] }}\n</n2s-alert>\n\n<n2s-alert [dismissOnTimeout]=\"3000\">This alert will dismiss in 3s</n2s-alert>\n\n<button type=\"button\" class='btn btn-primary' (click)=\"addAlert()\">Add Alert</button>\n",
         "templateUrl": "asset:ng2_strap/web/components/alert/alert-demo.html",
         "styles": [],
         "styleUrls": [],
         "ngContentSelectors": []
-      }
+      },
+      "providers": []
     }
-  }
+  },
+  "definesAlias": false
 }

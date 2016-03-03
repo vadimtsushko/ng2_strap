@@ -46,7 +46,7 @@
               },
               {
                 "1": "directives",
-                "2": "const [TABS_DIRECTIVES, CORE_DIRECTIVES]"
+                "2": "const [N2S_TABS_DIRECTIVES]"
               }
             ],
             "4": true,
@@ -58,10 +58,7 @@
         ],
         "8": [
           {
-            "2": "TABS_DIRECTIVES"
-          },
-          {
-            "2": "CORE_DIRECTIVES"
+            "2": "N2S_TABS_DIRECTIVES"
           }
         ]
       }
@@ -71,14 +68,19 @@
   "TabsDemo": {
     "kind": "type",
     "value": {
+      "class": "Directive",
       "isComponent": true,
       "dynamicLoadable": true,
       "selector": "tabs-demo",
       "exportAs": null,
       "type": {
+        "class": "Type",
         "name": "TabsDemo",
         "moduleUrl": "asset:ng2_strap/web/components/tabs/tabs-demo.dart",
-        "isHost": false
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": []
       },
       "changeDetection": 5,
       "inputs": {},
@@ -89,12 +91,14 @@
       "lifecycleHooks": [],
       "template": {
         "encapsulation": 2,
-        "template": "<div (click)=\"$event.preventDefault()\">\n  <p>Select a tab by setting active binding to true:</p>\n  <p>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"tabs[0]['active'] = true\">Select second tab</button>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"tabs[1]['active'] = true\">Select third tab</button>\n  </p>\n  <p>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"tabs[1]['disabled'] = ! tabs[1]['disabled']\">Enable / Disable third tab</button>\n  </p>\n  <hr />\n  <n2s-tabset>\n    <n2s-tab heading=\"Static title\">Static content</n2s-tab>\n    <n2s-tab *ngFor=\"#tabz of tabs\"\n         [heading]=\"tabz['title']\"\n         [active]=\"tabz['active'] == true\"\n         (deselect)=\"tabz['active'] = false\"\n         [disabled]=\"tabz['disabled'] == true\">\n      {{tabz['content']}}\n    </n2s-tab>\n    <n2s-tab (select)=\"alertMe()\">\n      <template n2s-tab-heading>\n        <i class=\"glyphicon glyphicon-bell\"></i> Alert!\n      </template>\n      I've got an HTML heading, and a select callback. Pretty cool!\n    </n2s-tab>\n  </n2s-tabset>\n\n  <hr />\n\n  <n2s-tabset [vertical]=\"true\" type=\"pills\">\n    <n2s-tab heading=\"Vertical 1\">Vertical content 1</n2s-tab>\n    <n2s-tab heading=\"Vertical 2\">Vertical content 2</n2s-tab>\n  </n2s-tabset>\n\n  <hr />\n\n  <p><i>Bootstrap 4 doesn't have justified classes</i></p>\n  <n2s-tabset [justified]=\"true\">\n    <n2s-tab heading=\"Justified\">Justified content</n2s-tab>\n    <n2s-tab heading=\"SJ\">Short Labeled Justified content</n2s-tab>\n    <n2s-tab heading=\"Long Justified\">Long Labeled Justified content</n2s-tab>\n  </n2s-tabset>\n</div>\n",
+        "template": "<div (click)=\"$event.preventDefault()\">\n  <p>Select a tab by setting active binding to true:</p>\n  <p>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"tabs[0]['active'] = true\">Select second tab</button>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"tabs[1]['active'] = true\">Select third tab</button>\n  </p>\n  <p>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"tabs[1]['disabled'] = ! tabs[1]['disabled']\">Enable / Disable third tab</button>\n  </p>\n  <hr />\n  <n2s-tab-set>\n    <n2s-tab heading=\"Static title\">Static content</n2s-tab>\n    <n2s-tab *ngFor=\"#tabz of tabs\"\n         [heading]=\"tabz['title']\"\n         [active]=\"tabz['active'] == true\"\n         (deselect)=\"tabz['active'] = false\"\n         [disabled]=\"tabz['disabled'] == true\">\n      {{tabz['content']}}\n    </n2s-tab>\n    <n2s-tab (select)=\"alertMe()\">\n      <template n2s-tab-heading>\n        <i class=\"glyphicon glyphicon-bell\"></i> Alert!\n      </template>\n      I've got an HTML heading, and a select callback. Pretty cool!\n    </n2s-tab>\n  </n2s-tab-set>\n\n  <hr />\n\n  <n2s-tab-set [vertical]=\"true\" type=\"pills\">\n    <n2s-tab heading=\"Vertical 1\">Vertical content 1</n2s-tab>\n    <n2s-tab heading=\"Vertical 2\">Vertical content 2</n2s-tab>\n  </n2s-tab-set>\n\n  <hr />\n\n  <p><i>Bootstrap 4 doesn't have justified classes</i></p>\n  <n2s-tab-set [justified]=\"true\">\n    <n2s-tab heading=\"Justified\">Justified content</n2s-tab>\n    <n2s-tab heading=\"SJ\">Short Labeled Justified content</n2s-tab>\n    <n2s-tab heading=\"Long Justified\">Long Labeled Justified content</n2s-tab>\n  </n2s-tab-set>\n</div>\n",
         "templateUrl": "asset:ng2_strap/web/components/tabs/tabs-demo.html",
         "styles": [],
         "styleUrls": [],
         "ngContentSelectors": []
-      }
+      },
+      "providers": []
     }
-  }
+  },
+  "definesAlias": false
 }

@@ -21,6 +21,14 @@
               {
                 "1": "selector",
                 "2": "\"accordion-demo\""
+              },
+              {
+                "1": "templateUrl",
+                "2": "\"accordion-demo.html\""
+              },
+              {
+                "1": "directives",
+                "2": "const [N2S_ACCORDION_DIRECTIVES]"
               }
             ],
             "4": false,
@@ -28,38 +36,11 @@
             "6": true,
             "7": true,
             "8": false
-          },
-          {
-            "1": "View",
-            "3": [
-              {
-                "1": "templateUrl",
-                "2": "\"./accordion-demo.html\""
-              },
-              {
-                "1": "directives",
-                "2": "const [ACCORDION_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]"
-              }
-            ],
-            "4": true,
-            "5": false,
-            "6": false,
-            "7": false,
-            "8": false
           }
         ],
         "8": [
           {
-            "2": "ACCORDION_DIRECTIVES"
-          },
-          {
-            "2": "NgClass"
-          },
-          {
-            "2": "CORE_DIRECTIVES"
-          },
-          {
-            "2": "FORM_DIRECTIVES"
+            "2": "N2S_ACCORDION_DIRECTIVES"
           }
         ]
       }
@@ -69,14 +50,19 @@
   "AccordionDemo": {
     "kind": "type",
     "value": {
+      "class": "Directive",
       "isComponent": true,
       "dynamicLoadable": true,
       "selector": "accordion-demo",
       "exportAs": null,
       "type": {
+        "class": "Type",
         "name": "AccordionDemo",
         "moduleUrl": "asset:ng2_strap/web/components/accordion/accordion-demo.dart",
-        "isHost": false
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": []
       },
       "changeDetection": 5,
       "inputs": {},
@@ -87,12 +73,14 @@
       "lifecycleHooks": [],
       "template": {
         "encapsulation": 2,
-        "template": "<p>\n  <button type=\"button\" class=\"btn btn-primary btn-sm\"\n          (click)=\"accLastPanel.isOpen = !accLastPanel.isOpen\">Toggle last panel\n  </button>\n  <button type=\"button\" class=\"btn btn-primary btn-sm\"\n          (click)=\"status['isFirstDisabled'] = ! status['isFirstDisabled']\">Enable / Disable first panel\n  </button>\n</p>\n\n<div class=\"checkbox\">\n  <label>\n    <input type=\"checkbox\" [(ngModel)]=\"oneAtATime\">\n    Open only one at a time\n  </label>\n</div>\n<n2s-accordion [close-others]=\"oneAtATime\">\n  <n2s-accordion-panel heading=\"Static Header, initially expanded\"\n                   [is-open]=\"status['isFirstOpen']\"\n                   [is-disabled]=\"status['isFirstDisabled']\">\n    This content is straight in the template.\n  </n2s-accordion-panel>\n  <n2s-accordion-panel heading=\"{{group['title']}}\" *ngFor=\"#group of groups\">\n    {{group['content']}}\n  </n2s-accordion-panel>\n  <n2s-accordion-panel heading=\"Dynamic Body Content\">\n    <p>The body of the accordion group grows to fit the contents</p>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"addItem()\">Add Item</button>\n    <div *ngFor=\"#item of items\">{{item}}</div>\n  </n2s-accordion-panel>\n  <n2s-accordion-panel #accLastPanel>\n    <n2s-accordion-heading>\n      I can have markup, too!\n      <i class=\"pull-right glyphicon\"\n         [ngClass]=\"{'glyphicon-chevron-down': accLastPanel.isOpen, 'glyphicon-chevron-right': !accLastPanel.isOpen}\"></i>\n    </n2s-accordion-heading>\n    This is just some content to illustrate fancy headings.\n  </n2s-accordion-panel>\n</n2s-accordion>\n",
+        "template": "<p>\n  <button type=\"button\" class=\"btn btn-primary btn-sm\"\n          (click)=\"status['isLastOpen'] = !status['isLastOpen']\">Toggle last panel\n  </button>\n  <button type=\"button\" class=\"btn btn-primary btn-sm\"\n          (click)=\"status['isFirstDisabled'] = ! status['isFirstDisabled']\">Enable / Disable first panel\n  </button>\n</p>\n\n<div class=\"checkbox\">\n  <label>\n    <input type=\"checkbox\" [(ngModel)]=\"oneAtATime\">\n    Open only one at a time\n  </label>\n</div>\n<n2s-accordion [closeOthers]=\"oneAtATime\">\n  <n2s-accordion-panel heading=\"Static Header, initially expanded\"\n                   [isOpen]=\"status['isFirstOpen']\"\n                   [isDisabled]=\"status['isFirstDisabled']\">\n    This content is straight in the template.\n  </n2s-accordion-panel>\n  <n2s-accordion-panel heading=\"{{group['title']}}\" *ngFor=\"#group of groups\">\n    {{group['content']}}\n  </n2s-accordion-panel>\n  <n2s-accordion-panel heading=\"Dynamic Body Content,\" #ap4>\n    <n2s-accordion-heading>\n      I can have markup, too!\n      <i class=\"pull-right glyphicon\"\n         [ngClass]=\"{'glyphicon-chevron-down': ap4.isOpen, 'glyphicon-chevron-right': !ap4.isOpen}\"></i>\n    </n2s-accordion-heading>\n    <p>The body of the accordion group grows to fit the contents</p>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"addItem()\">Add Item</button>\n    <div *ngFor=\"#item of items\">{{item}}</div>\n  </n2s-accordion-panel>\n  <n2s-accordion-panel [(isOpen)]=\"status['isLastOpen']\">\n    <n2s-accordion-heading>\n      I can have markup, too!\n      <i class=\"pull-right glyphicon\"\n         [ngClass]=\"{'glyphicon-chevron-down': status['isLastOpen'], 'glyphicon-chevron-right': !status['isLastOpen']}\"></i>\n    </n2s-accordion-heading>\n    This is just some content to illustrate fancy headings.\n  </n2s-accordion-panel>\n</n2s-accordion>\n",
         "templateUrl": "asset:ng2_strap/web/components/accordion/accordion-demo.html",
         "styles": [],
         "styleUrls": [],
         "ngContentSelectors": []
-      }
+      },
+      "providers": []
     }
-  }
+  },
+  "definesAlias": false
 }

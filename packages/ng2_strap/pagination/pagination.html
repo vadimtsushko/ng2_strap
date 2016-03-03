@@ -1,0 +1,21 @@
+<html><head></head><body><ul class="pagination" [ngclass]="'pagination-' + classes">
+  <li class="pagination-first" [ngclass]="{disabled: noPrevious() || disabled, hidden: !boundaryLinks}" *ngif="boundaryLinks">
+    <a href="" (click)="selectPage(1, $event)">{{firstText}}</a>
+  </li>
+
+  <li class="pagination-prev" [ngclass]="{disabled: noPrevious()||disabled, hidden: !directionLinks}" *ngif="directionLinks">
+    <a href="" (click)="selectPage(currentPage - 1, $event)">{{previousText}}</a>
+  </li>
+
+  <li *ngfor="#page of pages" [ngclass]="{active: page['active'], disabled: disabled &amp;&amp; !page['active']}" class="pagination-page">
+    <a href="" (click)="selectPage(page['number'], $event)">{{page['text']}}</a>
+  </li>
+
+  <li class="pagination-next" [ngclass]="{disabled: noNext() || disabled, hidden: !directionLinks}" *ngif="directionLinks">
+    <a href="" (click)="selectPage(currentPage + 1, $event)">{{nextText}}</a>
+  </li>
+
+  <li class="pagination-last" [ngclass]="{disabled: noNext() || disabled, hidden: !boundaryLinks}" *ngif="boundaryLinks">
+    <a href="" (click)="selectPage(totalPages, $event)">{{lastText}}</a>
+  </li>
+</ul></body></html>

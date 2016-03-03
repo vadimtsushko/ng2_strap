@@ -38,16 +38,12 @@
                 "2": "\"demo-section\""
               },
               {
-                "1": "inputs",
-                "2": "const ['name']"
-              },
-              {
                 "1": "templateUrl",
                 "2": "'demo-section.html'"
               },
               {
                 "1": "directives",
-                "2": "const [AccordionDemo, TABS_DIRECTIVES, CORE_DIRECTIVES]"
+                "2": "const [N2S_TABS_DIRECTIVES]"
               }
             ],
             "4": false,
@@ -69,15 +65,24 @@
         "6": [
           "OnInit"
         ],
+        "7": [
+          {
+            "1": "name",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          }
+        ],
         "8": [
           {
-            "2": "AccordionDemo"
-          },
-          {
-            "2": "TABS_DIRECTIVES"
-          },
-          {
-            "2": "CORE_DIRECTIVES"
+            "2": "N2S_TABS_DIRECTIVES"
           }
         ]
       }
@@ -87,14 +92,36 @@
   "DemoSection": {
     "kind": "type",
     "value": {
+      "class": "Directive",
       "isComponent": true,
       "dynamicLoadable": true,
       "selector": "demo-section",
       "exportAs": null,
       "type": {
+        "class": "Type",
         "name": "DemoSection",
         "moduleUrl": "asset:ng2_strap/web/components/demo-section.dart",
-        "isHost": false
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": [
+          {
+            "token": {
+              "class": "Identifier",
+              "name": "ViewContainerRef",
+              "moduleUrl": null,
+              "prefix": null,
+              "constConstructor": null
+            },
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          }
+        ]
       },
       "changeDetection": 5,
       "inputs": {
@@ -109,14 +136,16 @@
       ],
       "template": {
         "encapsulation": 2,
-        "template": "<br>\n<section id=\"{{name.toLowerCase()}}\">\n    <div class=\"row\">\n        <h1>{{name}}\n            <small>(<a href=\"{{src}}\">src</a>)\n            </small>\n        </h1>\n    </div>\n\n    <hr>\n\n    <div class=\"row\">\n        <div class=\"col-md-12\" id=\"titleDoc\"></div>\n    </div>\n\n    <div class=\"row\">\n        <h2>Example</h2>\n\n        <div class=\"card card-block panel panel-default panel-body\">\n            <ng-content></ng-content>\n        </div>\n    </div>\n\n    <br>\n\n    <div class=\"row\">\n        <n2s-tabset>\n            <n2s-tab heading=\"Markup\">\n                <div class=\"card card-block panel panel-default panel-body\">\n                    <pre class=\"language-html\"><code class=\"language-html\">{{html}}</code></pre>\n                </div>\n            </n2s-tab>\n            <n2s-tab heading=\"Dart\">\n                <div class=\"card card-block panel panel-default panel-body\">\n                    <pre class=\"language-typescript\"><code class=\"language-typescript\">{{dart}}</code></pre>\n                </div>\n            </n2s-tab>\n        </n2s-tabset>\n    </div>\n\n    <br>\n\n    <div class=\"row\">\n        <h2>API</h2>\n\n        <div class=\"card card-block panel panel-default panel-body\" id=\"doc\"></div>\n    </div>\n</section>\n",
+        "template": "<section id=\"{{name.toLowerCase()}}\">\n  <h1>{{name}} <small>(<a href=\"{{docUrl}}\">documentation</a>)</small></h1>\n\n  <hr>\n\n  <div class=\"col-lg-5\">\n    <h2>Example</h2>\n\n    <div class=\"card card-block panel panel-default panel-body\">\n      <ng-content></ng-content>\n    </div>\n  </div>\n\n  <br>\n\n  <div class=\"col-lg-7\">\n    <n2s-tab-set>\n      <n2s-tab heading=\"Markup\">\n        <pre class=\"prettyprint\"><code class=\"language-html\">{{html}}</code></pre>\n      </n2s-tab>\n      <n2s-tab heading=\"Dart\">\n        <pre class=\"prettyprint\"><code class=\"language-dart\">{{dart}}</code></pre>\n      </n2s-tab>\n    </n2s-tab-set>\n  </div>\n\n</section>\n",
         "templateUrl": "asset:ng2_strap/web/components/demo-section.html",
         "styles": [],
         "styleUrls": [],
         "ngContentSelectors": [
           "*"
         ]
-      }
+      },
+      "providers": []
     }
-  }
+  },
+  "definesAlias": false
 }

@@ -1,5 +1,5 @@
 <html><head></head><body><p>
-  <button type="button" class="btn btn-primary btn-sm" (click)="accLastPanel.isOpen = !accLastPanel.isOpen">Toggle last panel
+  <button type="button" class="btn btn-primary btn-sm" (click)="status['isLastOpen'] = !status['isLastOpen']">Toggle last panel
   </button>
   <button type="button" class="btn btn-primary btn-sm" (click)="status['isFirstDisabled'] = ! status['isFirstDisabled']">Enable / Disable first panel
   </button>
@@ -11,22 +11,26 @@
     Open only one at a time
   </label>
 </div>
-<n2s-accordion [close-others]="oneAtATime">
-  <n2s-accordion-panel heading="Static Header, initially expanded" [is-open]="status['isFirstOpen']" [is-disabled]="status['isFirstDisabled']">
+<n2s-accordion [closeothers]="oneAtATime">
+  <n2s-accordion-panel heading="Static Header, initially expanded" [isopen]="status['isFirstOpen']" [isdisabled]="status['isFirstDisabled']">
     This content is straight in the template.
   </n2s-accordion-panel>
   <n2s-accordion-panel heading="{{group['title']}}" *ngfor="#group of groups">
     {{group['content']}}
   </n2s-accordion-panel>
-  <n2s-accordion-panel heading="Dynamic Body Content">
+  <n2s-accordion-panel heading="Dynamic Body Content," #ap4="">
+    <n2s-accordion-heading>
+      I can have markup, too!
+      <i class="pull-right glyphicon" [ngclass]="{'glyphicon-chevron-down': ap4.isOpen, 'glyphicon-chevron-right': !ap4.isOpen}"></i>
+    </n2s-accordion-heading>
     <p>The body of the accordion group grows to fit the contents</p>
     <button type="button" class="btn btn-primary btn-sm" (click)="addItem()">Add Item</button>
     <div *ngfor="#item of items">{{item}}</div>
   </n2s-accordion-panel>
-  <n2s-accordion-panel #acclastpanel="">
+  <n2s-accordion-panel [(isopen)]="status['isLastOpen']">
     <n2s-accordion-heading>
       I can have markup, too!
-      <i class="pull-right glyphicon" [ngclass]="{'glyphicon-chevron-down': accLastPanel.isOpen, 'glyphicon-chevron-right': !accLastPanel.isOpen}"></i>
+      <i class="pull-right glyphicon" [ngclass]="{'glyphicon-chevron-down': status['isLastOpen'], 'glyphicon-chevron-right': !status['isLastOpen']}"></i>
     </n2s-accordion-heading>
     This is just some content to illustrate fancy headings.
   </n2s-accordion-panel>

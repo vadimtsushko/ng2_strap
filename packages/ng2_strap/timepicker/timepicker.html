@@ -1,0 +1,26 @@
+<html><head></head><body><table>
+  <tbody>
+  <tr class="text-center" [ngclass]="{hidden: !showSpinners}">
+    <td><a (click)="incrementHours()" [ngclass]="{disabled: noIncrementHours()}" class="btn btn-link"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
+    <td>&nbsp;</td>
+    <td><a (click)="incrementMinutes()" [ngclass]="{disabled: noIncrementMinutes()}" class="btn btn-link"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
+    <td [ngclass]="{hidden: !showMeridian}" [hidden]="!showMeridian"></td>
+  </tr>
+  <tr>
+    <td class="form-group" [ngclass]="{'has-error': invalidHours}">
+      <input style="width:50px;" type="text" [(ngmodel)]="hours" (change)="updateHours()" class="form-control text-center" [readonly]="readonlyInput" (blur)="hoursOnBlur($event)" maxlength="2">
+    </td>
+    <td>:</td>
+    <td class="form-group" [ngclass]="{'has-error': invalidMinutes}">
+      <input style="width:50px;" type="text" [(ngmodel)]="minutes" (change)="updateMinutes()" class="form-control text-center" [readonly]="readonlyInput" (blur)="minutesOnBlur($event)" maxlength="2">
+    </td>
+    <td [ngclass]="{hidden: !showMeridian}" [hidden]="!showMeridian"><button type="button" [ngclass]="{disabled: noToggleMeridian()}" class="btn btn-default text-center" (click)="toggleMeridian()">{{meridian}}</button></td>
+  </tr>
+  <tr class="text-center" [ngclass]="{hidden: !showSpinners}">
+    <td><a (click)="decrementHours()" [ngclass]="{disabled: noDecrementHours()}" class="btn btn-link"><span class="glyphicon glyphicon-chevron-down"></span></a></td>
+    <td>&nbsp;</td>
+    <td><a (click)="decrementMinutes()" [ngclass]="{disabled: noDecrementMinutes()}" class="btn btn-link"><span class="glyphicon glyphicon-chevron-down"></span></a></td>
+    <td [ngclass]="{hidden: !showMeridian}" [hidden]="!showMeridian"></td>
+  </tr>
+  </tbody>
+</table></body></html>

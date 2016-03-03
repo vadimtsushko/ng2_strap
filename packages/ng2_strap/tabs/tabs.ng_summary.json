@@ -1,0 +1,386 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/common.dart",
+        "5": false
+      },
+      {
+        "1": "package:node_shims/js.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "N2sTabSet",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"n2s-tab-set\""
+              },
+              {
+                "1": "templateUrl",
+                "2": "'tabset.html'"
+              },
+              {
+                "1": "directives",
+                "2": "const [N2sTransclude]"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          }
+        ],
+        "6": [
+          "OnInit"
+        ],
+        "7": [
+          {
+            "1": "vertical",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "justified",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "type",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          }
+        ],
+        "8": [
+          {
+            "2": "N2sTransclude"
+          }
+        ]
+      },
+      {
+        "1": "N2sTab",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"n2s-tab\""
+              },
+              {
+                "1": "host",
+                "2": "const {\"[class.tab-pane]\" : \"true\", \"[class.active]\" : \"active\"}"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "N2sTabSet",
+            "4": "tabset"
+          }
+        ],
+        "6": [
+          "OnInit",
+          "OnDestroy"
+        ],
+        "7": [
+          {
+            "1": "disabled",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "heading",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "select",
+            "2": [
+              {
+                "1": "Output",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "deselect",
+            "2": [
+              {
+                "1": "Output",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          },
+          {
+            "1": "active",
+            "2": [
+              {
+                "1": "Input",
+                "4": false,
+                "5": false,
+                "6": false,
+                "7": false,
+                "8": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "1": "N2sTabHeading",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"[n2s-tab-heading]\""
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "TemplateRef",
+            "4": "templateRef"
+          },
+          {
+            "1": "N2sTab",
+            "4": "tab"
+          }
+        ]
+      }
+    ],
+    "6": "tabs.dart"
+  },
+  "N2S_TABS_DIRECTIVES": {
+    "kind": "alias",
+    "value": [
+      "N2sTab",
+      "N2sTabHeading",
+      "N2sTabSet"
+    ]
+  },
+  "N2sTab": {
+    "kind": "type",
+    "value": {
+      "class": "Directive",
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "n2s-tab",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "N2sTab",
+        "moduleUrl": "asset:ng2_strap/lib/tabs/tabs.dart",
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": [
+          {
+            "token": null,
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          }
+        ]
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "disabled": "disabled",
+        "heading": "heading",
+        "active": "active"
+      },
+      "outputs": {
+        "select": "select",
+        "deselect": "deselect"
+      },
+      "hostListeners": {},
+      "hostProperties": {
+        "class.active": "active",
+        "class.tab-pane": "true"
+      },
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0,
+        1
+      ],
+      "template": null,
+      "providers": []
+    }
+  },
+  "N2sTabHeading": {
+    "kind": "type",
+    "value": {
+      "class": "Directive",
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[n2s-tab-heading]",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "N2sTabHeading",
+        "moduleUrl": "asset:ng2_strap/lib/tabs/tabs.dart",
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": [
+          {
+            "token": null,
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          },
+          {
+            "token": {
+              "class": "Identifier",
+              "name": "N2sTab",
+              "moduleUrl": null,
+              "prefix": null,
+              "constConstructor": null
+            },
+            "query": null,
+            "viewQuery": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false
+          }
+        ]
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null,
+      "providers": []
+    }
+  },
+  "N2sTabSet": {
+    "kind": "type",
+    "value": {
+      "class": "Directive",
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "n2s-tab-set",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "N2sTabSet",
+        "moduleUrl": "asset:ng2_strap/lib/tabs/tabs.dart",
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": []
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "vertical": "vertical",
+        "justified": "justified",
+        "type": "type"
+      },
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": {
+        "encapsulation": 2,
+        "template": "<ul class=\"nav\"\n    [ngClass]=\"{\n          'nav-stacked' : vertical,\n          'nav-justified' : justified,\n          'nav-tabs' : type == 'tabs',\n          'nav-pills' : type == 'pills'\n        }\"\n    (click)=\"$event.preventDefault()\">\n  <li *ngFor=\"#tab of tabs\" class=\"nav-item\" [ngClass]=\"{active: tab.active, disabled: tab.disabled}\">\n    <a href class=\"nav-link\" [ngClass]=\"{active: tab.active, disabled: tab.disabled}\" (click)=\"tab.active = true\">\n      <n2s-transclude [templateRef]=\"tab.headingRef\">{{tab.heading}}</n2s-transclude>\n    </a>\n  </li>\n</ul>\n<div class=\"tab-content\">\n  <ng-content></ng-content>\n</div>",
+        "templateUrl": "asset:ng2_strap/lib/tabs/tabset.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": [
+          "*"
+        ]
+      },
+      "providers": []
+    }
+  },
+  "definesAlias": true
+}

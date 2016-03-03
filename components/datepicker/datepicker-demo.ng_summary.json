@@ -28,7 +28,7 @@
               },
               {
                 "1": "directives",
-                "2": "const [DATEPICKER_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES]"
+                "2": "const [N2S_DATEPICKER_DIRECTIVES]"
               }
             ],
             "4": false,
@@ -40,13 +40,7 @@
         ],
         "8": [
           {
-            "2": "DATEPICKER_DIRECTIVES"
-          },
-          {
-            "2": "CORE_DIRECTIVES"
-          },
-          {
-            "2": "FORM_DIRECTIVES"
+            "2": "N2S_DATEPICKER_DIRECTIVES"
           }
         ]
       }
@@ -56,14 +50,19 @@
   "DatepickerDemo": {
     "kind": "type",
     "value": {
+      "class": "Directive",
       "isComponent": true,
       "dynamicLoadable": true,
       "selector": "datepicker-demo",
       "exportAs": null,
       "type": {
+        "class": "Type",
         "name": "DatepickerDemo",
         "moduleUrl": "asset:ng2_strap/web/components/datepicker/datepicker-demo.dart",
-        "isHost": false
+        "prefix": null,
+        "isHost": false,
+        "constConstructor": null,
+        "diDeps": []
       },
       "changeDetection": 5,
       "inputs": {},
@@ -74,14 +73,16 @@
       "lifecycleHooks": [],
       "template": {
         "encapsulation": 0,
-        "template": "<style>\n  .full button span {\n    background-color: limegreen;\n    border-radius: 32px;\n    color: black;\n  }\n  .partially button span {\n    background-color: orange;\n    border-radius: 32px;\n    color: black;\n  }\n</style>\n\n<div>\n  <pre>Selected date is: <em>{{dt}}</em></pre>\n  <h4>Inline</h4>\n  <div style=\"display:inline-block; min-height:290px;\">\n    <n2s-datepicker [(ngModel)]=\"dt\" [minDate]=\"minDate\" [showWeeks]=\"true\"></n2s-datepicker>\n  </div>\n\n  <hr />\n  <button type=\"button\" class=\"btn btn-sm btn-info\" (click)=\"today()\">Today</button>\n  <button type=\"button\" class=\"btn btn-sm btn-default btn-secondary\" (click)=\"d20090824();\">2009-08-24</button>\n  <button type=\"button\" class=\"btn btn-sm btn-danger\" (click)=\"clear()\">Clear</button>\n  <button type=\"button\" class=\"btn btn-sm btn-default btn-secondary\" (click)=\"toggleMin()\" tooltip=\"After today restriction\">Min date</button>\n</div>\n",
+        "template": "<style>\n  .full button span {\n    background-color: limegreen;\n    border-radius: 32px;\n    color: black;\n  }\n  .partially button span {\n    background-color: orange;\n    border-radius: 32px;\n    color: black;\n  }\n</style>\n\n<div>\n  <pre>Selected date is: <em>{{dt}}</em></pre>\n  <h4>Inline</h4>\n  <div style=\"display:inline-block; min-height:290px;\">\n    <n2s-date-picker [(ngModel)]=\"dt\" [minDate]=\"minDate\" [showWeeks]=\"true\"></n2s-date-picker>\n  </div>\n\n  <hr />\n  <button type=\"button\" class=\"btn btn-sm btn-info\" (click)=\"today()\">Today</button>\n  <button type=\"button\" class=\"btn btn-sm btn-default btn-secondary\" (click)=\"d20090824();\">2009-08-24</button>\n  <button type=\"button\" class=\"btn btn-sm btn-danger\" (click)=\"clear()\">Clear</button>\n  <button type=\"button\" class=\"btn btn-sm btn-default btn-secondary\" (click)=\"toggleMin()\" tooltip=\"After today restriction\">Min date</button>\n\n  <hr>\n\n  <pre>Selected date is: <em>{{dt2}}</em></pre>\n  <h4>Popup</h4>\n  <div style=\"display:inline-block; min-height:290px;\">\n    <n2s-date-picker-popup [(ngModel)]=\"dt2\"></n2s-date-picker-popup>\n  </div>\n</div>\n",
         "templateUrl": "asset:ng2_strap/web/components/datepicker/datepicker-demo.html",
         "styles": [
           "\n  .full button span {\n    background-color: limegreen;\n    border-radius: 32px;\n    color: black;\n  }\n  .partially button span {\n    background-color: orange;\n    border-radius: 32px;\n    color: black;\n  }\n"
         ],
         "styleUrls": [],
         "ngContentSelectors": []
-      }
+      },
+      "providers": []
     }
-  }
+  },
+  "definesAlias": false
 }

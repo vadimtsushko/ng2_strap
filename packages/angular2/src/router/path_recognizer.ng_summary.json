@@ -1,0 +1,117 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.router.path_recognizer",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "RegExp",
+          "RegExpWrapper",
+          "RegExpMatcherWrapper",
+          "StringWrapper",
+          "isPresent",
+          "isBlank"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException",
+          "WrappedException"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "Map",
+          "MapWrapper",
+          "StringMapWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "url_parser.dart",
+        "2": [
+          "Url",
+          "RootUrl",
+          "serializeParams"
+        ],
+        "5": false
+      }
+    ],
+    "6": "path_recognizer.dart"
+  },
+  "TouchMap": {
+    "kind": "type",
+    "value": {
+      "class": "Identifier",
+      "name": "TouchMap",
+      "moduleUrl": "asset:angular2/lib/src/router/path_recognizer.dart",
+      "prefix": null,
+      "constConstructor": null
+    }
+  },
+  "Segment": {
+    "kind": "type",
+    "value": {
+      "class": "Identifier",
+      "name": "Segment",
+      "moduleUrl": "asset:angular2/lib/src/router/path_recognizer.dart",
+      "prefix": null,
+      "constConstructor": null
+    }
+  },
+  "ContinuationSegment": {
+    "kind": "type",
+    "value": {
+      "class": "Identifier",
+      "name": "ContinuationSegment",
+      "moduleUrl": "asset:angular2/lib/src/router/path_recognizer.dart",
+      "prefix": null,
+      "constConstructor": null
+    }
+  },
+  "StaticSegment": {
+    "kind": "type",
+    "value": {
+      "class": "Identifier",
+      "name": "StaticSegment",
+      "moduleUrl": "asset:angular2/lib/src/router/path_recognizer.dart",
+      "prefix": null,
+      "constConstructor": null
+    }
+  },
+  "DynamicSegment": {
+    "kind": "type",
+    "value": {
+      "class": "Identifier",
+      "name": "DynamicSegment",
+      "moduleUrl": "asset:angular2/lib/src/router/path_recognizer.dart",
+      "prefix": null,
+      "constConstructor": null
+    }
+  },
+  "StarSegment": {
+    "kind": "type",
+    "value": {
+      "class": "Identifier",
+      "name": "StarSegment",
+      "moduleUrl": "asset:angular2/lib/src/router/path_recognizer.dart",
+      "prefix": null,
+      "constConstructor": null
+    }
+  },
+  "PathRecognizer": {
+    "kind": "type",
+    "value": {
+      "class": "Identifier",
+      "name": "PathRecognizer",
+      "moduleUrl": "asset:angular2/lib/src/router/path_recognizer.dart",
+      "prefix": null,
+      "constConstructor": null
+    }
+  },
+  "definesAlias": false
+}
