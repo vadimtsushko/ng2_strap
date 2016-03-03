@@ -7,6 +7,7 @@ import "package:ng2_strap/index.dart";
     directives: const [N2S_DATEPICKER_DIRECTIVES])
 class DatepickerDemo {
   String dt = new DateTime.now().toIso8601String();
+  String dt2 = new DateTime.now().toIso8601String();
   List<Map> events;
   DateTime tomorrow;
   DateTime afterTomorrow;

@@ -1,17 +1,18 @@
-library ns_datepicker;
+library n2s_date_picker;
 
 import "package:angular2/angular2.dart";
-import "package:angular2/src/core/di.dart";
-import "package:ng2_strap/position.dart";
-import "datepicker-inner.dart";
-import "daypicker.dart";
-import "monthpicker.dart";
-import "yearpicker.dart";
-import 'dart:async';
-//import 'package:intl/intl.dart';
+import 'package:ng2_strap/dropdown/index.dart';
+import 'package:intl/intl.dart';
+import 'package:node_shims/js.dart';
+import 'dart:math';
+import 'package:ng2_strap/buttons/button-checkbox.dart';
 
-part "package:ng2_strap/datepicker/datepicker-popup.dart";
-part "package:ng2_strap/datepicker/datepicker.dart";
+part "date_picker_popup.dart";
+part "date_picker.dart";
+part 'date_picker_inner.dart';
+part 'day_picker.dart';
+part 'month_picker.dart';
+part 'year_picker.dart';
 /*
 todo: general:
 1. Popup
@@ -21,4 +22,4 @@ todo: general:
 5. template-url attribute support
  */
 
-const List<dynamic> N2S_DATEPICKER_DIRECTIVES = const [N2sDatePicker, N2sDatePickerPopup];
+const N2S_DATEPICKER_DIRECTIVES = const [N2sDatePicker, N2sDatePickerPopup];

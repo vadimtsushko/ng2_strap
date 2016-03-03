@@ -35,3 +35,7 @@ n2s-progress.striped, n2s-progressbar.striped {
 n2s-progress.active, n2s-progressbar.active {
   @extend .progress.active;
 }
+
+n2s-dropdown-menu {
+  @extend .dropdown-menu;
+}

@@ -1,31 +1,32 @@
-import "package:angular2/angular2.dart";
-import "datepicker-inner.dart";
-import 'package:intl/intl.dart';
+part of n2s_date_picker;
 
-@Component (selector: "n2s-daypicker",
+/// Creates an [N2sDayPicker], this will be the view showed in the [N2sDatePicker] when user clicks
+/// day header button
+@Component (selector: "n2s-day-picker",
     templateUrl: 'day_picker.html')
-class DayPicker implements OnInit {
-  ///
-  DayPicker(this.datePicker);
+class N2sDayPicker implements OnInit {
+  /// Constructs an [N2sDayPicker] injecting [datePickerInner]
+  N2sDayPicker(this.datePickerInner);
 
-  DatePickerInner datePicker;
+  /// provides access to [N2sDatePickerInner] parent container
+  N2sDatePickerInner datePickerInner;
 
-  ///
+  /// labels of the days week
   List labels = [];
 
-  ///
+  /// provides the label that will appears in the month button of day view
   String monthTitle;
 
-  ///
+  /// provides the label that will appears in the year button of day view
   String yearTitle;
 
-  ///
+  /// provides the rows of days that will be displayed
   List rows = [];
 
-  ///
+  /// provides the values of the week numbers column
   List<num> weekNumbers = [];
 
-  ///
+  /// provides the maximun mode that can be displayed
   String maxMode = 'year';
 
   ///
@@ -69,12 +70,12 @@ class DayPicker implements OnInit {
 
   ///
   ngOnInit() {
-    datePicker.stepDay = { "months" : 1};
-    datePicker.setRefreshViewHandler(() {
-      var year = datePicker.activeDate.year;
-      var month = datePicker.activeDate.month;
-      var firstDayOfMonth = new DateTime (year, month, 1 - new DateTime (year, month, 1, 12).weekday, 12);
-      var difference = datePicker.startingDay - firstDayOfMonth.day;
+    datePickerInner.stepDay = { "months" : 1};
+    datePickerInner.setRefreshViewHandler(() {
+      var year = datePickerInner.activeDate.year;
+      var month = datePickerInner.activeDate.month;
+      var firstDayOfMonth = new DateTime (year, month, 1 - new DateTime(year, month, 1, 12).weekday, 12);
+      var difference = datePickerInner.startingDay - firstDayOfMonth.day;
       var numDisplayedFromPreviousMonth = (difference > 0)
           ? 7 - difference
           : -difference;
@@ -87,37 +88,34 @@ class DayPicker implements OnInit {
       List<DateTime> _days = getDates(firstDate, 42);
       List days = [];
       for (var i = 0; i < 42; i++) {
-        var _dateObject = datePicker.createDateObject(_days[i], datePicker.formatDay);
+        var _dateObject = datePickerInner.createDateObject(_days[i], datePickerInner.formatDay);
         _dateObject['secondary'] = _days[i].month != month;
-        _dateObject['uid'] = datePicker.uniqueId + "-" + i.toString();
         days.add(_dateObject);
       }
       labels = [];
       for (var j = 0; j < 7; j ++) {
         labels.add({
-          'abbr': datePicker.dateFilter(days[j]['date'], datePicker.formatDayHeader),
-          'full': datePicker.dateFilter(days[j]['date'], "EEEE")
+          'abbr': datePickerInner.dateFilter(days[j]['date'], datePickerInner.formatDayHeader),
+          'full': datePickerInner.dateFilter(days[j]['date'], "EEEE")
         });
       }
-      monthTitle = new DateFormat(datePicker.formatMonthTitle).format(datePicker.activeDate);
-      yearTitle = new DateFormat(datePicker.formatYear).format(datePicker.activeDate);
-      rows = datePicker.split(days, 7);
-      if (datePicker.showWeeks) {
+      monthTitle = new DateFormat(datePickerInner.formatMonthTitle).format(datePickerInner.activeDate);
+      yearTitle = new DateFormat(datePickerInner.formatYear).format(datePickerInner.activeDate);
+      rows = datePickerInner.split(days, 7);
+      if (datePickerInner.showWeeks) {
         weekNumbers = [];
-        var thursdayIndex = (4 + 7 - datePicker.startingDay) % 7,
+        var thursdayIndex = (4 + 7 - datePickerInner.startingDay) % 7,
             numWeeks = rows.length;
         for (var curWeek = 0; curWeek < numWeeks; curWeek ++) {
           weekNumbers.add(getISO8601WeekNumber(rows[curWeek][thursdayIndex]['date']));
         }
       }
     }, "day");
-    datePicker.setCompareHandler((date1, date2) {
-      var d1 = new DateTime (
-          date1.year, date1.month, date1.day);
-      var d2 = new DateTime (
-          date2.year, date2.month, date2.day);
+    datePickerInner.setCompareHandler((date1, date2) {
+      var d1 = new DateTime (date1.year, date1.month, date1.day);
+      var d2 = new DateTime (date2.year, date2.month, date2.day);
       return d1.millisecondsSinceEpoch - d2.millisecondsSinceEpoch;
     }, "day");
-    datePicker.refreshView();
+    datePickerInner.refreshView();
   }
 }

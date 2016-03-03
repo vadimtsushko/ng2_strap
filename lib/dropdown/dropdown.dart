@@ -9,6 +9,7 @@ part of n2s_dropdown;
 @Directive (selector: "n2s-dropdown, .dropdown",
     host: const {"[class.dropdown]" : "true", "[class.open]" : "isOpen"})
 class N2sDropdown implements OnInit, OnDestroy {
+
   /// Constructs a dropdown injecting [elementRef]
   N2sDropdown(this.elementRef);
 
@@ -20,13 +21,13 @@ class N2sDropdown implements OnInit, OnDestroy {
   /// otherwise be hidden
   @Input() bool dropdownAppendToBody = false;
 
-  /// fired when `dropdown` toggles, `$event:boolean` equals dropdown `is-open` state
-  @Output() EventEmitter onToggle = new EventEmitter();
-
   /// behaviour vary:
   ///  * `always` - (default) automatically closes the dropdown when any of its elements is clicked
-  ///  * `outsideClick` - closes the dropdown automatically only when the user clicks any element outside the dropdown
-  ///  * `disabled` - disables the auto close. You can then control the open/close status of the dropdown manually, by using `is-open`. Please notice that the dropdown will still close if the toggle is clicked, the `esc` key is pressed or another dropdown is open
+  ///  * `outsideClick` - closes the dropdown automatically only when the user clicks any element
+  ///  outside the dropdown
+  ///  * `disabled` - disables the auto close. You can then control the open/close status of the
+  ///  dropdown manually, by using `is-open`. Please notice that the dropdown will still close
+  ///  if the toggle is clicked, the `esc` key is pressed or another dropdown is open
   @Input() String autoClose = _ALWAYS;
 
   /// if `true` will enable navigation of dropdown list elements with the arrow keys
@@ -49,12 +50,6 @@ class N2sDropdown implements OnInit, OnDestroy {
     return _isOpen;
   }
 
-  /// sets the element that will fire the toggle of the dropdown
-  set dropDownToggle(N2sDropdownToggle dropdownToggle) {
-    // init toggle element
-    toggleEl = dropdownToggle.elementRef;
-  }
-
   /// if `true` the dropdown will be visible
   @Input() set isOpen(value) {
     _isOpen = value ?? false;
@@ -68,8 +63,17 @@ class N2sDropdown implements OnInit, OnDestroy {
       dropdownService.close(this);
       selectedOption = null;
     }
-    onToggle.add(isOpen);
+    isOpenChange.add(isOpen);
     // todo: implement call to setIsOpen if set and function
+  }
+
+  /// fired when `dropdown` toggles, `$event:boolean` equals dropdown `is-open` state
+  @Output() EventEmitter isOpenChange = new EventEmitter();
+
+  /// sets the element that will fire the toggle of the dropdown
+  set dropDownToggle(N2sDropdownToggle dropdownToggle) {
+    // init toggle element
+    toggleEl = dropdownToggle.elementRef;
   }
 
   /// initializes the dropdown attributes
