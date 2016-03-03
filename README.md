@@ -4,6 +4,50 @@ Native Angular2 Dart directives for Bootstrap
 
 Works with Bootstrap 3
 
+# Getting Started
+
+1\. Create a new angular2-dart app: https://angular.io/docs/dart/latest/quickstart.html
+2\. Add `ng2_strap` to `pubspect.yaml`:
+    
+```yaml
+dependencies:
+    ...
+    ng2_strap: any
+    ...
+```
+
+3\. (Optional) Add sass transformer:
+
+```yaml
+dependencies:
+    ...
+    sass: any
+    ...
+transformers:
+- sass
+```
+
+> you need to [install sass](http://sass-lang.com/install) previously
+
+
+4\. Add css stylesheet link to `index.html`:
+
+```html
+<head>
+    ...
+    <link rel="stylesheet" href="packages/ng2_strap/styles/ng2_strap.css">
+    ...
+</head>
+```
+
+5\. Add needed `ng2_strap` directives to your components:
+
+```dart
+@Component(
+    ...
+    directives: const [N2S_ACCORDION_DIRECTIVES])
+```
+
 # Usage & Demo
 
 [http://luisvt.github.io/ng2_strap/](http://luisvt.github.io/ng2_strap/)
@@ -20,7 +64,7 @@ Works with Bootstrap 3
 - [x] [Dropdown](http://luisvt.github.io/ng2_strap/#accordion)
 - [ ] Modal (in progress...)
 - [x] [Pagination](http://luisvt.github.io/ng2_strap/#accordion)
-- [ ] [Popover
+- [ ] Popover
 - [x] [Progressbar](http://luisvt.github.io/ng2_strap/#accordion)
 - [x] [Rating](http://luisvt.github.io/ng2_strap/#accordion)
 - [x] [Tabs](http://luisvt.github.io/ng2_strap/#accordion)
@@ -34,6 +78,10 @@ Works with Bootstrap 3
 ## Contribution
 
 Please read central `ng2` modules [readme](https://github.com/valor-software/ng2-plans) for details, plans and approach and welcome :)
+
+[Create new issues](https://github.com/luisvt/ng2_strap/issues/new)
+
+[Fork me](https://github.com/luisvt/ng2_strap/issues#fork-destination-box)
 
 
 ### TODO
