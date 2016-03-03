@@ -7,6 +7,7 @@ Works with Bootstrap 3
 # Getting Started
 
 1\. Create a new angular2-dart app: https://angular.io/docs/dart/latest/quickstart.html
+
 2\. Add `ng2_strap` to `pubspect.yaml`:
     
 ```yaml
