@@ -7,44 +7,50 @@ import 'dart:html';
 class N2sTooltipOptions {
 
   /// Construct the options for tooltip
-  N2sTooltipOptions({
+  const N2sTooltipOptions({
   this.placement,
   this.popupClass,
   this.animation,
   this.isOpen,
-  this.content
+  this.content,
+  this.hostEl
   });
 
   /// tooltip positioning instruction, supported positions: 'top', 'bottom', 'left', 'right'
-  String placement;
+  final String placement;
 
   /// (*not implemented*) - custom tooltip class applied to the tooltip container.
-  String popupClass;
+  final String popupClass;
 
-  bool animation;
+  final bool animation;
 
   /// if `true` tooltip is currently visible
-  bool isOpen;
+  final bool isOpen;
 
   /// text of tooltip
-  var content;
+  final content;
+
+  final ElementRef hostEl;
 }
 
 @Component (selector: 'n2s-tooltip-container',
     templateUrl: 'tooltip_container.html',
     encapsulation: ViewEncapsulation.None)
-class N2sTooltipContainer {
+class N2sTooltipContainer implements AfterViewInit {
 
   /// Constructs a new [N2sTooltipContainer] injecting its [elementRef] and the [options]
-  N2sTooltipContainer(this.elementRef, N2sTooltipOptions options) {
-    classMap = { 'in' : false};
+  N2sTooltipContainer(this.elementRef, this.cdr, N2sTooltipOptions options) {
+    classMap = { 'in' : false, 'fade': false};
     placement = options.placement;
     popupClass = options.popupClass;
     animation = options.animation;
     isOpen = options.isOpen;
     content = options.content;
+    hostEl = options.hostEl;
     classMap[placement] = true;
   }
+
+  ChangeDetectorRef cdr;
 
   /// Current element DOM reference
   ElementRef elementRef;
@@ -78,8 +84,11 @@ class N2sTooltipContainer {
   /// if `false` fade tooltip animation will be disabled
   bool animation;
 
+  ElementRef hostEl;
+
   /// positions its DOM element next to the parent in the desired position
-  position(ElementRef hostEl) {
+  @override
+  ngAfterViewInit() {
     display = 'block';
     var p = positionElements(
         hostEl.nativeElement,
@@ -101,11 +110,11 @@ class N2sTooltipContainer {
 /// [demo](http://luisvt.github.io/ng2_strap/#tooltip)
 @Directive(selector: '[n2sTooltip]')
 class N2sTooltip {
-  /// Constructs a new [N2sTooltip] injecting [element] and [loader]
-  N2sTooltip(this.element, this.loader);
+  /// Constructs a new [N2sTooltip] injecting [viewContainerRef] and [loader]
+  N2sTooltip(this.viewContainerRef, this.loader);
 
   /// Reference to HTML DOM
-  ElementRef element;
+  ViewContainerRef viewContainerRef;
 
   /// load components dynamically
   DynamicComponentLoader loader;
@@ -157,14 +166,12 @@ class N2sTooltip {
     }
     visible = true;
     var options = new N2sTooltipOptions(
-        content: content, placement: placement, popupClass: popupClass);
-    var binding = Injector.resolve([bind(N2sTooltipOptions).toValue(options)]);
-    tooltip = loader.loadNextToLocation(N2sTooltipContainer, element, binding)
-        .then((ComponentRef componentRef) => new Future.delayed(
-        const Duration(milliseconds: 1), () {
-      (componentRef.instance as N2sTooltipContainer).position(element);
-      return componentRef;
-    }));
+        content: content,
+        placement: placement,
+        popupClass: popupClass,
+        hostEl: viewContainerRef.element);
+    var providers = ReflectiveInjector.resolve([provide(N2sTooltipOptions, useValue: options)]);
+    tooltip = loader.loadNextToLocation(N2sTooltipContainer, viewContainerRef, providers);
   }
 
   /// hide the tooltip when mouseleave and focusout events happens
@@ -180,7 +187,7 @@ class N2sTooltip {
     }
     visible = false;
     tooltip.then((ComponentRef componentRef) {
-      componentRef.dispose();
+      componentRef.destroy();
       return componentRef;
     });
   }

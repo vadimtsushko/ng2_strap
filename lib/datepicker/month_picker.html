@@ -29,8 +29,8 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="#row of rows">
-    <td *ngFor="#dt of row" class="text-center" role="gridcell" [ngClass]="dt['customClass']">
+  <tr *ngFor="let row of rows">
+    <td *ngFor="let dt of row" class="text-center" role="gridcell" [ngClass]="dt['customClass']">
 
       <button type="button"
               style="min-width:100%;"

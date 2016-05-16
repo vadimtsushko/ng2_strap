@@ -19,7 +19,7 @@
                    [isDisabled]="status['isFirstDisabled']">
     This content is straight in the template.
   </n2s-accordion-panel>
-  <n2s-accordion-panel heading="{{group['title']}}" *ngFor="#group of groups">
+  <n2s-accordion-panel heading="{{group['title']}}" *ngFor="let group of groups">
     {{group['content']}}
   </n2s-accordion-panel>
   <n2s-accordion-panel heading="Dynamic Body Content," #ap4>
@@ -30,7 +30,7 @@
     </n2s-accordion-heading>
     <p>The body of the accordion group grows to fit the contents</p>
     <button type="button" class="btn btn-primary btn-sm" (click)="addItem()">Add Item</button>
-    <div *ngFor="#item of items">{{item}}</div>
+    <div *ngFor="let item of items">{{item}}</div>
   </n2s-accordion-panel>
   <n2s-accordion-panel [(isOpen)]="status['isLastOpen']">
     <n2s-accordion-heading>

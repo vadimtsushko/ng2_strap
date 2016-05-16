@@ -10,7 +10,7 @@
   <hr />
   <n2s-tab-set>
     <n2s-tab heading="Static title">Static content</n2s-tab>
-    <n2s-tab *ngFor="#tabz of tabs"
+    <n2s-tab *ngFor="let tabz of tabs"
          [heading]="tabz['title']"
          [active]="tabz['active'] == true"
          (deselect)="tabz['active'] = false"

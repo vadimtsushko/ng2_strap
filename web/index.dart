@@ -1,31 +1,28 @@
 import "package:angular2/angular2.dart";
+import 'package:angular2/platform/browser.dart';
 import "package:ng2_strap/index.dart";
-import 'package:angular2/bootstrap.dart';
-import 'dart:html';
-import 'package:markdown/markdown.dart' hide Element;
 
-import "components/demo-header.dart";
-import "components/demo-section.dart";
 import 'components/accordion/accordion-demo.dart';
 import 'components/alert/alert-demo.dart';
 import 'components/buttons/buttons-demo.dart';
 import 'components/carousel/carousel-demo.dart';
-import 'components/datepicker/datepicker-demo.dart';
 import 'components/collapse/collapse-demo.dart';
+import 'components/datepicker/datepicker-demo.dart';
+import "components/demo-header.dart";
+import "components/demo-section.dart";
 import 'components/dropdown/dropdown-demo.dart';
 import 'components/pagination/pagination-demo.dart';
 import 'components/progressbar/progressbar-demo.dart';
 import 'components/rating/rating-demo.dart';
 import 'components/tabs/tabs-demo.dart';
-import 'components/typeahead/typeahead-demo.dart';
-import 'components/tooltip/tooltip-demo.dart';
 import 'components/timepicker/timepicker-demo.dart';
+import 'components/tooltip/tooltip-demo.dart';
+import 'components/typeahead/typeahead-demo.dart';
 
 @Component(
     selector: "app",
     templateUrl: 'demo.html',
     directives: const [
-      NgClass,
       DemoHeader,
       DemoSection,
       AccordionDemo,

@@ -1,7 +1,7 @@
 <n2s-alert [closeable]="true">This alert is closeable/dismissible</n2s-alert>
 <n2s-alert type="info">This alert is info</n2s-alert>
 
-<n2s-alert *ngFor="#alert of alerts;#i = index" [type]="alert['type']" (close)="closeAlert(i)"
+<n2s-alert *ngFor="let alert of alerts; let i = index" [type]="alert['type']" (close)="closeAlert(i)"
            [closeable]="alert['closable']">
   {{ alert['msg'] }}
 </n2s-alert>

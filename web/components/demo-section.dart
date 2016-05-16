@@ -1,8 +1,7 @@
+import 'dart:html';
+
 import "package:angular2/angular2.dart";
 import "package:ng2_strap/index.dart";
-import "accordion/accordion-demo.dart";
-import 'dart:html';
-import 'package:markdown/markdown.dart' hide Element;
 
 @Component (
     selector: "demo-section",

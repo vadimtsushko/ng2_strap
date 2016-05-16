@@ -6,7 +6,7 @@
           'nav-pills' : type == 'pills'
         }"
     (click)="$event.preventDefault()">
-  <li *ngFor="#tab of tabs" class="nav-item" [ngClass]="{active: tab.active, disabled: tab.disabled}">
+  <li *ngFor="let tab of tabs" class="nav-item" [ngClass]="{active: tab.active, disabled: tab.disabled}">
     <a href class="nav-link" [ngClass]="{active: tab.active, disabled: tab.disabled}" (click)="tab.active = true">
       <n2s-transclude [templateRef]="tab.headingRef">{{tab.heading}}</n2s-transclude>
     </a>

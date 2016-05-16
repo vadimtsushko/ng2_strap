@@ -11,7 +11,7 @@
     <a href="" (click)="selectPage(currentPage - 1, $event)">{{previousText}}</a>
   </li>
 
-  <li *ngFor="#page of pages" [ngClass]="{active: page['active'], disabled: disabled && !page['active']}"
+  <li *ngFor="let page of pages" [ngClass]="{active: page['active'], disabled: disabled && !page['active']}"
       class="pagination-page">
     <a href (click)="selectPage(page['number'], $event)">{{page['text']}}</a>
   </li>
