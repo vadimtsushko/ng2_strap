@@ -14,6 +14,7 @@ dependencies:
   markdown: ^0.8.0
   sass: ^0.4.2
   bootstrap_sass: ^3.3.6
+  stream_transformers: ^0.3.0+3
 transformers:
 - sass
 - angular2:

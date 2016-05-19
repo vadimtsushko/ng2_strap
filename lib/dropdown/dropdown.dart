@@ -67,7 +67,7 @@ class N2sDropdown implements OnInit, OnDestroy {
     // todo: implement call to setIsOpen if set and function
   }
 
-  /// fired when `dropdown` toggles, `$event:boolean` equals dropdown `is-open` state
+  /// fired when `dropdown` toggles, `$event:boolean` equals dropdown `[isOpen]` state
   @Output() EventEmitter isOpenChange = new EventEmitter();
 
   /// sets the element that will fire the toggle of the dropdown
@@ -118,11 +118,8 @@ class N2sDropdown implements OnInit, OnDestroy {
       // todo: throw exception?
       return;
     }
-    // todo: use parseInt to detect isNumber?
-
-    // todo: or implement selectedOption as a get\set pair with parseInt on set
     switch (keyCode) {
-      case (40) :
+      case (KeyCode.DOWN) :
         if (selectedOption is! num) {
           selectedOption = 0;
           break;
@@ -130,9 +127,9 @@ class N2sDropdown implements OnInit, OnDestroy {
         if (identical(selectedOption, elems.length - 1)) {
           break;
         }
-        selectedOption ++;
+        selectedOption++;
         break;
-      case (38) :
+      case (KeyCode.UP) :
         if (selectedOption is! num) {
           return;
         }
