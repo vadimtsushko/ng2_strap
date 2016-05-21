@@ -15,4 +15,3 @@ export "tooltip/tooltip.dart";
 export "typeahead/typeahead.dart";
 export "position.dart";
 export "common.dart";
-export "ng2-bootstrap-config.dart";
