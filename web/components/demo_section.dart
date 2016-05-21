@@ -21,7 +21,7 @@ class DemoSection implements OnInit {
     nameLC = name.toLowerCase();
     var rawMasterUrl = 'https://raw.githubusercontent.com/luisvt/ng2_strap/master';
     var componentsUrl = '$rawMasterUrl/web/components';
-    docUrl = 'https://www.dartdocs.org/documentation/ng2_strap/0.0.5/$nameLC/$nameLC-library.html';
+    docUrl = 'https://www.dartdocs.org/documentation/ng2_strap/0.0.6/$nameLC/$nameLC-library.html';
     dart = await HttpRequest.getString('$componentsUrl/$nameLC/${nameLC}_demo.dart');
     html = await HttpRequest.getString('$componentsUrl/$nameLC/${nameLC}_demo.html');
   }
