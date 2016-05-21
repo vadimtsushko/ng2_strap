@@ -11,7 +11,7 @@ import 'package:angular2/angular2.dart';
 @Component(
     selector: 'n2s-modal',
     templateUrl: 'modal.html')
-class Modal {
+class N2sModal {
 
   @Input() String header;
   @Input() String cancelLabel = 'Cancel';
@@ -21,11 +21,11 @@ class Modal {
    * Fires an event when the modal is closed. The argument indicated how it was closed.
    * @type {EventEmitter<ModalResult>}
    */
-  @Output() EventEmitter<ModalAction> close = new EventEmitter<ModalAction> ();
+  @Output() EventEmitter<N2sModalAction> close = new EventEmitter<N2sModalAction> ();
 
   bool showModal = false;
 
-  Modal() {
+  N2sModal() {
     print('showModal = $showModal');
   }
 
@@ -38,13 +38,13 @@ class Modal {
 
   positiveAction() {
     showModal = false;
-    close.emit(ModalAction.POSITIVE);
+    close.emit(N2sModalAction.POSITIVE);
     return false;
   }
 
   cancelAction() {
     showModal = false;
-    close.emit(ModalAction.CANCEL);
+    close.emit(N2sModalAction.CANCEL);
     return false;
   }
 }
@@ -52,4 +52,4 @@ class Modal {
 /**
  * The possible reasons a modal has been closed.
  */
-enum ModalAction { POSITIVE, CANCEL }
+enum N2sModalAction { POSITIVE, CANCEL }

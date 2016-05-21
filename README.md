@@ -51,27 +51,27 @@ transformers:
 
 # Usage & Demo
 
-[http://luisvt.github.io/ng2_strap/](http://luisvt.github.io/ng2_strap/)
+http://dart-league.github.io/ng2_strap/
 
 ## Components
 
-- [x] [Accordion](http://luisvt.github.io/ng2_strap/#accordion)
-- [x] [Alert](http://luisvt.github.io/ng2_strap/#accordion)
-- [x] [Buttons](http://luisvt.github.io/ng2_strap/#accordion)
-- [x] [Carousel](http://luisvt.github.io/ng2_strap/#accordion)
-- [x] [Collapse](http://luisvt.github.io/ng2_strap/#accordion)
-- [x] [DatePicker](http://luisvt.github.io/ng2_strap/#accordion)
-- [x] [DatePickerPopup](http://luisvt.github.io/ng2_strap/#accordion)
-- [x] [Dropdown](http://luisvt.github.io/ng2_strap/#accordion)
-- [ ] Modal (in progress...)
-- [x] [Pagination](http://luisvt.github.io/ng2_strap/#accordion)
+- [x] [Accordion](http://dart-league.github.io/ng2_strap/#accordion)
+- [x] [Alert](http://dart-league.github.io/ng2_strap/#accordion)
+- [x] [Buttons](http://dart-league.github.io/ng2_strap/#accordion)
+- [x] [Carousel](http://dart-league.github.io/ng2_strap/#accordion)
+- [x] [Collapse](http://dart-league.github.io/ng2_strap/#accordion)
+- [x] [DatePicker](http://dart-league.github.io/ng2_strap/#accordion)
+- [x] [DatePickerPopup](http://dart-league.github.io/ng2_strap/#accordion)
+- [x] [Dropdown](http://dart-league.github.io/ng2_strap/#accordion)
+- [x] [Modal](http://dart-league.github.io/ng2_strap/#modal)
+- [x] [Pagination](http://dart-league.github.io/ng2_strap/#accordion)
 - [ ] Popover
-- [x] [Progressbar](http://luisvt.github.io/ng2_strap/#accordion)
-- [x] [Rating](http://luisvt.github.io/ng2_strap/#accordion)
-- [x] [Tabs](http://luisvt.github.io/ng2_strap/#accordion)
-- [x] [Timepicker](http://luisvt.github.io/ng2_strap/#accordion)
-- [x] [Tooltip](http://luisvt.github.io/ng2_strap/#accordion)
-- [x] [Typeahead](http://luisvt.github.io/ng2_strap/#accordion)
+- [x] [Progressbar](http://dart-league.github.io/ng2_strap/#accordion)
+- [x] [Rating](http://dart-league.github.io/ng2_strap/#accordion)
+- [x] [Tabs](http://dart-league.github.io/ng2_strap/#accordion)
+- [x] [Timepicker](http://dart-league.github.io/ng2_strap/#accordion)
+- [x] [Tooltip](http://dart-league.github.io/ng2_strap/#accordion)
+- [x] [Typeahead](http://dart-league.github.io/ng2_strap/#accordion)
 
 - [x] NgTransclude - to transclude templates
 - [x] positional service
