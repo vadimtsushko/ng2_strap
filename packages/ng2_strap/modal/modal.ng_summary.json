@@ -9,27 +9,27 @@
     ],
     "5": [
       {
-        "1": "Modal"
+        "1": "N2sModal"
       }
     ],
     "6": "modal.dart"
   },
   "type": {
-    "ModalAction": {
+    "N2sModalAction": {
       "class": "Identifier",
-      "name": "ModalAction",
+      "name": "N2sModalAction",
       "moduleUrl": "asset:ng2_strap/lib/modal/modal.dart",
       "prefix": null,
       "value": null
     },
-    "Modal": {
+    "N2sModal": {
       "class": "Directive",
       "isComponent": true,
       "selector": "n2s-modal",
       "exportAs": null,
       "type": {
         "class": "Type",
-        "name": "Modal",
+        "name": "N2sModal",
         "moduleUrl": "asset:ng2_strap/lib/modal/modal.dart",
         "prefix": null,
         "isHost": false,
