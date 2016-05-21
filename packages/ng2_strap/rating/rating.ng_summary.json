@@ -18,26 +18,6 @@
     "5": [
       {
         "1": "Rating",
-        "4": [
-          {
-            "1": "Component",
-            "3": [
-              {
-                "1": "selector",
-                "2": "\"n2s-rating\""
-              },
-              {
-                "1": "templateUrl",
-                "2": "'rating.html'"
-              }
-            ],
-            "4": false,
-            "5": true,
-            "6": true,
-            "7": true,
-            "8": false
-          }
-        ],
         "5": [
           {
             "1": "NgModel",
@@ -54,136 +34,15 @@
         ],
         "6": [
           "OnInit"
-        ],
-        "7": [
-          {
-            "1": "max",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "range",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "titles",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "stateOn",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "stateOff",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "readonly",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "ratingStates",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "onHover",
-            "2": [
-              {
-                "1": "Output",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "onLeave",
-            "2": [
-              {
-                "1": "Output",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          }
         ]
       }
     ],
     "6": "rating.dart"
   },
-  "Rating": {
-    "kind": "type",
-    "value": {
+  "type": {
+    "Rating": {
       "class": "Directive",
       "isComponent": true,
-      "dynamicLoadable": true,
       "selector": "n2s-rating",
       "exportAs": null,
       "type": {
@@ -192,49 +51,73 @@
         "moduleUrl": "asset:ng2_strap/lib/rating/rating.dart",
         "prefix": null,
         "isHost": false,
-        "constConstructor": null,
+        "value": null,
         "diDeps": [
           {
-            "token": null,
-            "query": null,
-            "viewQuery": null,
-            "isAttribute": false,
-            "isSelf": false,
-            "isHost": false,
-            "isSkipSelf": false,
-            "isOptional": false
-          },
-          {
             "token": {
-              "class": "Identifier",
-              "name": "Renderer",
-              "moduleUrl": null,
-              "prefix": null,
-              "constConstructor": null
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "NgModel",
+                "moduleUrl": null,
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
             },
             "query": null,
             "viewQuery": null,
+            "value": null,
             "isAttribute": false,
             "isSelf": false,
             "isHost": false,
             "isSkipSelf": false,
-            "isOptional": false
+            "isOptional": false,
+            "isValue": false
           },
           {
             "token": {
-              "class": "Identifier",
-              "name": "ElementRef",
-              "moduleUrl": null,
-              "prefix": null,
-              "constConstructor": null
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "Renderer",
+                "moduleUrl": null,
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
             },
             "query": null,
             "viewQuery": null,
+            "value": null,
             "isAttribute": false,
             "isSelf": false,
             "isHost": false,
             "isSkipSelf": false,
-            "isOptional": false
+            "isOptional": false,
+            "isValue": false
+          },
+          {
+            "token": {
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "ElementRef",
+                "moduleUrl": null,
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
+            },
+            "query": null,
+            "viewQuery": null,
+            "value": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false,
+            "isValue": false
           }
         ]
       },
@@ -262,14 +145,17 @@
       ],
       "template": {
         "encapsulation": 2,
-        "template": "<span (mouseleave)=\"reset()\" (keydown)=\"onKeydown($event)\" tabindex=\"0\" role=\"slider\" aria-valuemin=\"0\"\n      [attr.aria-valuemax]=\"range.length\" [attr.aria-valuenow]=\"value\">\n  <template ngFor #r [ngForOf]=\"range\" #index=\"index\">\n    <span class=\"sr-only\">({{ index < value ? '*' : ' ' }})</span>\n    <i (mouseenter)=\"enter(index + 1)\" (click)=\"rate(index + 1)\" class=\"glyphicon\"\n       [ngClass]=\"index < value ? r['stateOn'] : r['stateOff']\" [title]=\"r['title']\"></i>\n  </template>\n</span>",
+        "template": "<span (mouseleave)=\"reset()\" (keydown)=\"onKeydown($event)\" tabindex=\"0\" role=\"slider\" aria-valuemin=\"0\"\n      [attr.aria-valuemax]=\"range.length\" [attr.aria-valuenow]=\"value\">\n  <template ngFor let-r [ngForOf]=\"range\" let-index=\"index\">\n    <span class=\"sr-only\">({{ index < value ? '*' : ' ' }})</span>\n    <i (mouseenter)=\"enter(index + 1)\" (click)=\"rate(index + 1)\" class=\"glyphicon\"\n       [ngClass]=\"index < value ? r['stateOn'] : r['stateOff']\" [title]=\"r['title']\"></i>\n  </template>\n</span>\n",
         "templateUrl": "asset:ng2_strap/lib/rating/rating.html",
         "styles": [],
         "styleUrls": [],
         "ngContentSelectors": []
       },
-      "providers": []
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
     }
   },
-  "definesAlias": false
+  "alias": {}
 }

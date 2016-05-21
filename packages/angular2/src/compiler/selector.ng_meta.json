@@ -32,70 +32,57 @@
       }
     ],
     "6": "selector.dart",
-    "10": [
+    "7": [
       {
-        "1": "package:angular2/src/facade/collection.template.dart",
+        "1": "package:angular2/src/facade/collection.ngfactory.dart",
         "4": "i0"
       },
       {
-        "1": "package:angular2/src/facade/lang.template.dart",
+        "1": "package:angular2/src/facade/lang.ngfactory.dart",
         "4": "i1"
       },
       {
-        "1": "package:angular2/src/facade/exceptions.template.dart",
+        "1": "package:angular2/src/facade/exceptions.ngfactory.dart",
         "4": "i2"
       }
     ]
   },
-  "_EMPTY_ATTR_VALUE": {
-    "kind": "type",
-    "value": {
+  "type": {
+    "_EMPTY_ATTR_VALUE": {
       "class": "Identifier",
       "name": "_EMPTY_ATTR_VALUE",
       "moduleUrl": "asset:angular2/lib/src/compiler/selector.dart",
       "prefix": null,
-      "constConstructor": null
-    }
-  },
-  "CssSelector": {
-    "kind": "type",
-    "value": {
+      "value": null
+    },
+    "CssSelector": {
       "class": "Identifier",
       "name": "CssSelector",
       "moduleUrl": "asset:angular2/lib/src/compiler/selector.dart",
       "prefix": null,
-      "constConstructor": null
-    }
-  },
-  "SelectorMatcher": {
-    "kind": "type",
-    "value": {
+      "value": null
+    },
+    "SelectorMatcher": {
       "class": "Identifier",
       "name": "SelectorMatcher",
       "moduleUrl": "asset:angular2/lib/src/compiler/selector.dart",
       "prefix": null,
-      "constConstructor": null
-    }
-  },
-  "SelectorListContext": {
-    "kind": "type",
-    "value": {
+      "value": null
+    },
+    "SelectorListContext": {
       "class": "Identifier",
       "name": "SelectorListContext",
       "moduleUrl": "asset:angular2/lib/src/compiler/selector.dart",
       "prefix": null,
-      "constConstructor": null
-    }
-  },
-  "SelectorContext": {
-    "kind": "type",
-    "value": {
+      "value": null
+    },
+    "SelectorContext": {
       "class": "Identifier",
       "name": "SelectorContext",
       "moduleUrl": "asset:angular2/lib/src/compiler/selector.dart",
       "prefix": null,
-      "constConstructor": null
+      "value": null
     }
   },
-  "definesAlias": false
+  "alias": {}
 }

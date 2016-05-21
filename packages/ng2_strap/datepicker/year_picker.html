@@ -1,31 +1,50 @@
-<html><head></head><body><table [hidden]="datePickerInner.datePickerMode!='year'" role="grid">
+<table [hidden]="datePickerInner.datePickerMode!='year'" role="grid">
   <thead>
   <tr>
     <th colspan="5">
-      <button type="button" class="btn btn-default btn-sm col-xs-2" (click)="$event.stopPropagation(); datePickerInner.move(-1)" tabindex="-1">
+      <button type="button"
+              class="btn btn-default btn-sm col-xs-2"
+              (click)="$event.stopPropagation(); datePickerInner.move(-1)"
+              tabindex="-1">
         <i class="glyphicon glyphicon-chevron-left"></i>
       </button>
-      <button role="heading" type="button" class="btn btn-default btn-sm col-xs-2" (click)="$event.stopPropagation(); datePickerInner.toggleMode(-2)" tabindex="-1">
+      <button role="heading"
+              type="button"
+              class="btn btn-default btn-sm col-xs-2"
+              (click)="$event.stopPropagation(); datePickerInner.toggleMode(-2)"
+              tabindex="-1">
         <strong>{{dayTitle}}</strong>
       </button>
-      <button role="heading" type="button" class="btn btn-default btn-sm col-xs-6" (click)="$event.stopPropagation(); datePickerInner.toggleMode(-1)" tabindex="-1">
+      <button role="heading"
+              type="button"
+              class="btn btn-default btn-sm col-xs-6"
+              (click)="$event.stopPropagation(); datePickerInner.toggleMode(-1)"
+              tabindex="-1">
         <strong>{{monthTitle}}</strong>
       </button>
-      <button type="button" class="btn btn-default btn-sm col-xs-2" (click)="$event.stopPropagation(); datePickerInner.move(1)" tabindex="-1">
+      <button type="button"
+              class="btn btn-default btn-sm col-xs-2"
+              (click)="$event.stopPropagation(); datePickerInner.move(1)"
+              tabindex="-1">
         <i class="glyphicon glyphicon-chevron-right"></i>
       </button>
     </th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngfor="#row of rows">
-    <td *ngfor="#dt of row" class="text-center" role="gridcell">
+  <tr *ngFor="let row of rows">
+    <td *ngFor="let dt of row" class="text-center" role="gridcell">
 
-      <button type="button" style="min-width:100%;" class="btn btn-default" [ngclass]="{'btn-info': dt['selected'], active: datePickerInner.isActive(dt), disabled: dt['disabled']}" [disabled]="dt['disabled']" (click)="$event.stopPropagation(); datePickerInner.select(dt['date'])" tabindex="-1">
-        <span [ngclass]="{'text-info': dt['current']}">{{dt['label']}}</span>
+      <button type="button"
+              style="min-width:100%;"
+              class="btn btn-default"
+              [ngClass]="{'btn-info': dt['selected'], active: datePickerInner.isActive(dt), disabled: dt['disabled']}"
+              [disabled]="dt['disabled']"
+              (click)="$event.stopPropagation(); datePickerInner.select(dt['date'])" tabindex="-1">
+        <span [ngClass]="{'text-info': dt['current']}">{{dt['label']}}</span>
       </button>
 
     </td>
   </tr>
   </tbody>
-</table></body></html>
+</table>

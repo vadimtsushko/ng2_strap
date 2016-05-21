@@ -29,77 +29,10 @@
     ],
     "5": [
       {
-        "1": "N2sAccordion",
-        "4": [
-          {
-            "1": "Component",
-            "3": [
-              {
-                "1": "selector",
-                "2": "'n2s-accordion'"
-              },
-              {
-                "1": "host",
-                "2": "const {'[class.panel-group]' : 'true'}"
-              },
-              {
-                "1": "template",
-                "2": "'<ng-content></ng-content>'"
-              }
-            ],
-            "4": false,
-            "5": true,
-            "6": true,
-            "7": true,
-            "8": false
-          }
-        ],
-        "7": [
-          {
-            "1": "closeOthers",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          }
-        ]
+        "1": "N2sAccordion"
       },
       {
         "1": "N2sAccordionPanel",
-        "4": [
-          {
-            "1": "Component",
-            "3": [
-              {
-                "1": "selector",
-                "2": "'n2s-accordion-panel'"
-              },
-              {
-                "1": "host",
-                "2": "const {'[class.panel-open]' : 'isOpen'}"
-              },
-              {
-                "1": "templateUrl",
-                "2": "'accordion_panel.html'"
-              },
-              {
-                "1": "directives",
-                "2": "const [N2sCollapse, N2sTransclude]"
-              }
-            ],
-            "4": false,
-            "5": true,
-            "6": true,
-            "7": true,
-            "8": false
-          }
-        ],
         "5": [
           {
             "1": "N2sAccordion",
@@ -112,73 +45,6 @@
         ],
         "7": [
           {
-            "1": "panelClass",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "heading",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "isDisabled",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "isOpenChange",
-            "2": [
-              {
-                "1": "Output",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "isOpen",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          }
-        ],
-        "8": [
-          {
             "2": "N2sCollapse"
           },
           {
@@ -189,19 +55,32 @@
     ],
     "6": "accordion.dart"
   },
-  "N2S_ACCORDION_DIRECTIVES": {
-    "kind": "alias",
-    "value": [
-      "N2sAccordion",
-      "N2sAccordionPanel"
-    ]
-  },
-  "N2sAccordion": {
-    "kind": "type",
-    "value": {
+  "type": {
+    "N2S_ACCORDION_DIRECTIVES": {
+      "class": "Identifier",
+      "name": "N2S_ACCORDION_DIRECTIVES",
+      "moduleUrl": "asset:ng2_strap/lib/accordion/accordion.dart",
+      "prefix": null,
+      "value": [
+        {
+          "class": "Identifier",
+          "name": "N2sAccordion",
+          "moduleUrl": null,
+          "prefix": null,
+          "value": null
+        },
+        {
+          "class": "Identifier",
+          "name": "N2sAccordionPanel",
+          "moduleUrl": null,
+          "prefix": null,
+          "value": null
+        }
+      ]
+    },
+    "N2sAccordion": {
       "class": "Directive",
       "isComponent": true,
-      "dynamicLoadable": true,
       "selector": "n2s-accordion",
       "exportAs": null,
       "type": {
@@ -210,7 +89,7 @@
         "moduleUrl": "asset:ng2_strap/lib/accordion/accordion.dart",
         "prefix": null,
         "isHost": false,
-        "constConstructor": null,
+        "value": null,
         "diDeps": []
       },
       "changeDetection": 5,
@@ -234,15 +113,14 @@
           "*"
         ]
       },
-      "providers": []
-    }
-  },
-  "N2sAccordionPanel": {
-    "kind": "type",
-    "value": {
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    },
+    "N2sAccordionPanel": {
       "class": "Directive",
       "isComponent": true,
-      "dynamicLoadable": true,
       "selector": "n2s-accordion-panel",
       "exportAs": null,
       "type": {
@@ -251,17 +129,29 @@
         "moduleUrl": "asset:ng2_strap/lib/accordion/accordion.dart",
         "prefix": null,
         "isHost": false,
-        "constConstructor": null,
+        "value": null,
         "diDeps": [
           {
-            "token": null,
+            "token": {
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "N2sAccordion",
+                "moduleUrl": null,
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
+            },
             "query": null,
             "viewQuery": null,
+            "value": null,
             "isAttribute": false,
             "isSelf": false,
             "isHost": false,
             "isSkipSelf": false,
-            "isOptional": false
+            "isOptional": false,
+            "isValue": false
           }
         ]
       },
@@ -295,8 +185,16 @@
           "*"
         ]
       },
-      "providers": []
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
     }
   },
-  "definesAlias": true
+  "alias": {
+    "N2S_ACCORDION_DIRECTIVES": [
+      "N2sAccordion",
+      "N2sAccordionPanel"
+    ]
+  }
 }

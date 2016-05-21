@@ -14,80 +14,12 @@
     "5": [
       {
         "1": "N2sProgress",
-        "4": [
-          {
-            "1": "Directive",
-            "3": [
-              {
-                "1": "selector",
-                "2": "'n2s-progress'"
-              },
-              {
-                "1": "host",
-                "2": "const {'[attr.max]' : 'max'}"
-              }
-            ],
-            "4": false,
-            "5": true,
-            "6": false,
-            "7": true,
-            "8": false
-          }
-        ],
         "6": [
           "OnInit"
-        ],
-        "7": [
-          {
-            "1": "animate",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "max",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          }
         ]
       },
       {
         "1": "N2sBar",
-        "4": [
-          {
-            "1": "Directive",
-            "3": [
-              {
-                "1": "selector",
-                "2": "'n2s-bar'"
-              },
-              {
-                "1": "host",
-                "2": "const {'style' : 'min-width: 0;', 'role' : 'progressbar', '[style.width]' : '(percent < 100 ? percent : 100).toString() + \"%\"', '[style.transition]' : 'transition', 'aria-valuemin' : '0', '[attr.aria-valuenow]' : 'value', '[attr.aria-valuetext]' : 'percent.toStringAsFixed(0) + \"%\"', '[attr.aria-valuemax]' : 'max'}"
-              }
-            ],
-            "4": false,
-            "5": true,
-            "6": false,
-            "7": true,
-            "8": false
-          }
-        ],
         "5": [
           {
             "1": "N2sProgress",
@@ -104,117 +36,11 @@
         "6": [
           "OnInit",
           "OnDestroy"
-        ],
-        "7": [
-          {
-            "1": "value",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "type",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          }
         ]
       },
       {
         "1": "N2sProgressbar",
-        "4": [
-          {
-            "1": "Component",
-            "3": [
-              {
-                "1": "selector",
-                "2": "'n2s-progressbar'"
-              },
-              {
-                "1": "templateUrl",
-                "2": "'progressbar.html'"
-              },
-              {
-                "1": "directives",
-                "2": "const [N2sProgress, N2sBar]"
-              }
-            ],
-            "4": false,
-            "5": true,
-            "6": true,
-            "7": true,
-            "8": false
-          }
-        ],
         "7": [
-          {
-            "1": "animate",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "max",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "type",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "value",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          }
-        ],
-        "8": [
           {
             "2": "N2sProgress"
           },
@@ -226,20 +52,39 @@
     ],
     "6": "progressbar.dart"
   },
-  "N2S_PROGRESSBAR_DIRECTIVES": {
-    "kind": "alias",
-    "value": [
-      "N2sProgress",
-      "N2sBar",
-      "N2sProgressbar"
-    ]
-  },
-  "N2sProgress": {
-    "kind": "type",
-    "value": {
+  "type": {
+    "N2S_PROGRESSBAR_DIRECTIVES": {
+      "class": "Identifier",
+      "name": "N2S_PROGRESSBAR_DIRECTIVES",
+      "moduleUrl": "asset:ng2_strap/lib/progressbar/progressbar.dart",
+      "prefix": null,
+      "value": [
+        {
+          "class": "Identifier",
+          "name": "N2sProgress",
+          "moduleUrl": null,
+          "prefix": null,
+          "value": null
+        },
+        {
+          "class": "Identifier",
+          "name": "N2sBar",
+          "moduleUrl": null,
+          "prefix": null,
+          "value": null
+        },
+        {
+          "class": "Identifier",
+          "name": "N2sProgressbar",
+          "moduleUrl": null,
+          "prefix": null,
+          "value": null
+        }
+      ]
+    },
+    "N2sProgress": {
       "class": "Directive",
       "isComponent": false,
-      "dynamicLoadable": true,
       "selector": "n2s-progress",
       "exportAs": null,
       "type": {
@@ -248,7 +93,7 @@
         "moduleUrl": "asset:ng2_strap/lib/progressbar/progressbar.dart",
         "prefix": null,
         "isHost": false,
-        "constConstructor": null,
+        "value": null,
         "diDeps": []
       },
       "changeDetection": 5,
@@ -266,15 +111,14 @@
         0
       ],
       "template": null,
-      "providers": []
-    }
-  },
-  "N2sBar": {
-    "kind": "type",
-    "value": {
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    },
+    "N2sBar": {
       "class": "Directive",
       "isComponent": false,
-      "dynamicLoadable": true,
       "selector": "n2s-bar",
       "exportAs": null,
       "type": {
@@ -283,27 +127,51 @@
         "moduleUrl": "asset:ng2_strap/lib/progressbar/progressbar.dart",
         "prefix": null,
         "isHost": false,
-        "constConstructor": null,
+        "value": null,
         "diDeps": [
           {
-            "token": null,
+            "token": {
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "N2sProgress",
+                "moduleUrl": null,
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
+            },
             "query": null,
             "viewQuery": null,
+            "value": null,
             "isAttribute": false,
             "isSelf": false,
             "isHost": true,
             "isSkipSelf": false,
-            "isOptional": false
+            "isOptional": false,
+            "isValue": false
           },
           {
-            "token": null,
+            "token": {
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "ElementRef",
+                "moduleUrl": null,
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
+            },
             "query": null,
             "viewQuery": null,
+            "value": null,
             "isAttribute": false,
             "isSelf": false,
             "isHost": false,
             "isSkipSelf": false,
-            "isOptional": false
+            "isOptional": false,
+            "isValue": false
           }
         ]
       },
@@ -331,15 +199,14 @@
         1
       ],
       "template": null,
-      "providers": []
-    }
-  },
-  "N2sProgressbar": {
-    "kind": "type",
-    "value": {
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    },
+    "N2sProgressbar": {
       "class": "Directive",
       "isComponent": true,
-      "dynamicLoadable": true,
       "selector": "n2s-progressbar",
       "exportAs": null,
       "type": {
@@ -348,7 +215,7 @@
         "moduleUrl": "asset:ng2_strap/lib/progressbar/progressbar.dart",
         "prefix": null,
         "isHost": false,
-        "constConstructor": null,
+        "value": null,
         "diDeps": []
       },
       "changeDetection": 5,
@@ -373,8 +240,17 @@
           "*"
         ]
       },
-      "providers": []
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
     }
   },
-  "definesAlias": true
+  "alias": {
+    "N2S_PROGRESSBAR_DIRECTIVES": [
+      "N2sProgress",
+      "N2sBar",
+      "N2sProgressbar"
+    ]
+  }
 }

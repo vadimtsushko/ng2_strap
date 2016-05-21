@@ -1,0 +1,70 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/typeahead/typeahead.dart",
+        "5": false
+      },
+      {
+        "1": "dart:async",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "TypeaheadDemo",
+        "7": [
+          {
+            "2": "N2sTypeAhead"
+          },
+          {
+            "2": "N2sRenderer"
+          }
+        ]
+      }
+    ],
+    "6": "typeahead_demo.dart"
+  },
+  "type": {
+    "TypeaheadDemo": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "typeahead-demo",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "TypeaheadDemo",
+        "moduleUrl": "asset:ng2_strap/web/components/typeahead/typeahead_demo.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "<div class='container-fluid'>\n  <h4>Static arrays</h4>\n    <pre>Model: {{selected}}\nSelected Item: {{selectedItem}}</pre>\n  <n2s-type-ahead [(ngModel)]=\"selected\"\n                 [source]=\"statesComplex\"\n                 [(selectedItem)]=\"selectedItem\"\n                 (selectedItemChange)=\"typeaheadOnSelect($event)\"\n                 [optionField]=\"'name'\">\n    <template n2s-renderer>\n      {{item['name']}}\n    </template>\n  </n2s-type-ahead>\n\n  <h4>Asynchronous results</h4>\n    <pre>Model: {{selectedAsync}}\nSelected Item: {{selectedItemAsync}}</pre>\n  <n2s-type-ahead [(ngModel)]=\"selectedAsync\"\n                 [source]=\"getAsyncData\"\n                 [(selectedItem)]=\"selectedItemAsync\"\n                 (loading)=\"changeTypeaheadLoading($event)\"\n                 (noResults)=\"changeTypeaheadNoResults($event)\"\n                 (select)=\"typeaheadOnSelect($event)\"\n                 [optionsLimit]=\"7\"\n                 placeholder=\"Locations loaded with timeout\"></n2s-type-ahead>\n  <div [hidden]=\"typeaheadLoading!==true\">\n    <i class=\"glyphicon glyphicon-refresh ng-hide\" style=\"\"></i>\n  </div>\n  <div [hidden]=\"typeaheadNoResults!==true\" class=\"\" style=\"\">\n    <i class=\"glyphicon glyphicon-remove\"></i> No Results Found\n  </div>\n</div>\n",
+        "templateUrl": "asset:ng2_strap/web/components/typeahead/typeahead_demo.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

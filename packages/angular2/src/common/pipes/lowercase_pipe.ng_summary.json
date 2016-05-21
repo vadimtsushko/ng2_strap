@@ -40,19 +40,11 @@
                 "2": "\"lowercase\""
               }
             ],
-            "4": false,
-            "5": false,
-            "6": false,
-            "7": true,
-            "8": false
+            "4": false
           },
           {
             "1": "Injectable",
-            "4": false,
-            "5": false,
-            "6": false,
-            "7": true,
-            "8": false
+            "4": false
           }
         ],
         "6": [
@@ -62,9 +54,8 @@
     ],
     "6": "lowercase_pipe.dart"
   },
-  "LowerCasePipe": {
-    "kind": "type",
-    "value": {
+  "type": {
+    "LowerCasePipe": {
       "class": "Pipe",
       "type": {
         "class": "Type",
@@ -72,12 +63,12 @@
         "moduleUrl": "asset:angular2/lib/src/common/pipes/lowercase_pipe.dart",
         "prefix": null,
         "isHost": false,
-        "constConstructor": null,
-        "diDeps": null
+        "value": null,
+        "diDeps": []
       },
       "name": "lowercase",
       "pure": false
     }
   },
-  "definesAlias": false
+  "alias": {}
 }

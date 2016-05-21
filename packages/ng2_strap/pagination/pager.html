@@ -1,4 +1,4 @@
-<html><head></head><body><ul class="pager">
-  <li [ngclass]="{disabled: noPrevious(), previous: align, 'pull-left': align}"><a href="" (click)="selectPage(currentPage - 1, $event)">{{previousText}}</a></li>
-  <li [ngclass]="{disabled: noNext(), next: align, 'pull-right': align}"><a href="" (click)="selectPage(currentPage + 1, $event)">{{nextText}}</a></li>
-</ul></body></html>
+<ul class="pager">
+  <li [ngClass]="{disabled: noPrevious(), previous: align, 'pull-left': align}"><a href (click)="selectPage(currentPage - 1, $event)">{{previousText}}</a></li>
+  <li [ngClass]="{disabled: noNext(), next: align, 'pull-right': align}"><a href (click)="selectPage(currentPage + 1, $event)">{{nextText}}</a></li>
+</ul>

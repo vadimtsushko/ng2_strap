@@ -20,36 +20,32 @@
       }
     ],
     "6": "entrypoint_matcher.dart",
-    "10": [
+    "7": [
       {
-        "1": "package:angular2/src/transform/common/annotation_matcher.template.dart",
+        "1": "package:angular2/src/transform/common/annotation_matcher.ngfactory.dart",
         "4": "i0"
       },
       {
-        "1": "package:angular2/src/transform/common/naive_eval.template.dart",
+        "1": "package:angular2/src/transform/common/naive_eval.ngfactory.dart",
         "4": "i1"
       }
     ]
   },
-  "_defaultEntrypointName": {
-    "kind": "type",
-    "value": {
+  "type": {
+    "_defaultEntrypointName": {
       "class": "Identifier",
       "name": "_defaultEntrypointName",
       "moduleUrl": "asset:angular2/lib/src/transform/reflection_remover/entrypoint_matcher.dart",
       "prefix": null,
-      "constConstructor": null
-    }
-  },
-  "EntrypointMatcher": {
-    "kind": "type",
-    "value": {
+      "value": null
+    },
+    "EntrypointMatcher": {
       "class": "Identifier",
       "name": "EntrypointMatcher",
       "moduleUrl": "asset:angular2/lib/src/transform/reflection_remover/entrypoint_matcher.dart",
       "prefix": null,
-      "constConstructor": null
+      "value": null
     }
   },
-  "definesAlias": false
+  "alias": {}
 }

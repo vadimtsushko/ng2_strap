@@ -14,57 +14,20 @@
     "5": [
       {
         "1": "N2sCollapse",
-        "4": [
-          {
-            "1": "Directive",
-            "3": [
-              {
-                "1": "selector",
-                "2": "\"[n2sCollapse]\""
-              },
-              {
-                "1": "host",
-                "2": "const {\"[class.in]\" : \"isExpanded\", \"[class.collapse]\" : \"isCollapse\", \"[class.collapsing]\" : \"isCollapsing\", \"[attr.aria-expanded]\" : \"isExpanded\", \"[attr.aria-hidden]\" : \"isCollapsed\", \"[style.height]\" : \"height\"}"
-              }
-            ],
-            "4": false,
-            "5": true,
-            "6": false,
-            "7": true,
-            "8": false
-          }
-        ],
         "5": [
           {
             "1": "ElementRef",
             "4": "elementRef"
-          }
-        ],
-        "7": [
-          {
-            "1": "n2sCollapse",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
           }
         ]
       }
     ],
     "6": "collapse.dart"
   },
-  "N2sCollapse": {
-    "kind": "type",
-    "value": {
+  "type": {
+    "N2sCollapse": {
       "class": "Directive",
       "isComponent": false,
-      "dynamicLoadable": true,
       "selector": "[n2sCollapse]",
       "exportAs": null,
       "type": {
@@ -73,17 +36,29 @@
         "moduleUrl": "asset:ng2_strap/lib/collapse/collapse.dart",
         "prefix": null,
         "isHost": false,
-        "constConstructor": null,
+        "value": null,
         "diDeps": [
           {
-            "token": null,
+            "token": {
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "ElementRef",
+                "moduleUrl": null,
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
+            },
             "query": null,
             "viewQuery": null,
+            "value": null,
             "isAttribute": false,
             "isSelf": false,
             "isHost": false,
             "isSkipSelf": false,
-            "isOptional": false
+            "isOptional": false,
+            "isValue": false
           }
         ]
       },
@@ -104,8 +79,11 @@
       "hostAttributes": {},
       "lifecycleHooks": [],
       "template": null,
-      "providers": []
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
     }
   },
-  "definesAlias": false
+  "alias": {}
 }

@@ -1,0 +1,84 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/buttons/button_checkbox.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/buttons/button_radio.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "ButtonsDemo",
+        "7": [
+          {
+            "2": "N2sButtonCheckbox"
+          },
+          {
+            "2": "N2sButtonRadio"
+          }
+        ]
+      }
+    ],
+    "6": "buttons_demo.dart",
+    "7": [
+      {
+        "1": "package:angular2/angular2.ngfactory.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:ng2_strap/buttons/button_checkbox.ngfactory.dart",
+        "4": "i1"
+      },
+      {
+        "1": "package:ng2_strap/buttons/button_radio.ngfactory.dart",
+        "4": "i2"
+      }
+    ]
+  },
+  "type": {
+    "ButtonsDemo": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "buttons-demo",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "ButtonsDemo",
+        "moduleUrl": "asset:ng2_strap/web/components/buttons/buttons_demo.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "<h4>Single toggle</h4>\n<pre class=\"card card-block card-header\">{{singleModel}}</pre>\n<n2s-btn-checkbox class=\"btn btn-primary\"\n        [(ngModel)]=\"singleModel\"\n        trueValue=\"0\" falseValue=\"1\">\n  Single Toggle\n</n2s-btn-checkbox>\n<h4>Checkbox</h4>\n<pre class=\"card card-block card-header\">\n  Left: {{checkModel['left']}},\n  Middle: {{checkModel['middle']}},\n  Right: {{checkModel['right']}}\n</pre>\n<div class=\"btn-group\">\n  <n2s-btn-checkbox class=\"btn btn-primary\" [(ngModel)]=\"checkModel['left']\" >Left</n2s-btn-checkbox>\n  <n2s-btn-checkbox class=\"btn btn-primary\" [(ngModel)]=\"checkModel['middle']\">Middle</n2s-btn-checkbox>\n  <n2s-btn-checkbox class=\"btn btn-primary\" [(ngModel)]=\"checkModel['right']\" >Right</n2s-btn-checkbox>\n</div>\n<h4>Radio &amp; Uncheckable Radio</h4>\n<pre class=\"card card-block card-header\">{{radioModel}}</pre>\n<div class=\"btn-group\">\n  <n2s-btn-radio class=\"btn btn-primary\" [(ngModel)]=\"radioModel\" option=\"Left\">Left</n2s-btn-radio>\n  <n2s-btn-radio class=\"btn btn-primary\" [(ngModel)]=\"radioModel\" option=\"Middle\">Middle</n2s-btn-radio>\n  <n2s-btn-radio class=\"btn btn-primary\" [(ngModel)]=\"radioModel\" option=\"Right\">Right</n2s-btn-radio>\n</div>\n<div class=\"btn-group\">\n  <n2s-btn-radio class=\"btn btn-success\" [(ngModel)]=\"radioModel\" option=\"Left\" [uncheckable]=\"false\">Left</n2s-btn-radio>\n  <n2s-btn-radio class=\"btn btn-success\" [(ngModel)]=\"radioModel\" option=\"Middle\" [uncheckable]=\"false\">Middle</n2s-btn-radio>\n  <n2s-btn-radio class=\"btn btn-success\" [(ngModel)]=\"radioModel\" option=\"Right\" [uncheckable]=\"false\">Right</n2s-btn-radio>\n</div>\n",
+        "templateUrl": "asset:ng2_strap/web/components/buttons/buttons_demo.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

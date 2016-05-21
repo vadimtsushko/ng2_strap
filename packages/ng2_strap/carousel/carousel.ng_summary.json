@@ -18,118 +18,12 @@
     "5": [
       {
         "1": "N2sCarousel",
-        "4": [
-          {
-            "1": "Component",
-            "3": [
-              {
-                "1": "selector",
-                "2": "\"n2s-carousel\""
-              },
-              {
-                "1": "templateUrl",
-                "2": "'carousel.html'"
-              }
-            ],
-            "4": false,
-            "5": true,
-            "6": true,
-            "7": true,
-            "8": false
-          }
-        ],
         "6": [
           "OnDestroy"
-        ],
-        "7": [
-          {
-            "1": "noPause",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "noWrap",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "noTransition",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "interval",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          }
         ]
       },
       {
         "1": "N2sSlide",
-        "4": [
-          {
-            "1": "Component",
-            "3": [
-              {
-                "1": "selector",
-                "2": "\"n2s-slide\""
-              },
-              {
-                "1": "inputs",
-                "2": "const [\"direction\", \"active\", \"index\"]"
-              },
-              {
-                "1": "host",
-                "2": "const {\"[class.active]\" : \"active\", \"[class.item]\" : \"true\", \"[class.carousel-item]\" : \"true\"}"
-              },
-              {
-                "1": "template",
-                "2": "'''\n  <div [ngClass]=\"{active: active}\" class=\"item text-center\">\n    <ng-content></ng-content>\n  </div>\n  '''"
-              },
-              {
-                "1": "directives",
-                "2": "const [NgClass]"
-              }
-            ],
-            "4": false,
-            "5": true,
-            "6": true,
-            "7": true,
-            "8": false
-          }
-        ],
         "5": [
           {
             "1": "N2sCarousel",
@@ -140,7 +34,7 @@
           "OnInit",
           "OnDestroy"
         ],
-        "8": [
+        "7": [
           {
             "2": "NgClass"
           }
@@ -149,29 +43,39 @@
     ],
     "6": "carousel.dart"
   },
-  "Direction": {
-    "kind": "type",
-    "value": {
+  "type": {
+    "Direction": {
       "class": "Identifier",
       "name": "Direction",
       "moduleUrl": "asset:ng2_strap/lib/carousel/carousel.dart",
       "prefix": null,
-      "constConstructor": null
-    }
-  },
-  "N2S_CAROUSEL_DIRECTIVES": {
-    "kind": "alias",
-    "value": [
-      "N2sCarousel",
-      "N2sSlide"
-    ]
-  },
-  "N2sSlide": {
-    "kind": "type",
-    "value": {
+      "value": null
+    },
+    "N2S_CAROUSEL_DIRECTIVES": {
+      "class": "Identifier",
+      "name": "N2S_CAROUSEL_DIRECTIVES",
+      "moduleUrl": "asset:ng2_strap/lib/carousel/carousel.dart",
+      "prefix": null,
+      "value": [
+        {
+          "class": "Identifier",
+          "name": "N2sCarousel",
+          "moduleUrl": null,
+          "prefix": null,
+          "value": null
+        },
+        {
+          "class": "Identifier",
+          "name": "N2sSlide",
+          "moduleUrl": null,
+          "prefix": null,
+          "value": null
+        }
+      ]
+    },
+    "N2sSlide": {
       "class": "Directive",
       "isComponent": true,
-      "dynamicLoadable": true,
       "selector": "n2s-slide",
       "exportAs": null,
       "type": {
@@ -180,17 +84,29 @@
         "moduleUrl": "asset:ng2_strap/lib/carousel/carousel.dart",
         "prefix": null,
         "isHost": false,
-        "constConstructor": null,
+        "value": null,
         "diDeps": [
           {
-            "token": null,
+            "token": {
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "N2sCarousel",
+                "moduleUrl": null,
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
+            },
             "query": null,
             "viewQuery": null,
+            "value": null,
             "isAttribute": false,
             "isSelf": false,
             "isHost": false,
             "isSkipSelf": false,
-            "isOptional": false
+            "isOptional": false,
+            "isValue": false
           }
         ]
       },
@@ -222,15 +138,14 @@
           "*"
         ]
       },
-      "providers": []
-    }
-  },
-  "N2sCarousel": {
-    "kind": "type",
-    "value": {
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    },
+    "N2sCarousel": {
       "class": "Directive",
       "isComponent": true,
-      "dynamicLoadable": true,
       "selector": "n2s-carousel",
       "exportAs": null,
       "type": {
@@ -239,7 +154,7 @@
         "moduleUrl": "asset:ng2_strap/lib/carousel/carousel.dart",
         "prefix": null,
         "isHost": false,
-        "constConstructor": null,
+        "value": null,
         "diDeps": []
       },
       "changeDetection": 5,
@@ -258,7 +173,7 @@
       ],
       "template": {
         "encapsulation": 2,
-        "template": "<div (mouseenter)=\"pause()\" (mouseleave)=\"play()\" class=\"carousel slide\">\n  <ol class=\"carousel-indicators\" [hidden]=\"slides.length <= 1\">\n    <li *ngFor=\"#slide of slides\" [ngClass]=\"{active: slide.active === true}\" (click)=\"select(slide)\"></li>\n  </ol>\n  <div class=\"carousel-inner\"><ng-content></ng-content></div>\n</div>",
+        "template": "<div (mouseenter)=\"pause()\" (mouseleave)=\"play()\" class=\"carousel slide\">\n  <ol class=\"carousel-indicators\" [hidden]=\"slides.length <= 1\">\n    <li *ngFor=\"let slide of slides\" [ngClass]=\"{active: slide.active === true}\" (click)=\"select(slide)\"></li>\n  </ol>\n  <div class=\"carousel-inner\"><ng-content></ng-content></div>\n</div>\n",
         "templateUrl": "asset:ng2_strap/lib/carousel/carousel.html",
         "styles": [],
         "styleUrls": [],
@@ -266,8 +181,16 @@
           "*"
         ]
       },
-      "providers": []
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
     }
   },
-  "definesAlias": true
+  "alias": {
+    "N2S_CAROUSEL_DIRECTIVES": [
+      "N2sCarousel",
+      "N2sSlide"
+    ]
+  }
 }

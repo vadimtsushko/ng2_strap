@@ -28,90 +28,71 @@
       }
     ],
     "6": "di.dart",
-    "10": [
+    "7": [
       {
-        "1": "package:angular2/src/facade/lang.template.dart",
+        "1": "package:angular2/src/facade/lang.ngfactory.dart",
         "4": "i0"
       },
       {
-        "1": "package:angular2/src/core/di.template.dart",
+        "1": "package:angular2/src/core/di.ngfactory.dart",
         "4": "i1"
       },
       {
-        "1": "package:angular2/src/core/di/metadata.template.dart",
+        "1": "package:angular2/src/core/di/metadata.ngfactory.dart",
         "4": "i2"
       }
     ]
   },
-  "AttributeMetadata": {
-    "kind": "type",
-    "value": {
+  "type": {
+    "AttributeMetadata": {
       "class": "Identifier",
       "name": "AttributeMetadata",
       "moduleUrl": "asset:angular2/lib/src/core/metadata/di.dart",
       "prefix": null,
-      "constConstructor": null
-    }
-  },
-  "QueryMetadata": {
-    "kind": "type",
-    "value": {
+      "value": null
+    },
+    "QueryMetadata": {
       "class": "Identifier",
       "name": "QueryMetadata",
       "moduleUrl": "asset:angular2/lib/src/core/metadata/di.dart",
       "prefix": null,
-      "constConstructor": null
-    }
-  },
-  "ContentChildrenMetadata": {
-    "kind": "type",
-    "value": {
+      "value": null
+    },
+    "ContentChildrenMetadata": {
       "class": "Identifier",
       "name": "ContentChildrenMetadata",
       "moduleUrl": "asset:angular2/lib/src/core/metadata/di.dart",
       "prefix": null,
-      "constConstructor": null
-    }
-  },
-  "ContentChildMetadata": {
-    "kind": "type",
-    "value": {
+      "value": null
+    },
+    "ContentChildMetadata": {
       "class": "Identifier",
       "name": "ContentChildMetadata",
       "moduleUrl": "asset:angular2/lib/src/core/metadata/di.dart",
       "prefix": null,
-      "constConstructor": null
-    }
-  },
-  "ViewQueryMetadata": {
-    "kind": "type",
-    "value": {
+      "value": null
+    },
+    "ViewQueryMetadata": {
       "class": "Identifier",
       "name": "ViewQueryMetadata",
       "moduleUrl": "asset:angular2/lib/src/core/metadata/di.dart",
       "prefix": null,
-      "constConstructor": null
-    }
-  },
-  "ViewChildrenMetadata": {
-    "kind": "type",
-    "value": {
+      "value": null
+    },
+    "ViewChildrenMetadata": {
       "class": "Identifier",
       "name": "ViewChildrenMetadata",
       "moduleUrl": "asset:angular2/lib/src/core/metadata/di.dart",
       "prefix": null,
-      "constConstructor": null
-    }
-  },
-  "ViewChildMetadata": {
-    "kind": "type",
-    "value": {
+      "value": null
+    },
+    "ViewChildMetadata": {
       "class": "Identifier",
       "name": "ViewChildMetadata",
       "moduleUrl": "asset:angular2/lib/src/core/metadata/di.dart",
       "prefix": null,
-      "constConstructor": null
+      "value": null
     }
   },
-  "definesAlias": false
+  "alias": {}
 }

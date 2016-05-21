@@ -1,0 +1,73 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/timepicker/timepicker.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "TimepickerDemo",
+        "7": [
+          {
+            "2": "N2sTimePicker"
+          }
+        ]
+      }
+    ],
+    "6": "timepicker_demo.dart",
+    "7": [
+      {
+        "1": "package:angular2/angular2.ngfactory.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:ng2_strap/timepicker/timepicker.ngfactory.dart",
+        "4": "i1"
+      }
+    ]
+  },
+  "type": {
+    "TimepickerDemo": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "timepicker-demo",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "TimepickerDemo",
+        "moduleUrl": "asset:ng2_strap/web/components/timepicker/timepicker_demo.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "<n2s-time-picker [(ngModel)]=\"mytime\" (change)=\"changed()\" [hourStep]=\"hstepInt\" [minuteStep]=\"mstepInt\" [showMeridian]=\"ismeridian\"></n2s-time-picker>\n\n<pre class=\"alert alert-info\">Time is: {{mytime}}</pre>\n<pre> (note: | date:'shortTime' and date pipe currently supported only in Chrome)</pre>\n\n<div class=\"row\">\n  <div class=\"col-xs-6\">\n    Hours step is:\n    <select class=\"form-control\" [(ngModel)]=\"hstep\">\n      <option *ngFor=\"let opt of options['hstep']\" [value]=\"opt.toString()\">{{opt}}</option>\n    </select>\n  </div>\n  <div class=\"col-xs-6\">\n    Minutes step is:\n    <select class=\"form-control\" [(ngModel)]=\"mstep\">\n      <option *ngFor=\"let opt of options['mstep']\" [value]=\"opt.toString()\">{{opt}}</option>\n    </select>\n  </div>\n</div>\n\n<hr>\n\n<button type=\"button\" class=\"btn btn-info\" (click)=\"toggleMode()\">12H / 24H</button>\n<button type=\"button\" class=\"btn btn-primary\" (click)=\"update()\">Set to 14:00</button>\n<button type=\"button\" class=\"btn btn-danger\" (click)=\"clear()\">Clear</button>\n",
+        "templateUrl": "asset:ng2_strap/web/components/timepicker/timepicker_demo.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

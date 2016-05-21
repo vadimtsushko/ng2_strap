@@ -9,10 +9,10 @@
         "1": "alert/alert.dart"
       },
       {
-        "1": "buttons/button-radio.dart"
+        "1": "buttons/button_radio.dart"
       },
       {
-        "1": "buttons/button-checkbox.dart"
+        "1": "buttons/button_checkbox.dart"
       },
       {
         "1": "datepicker/index.dart"
@@ -52,12 +52,10 @@
       },
       {
         "1": "common.dart"
-      },
-      {
-        "1": "ng2-bootstrap-config.dart"
       }
     ],
     "6": "index.dart"
   },
-  "definesAlias": false
+  "type": {},
+  "alias": {}
 }

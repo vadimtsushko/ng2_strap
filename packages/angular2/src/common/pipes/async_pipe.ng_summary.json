@@ -31,7 +31,6 @@
           "Injectable",
           "ChangeDetectorRef",
           "OnDestroy",
-          "PipeTransform",
           "WrappedValue"
         ],
         "5": false
@@ -60,19 +59,11 @@
                 "2": "false"
               }
             ],
-            "4": false,
-            "5": false,
-            "6": false,
-            "7": true,
-            "8": false
+            "4": false
           },
           {
             "1": "Injectable",
-            "4": false,
-            "5": false,
-            "6": false,
-            "7": true,
-            "8": false
+            "4": false
           }
         ],
         "5": [
@@ -82,36 +73,28 @@
           }
         ],
         "6": [
-          "PipeTransform",
           "OnDestroy"
         ]
       }
     ],
     "6": "async_pipe.dart"
   },
-  "ObservableStrategy": {
-    "kind": "type",
-    "value": {
+  "type": {
+    "ObservableStrategy": {
       "class": "Identifier",
       "name": "ObservableStrategy",
       "moduleUrl": "asset:angular2/lib/src/common/pipes/async_pipe.dart",
       "prefix": null,
-      "constConstructor": null
-    }
-  },
-  "PromiseStrategy": {
-    "kind": "type",
-    "value": {
+      "value": null
+    },
+    "PromiseStrategy": {
       "class": "Identifier",
       "name": "PromiseStrategy",
       "moduleUrl": "asset:angular2/lib/src/common/pipes/async_pipe.dart",
       "prefix": null,
-      "constConstructor": null
-    }
-  },
-  "AsyncPipe": {
-    "kind": "type",
-    "value": {
+      "value": null
+    },
+    "AsyncPipe": {
       "class": "Pipe",
       "type": {
         "class": "Type",
@@ -119,12 +102,12 @@
         "moduleUrl": "asset:angular2/lib/src/common/pipes/async_pipe.dart",
         "prefix": null,
         "isHost": false,
-        "constConstructor": null,
-        "diDeps": null
+        "value": null,
+        "diDeps": []
       },
       "name": "async",
       "pure": false
     }
   },
-  "definesAlias": false
+  "alias": {}
 }

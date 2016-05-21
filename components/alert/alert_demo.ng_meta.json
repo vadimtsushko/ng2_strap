@@ -1,0 +1,73 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/alert/alert.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "AlertDemo",
+        "7": [
+          {
+            "2": "N2sAlert"
+          }
+        ]
+      }
+    ],
+    "6": "alert_demo.dart",
+    "7": [
+      {
+        "1": "package:angular2/angular2.ngfactory.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:ng2_strap/alert/alert.ngfactory.dart",
+        "4": "i1"
+      }
+    ]
+  },
+  "type": {
+    "AlertDemo": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "alert-demo",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "AlertDemo",
+        "moduleUrl": "asset:ng2_strap/web/components/alert/alert_demo.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "<n2s-alert [closeable]=\"true\">This alert is closeable/dismissible</n2s-alert>\n<n2s-alert type=\"info\">This alert is info</n2s-alert>\n\n<n2s-alert *ngFor=\"let alert of alerts; let i = index\" [type]=\"alert['type']\" (close)=\"closeAlert(i)\"\n           [closeable]=\"alert['closable']\">\n  {{ alert['msg'] }}\n</n2s-alert>\n\n<n2s-alert [dismissOnTimeout]=\"3000\">This alert will dismiss in 3s</n2s-alert>\n\n<button type=\"button\" class='btn btn-primary' (click)=\"addAlert()\">Add Alert</button>\n",
+        "templateUrl": "asset:ng2_strap/web/components/alert/alert_demo.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

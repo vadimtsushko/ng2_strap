@@ -1,0 +1,63 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/pagination/pagination.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "PaginationDemo",
+        "7": [
+          {
+            "2": "PAGINATION_DIRECTIVES"
+          }
+        ]
+      }
+    ],
+    "6": "pagination_demo.dart"
+  },
+  "type": {
+    "PaginationDemo": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "pagination-demo",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "PaginationDemo",
+        "moduleUrl": "asset:ng2_strap/web/components/pagination/pagination_demo.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "<div>\n  <h4>Default</h4>\n  <n2s-pagination [totalItems]=\"totalItems\" [(currentPage)]=\"currentPage\" (currentPageChange)=\"pageChanged()\"\n                  #p1></n2s-pagination>\n  <n2s-pagination [boundaryLinks]=\"true\" [totalItems]=\"totalItems\" [(currentPage)]=\"currentPage\" class=\"sm\"\n                  previousText=\"&lsaquo;\" nextText=\"&rsaquo;\" firstText=\"&laquo;\" lastText=\"&raquo;\"></n2s-pagination>\n  <n2s-pagination [directionLinks]=\"false\" [boundaryLinks]=\"true\" [totalItems]=\"totalItems\"\n                  [(currentPage)]=\"currentPage\"></n2s-pagination>\n  <n2s-pagination [directionLinks]=\"false\" [totalItems]=\"totalItems\" [(currentPage)]=\"currentPage\"\n                  [(totalPages)]=\"smallnumPages\"></n2s-pagination>\n    <pre class=\"card card-block card-header\">\n      The selected page no: {{currentPage}}/{{smallnumPages}}\n      totalItems: {{totalItems}}\n    </pre>\n  <button class=\"btn btn-info\" (click)=\"setPage(3)\">Set current page to: 3</button>\n  <hr>\n  <h4>Pager</h4>\n  <n2s-pager [totalItems]=\"totalItems\" [(currentPage)]=\"currentPage\" (currentPageChange)=\"pageChanged()\"></n2s-pager>\n\n  <hr/>\n  <h4>Limit the maximum visible buttons</h4>\n  <n2s-pagination [totalItems]=\"bigTotalItems\" [(currentPage)]=\"bigCurrentPage\" [maxSize]=\"maxSize\" class=\"sm\"\n                  [boundaryLinks]=\"true\"></n2s-pagination>\n  <n2s-pagination [totalItems]=\"bigTotalItems\" [(currentPage)]=\"bigCurrentPage\" [maxSize]=\"maxSize\" class=\"sm\"\n                  [boundaryLinks]=\"true\" [rotate]=\"false\" [(totalPages)]=\"numPages\"></n2s-pagination>\n  <pre class=\"card card-block card-header\">Page: {{bigCurrentPage}} / {{numPages}}</pre>\n</div>\n",
+        "templateUrl": "asset:ng2_strap/web/components/pagination/pagination_demo.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

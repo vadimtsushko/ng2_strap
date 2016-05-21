@@ -61,11 +61,7 @@
         "4": [
           {
             "1": "Injectable",
-            "4": false,
-            "5": false,
-            "6": false,
-            "7": true,
-            "8": false
+            "4": false
           }
         ],
         "5": [
@@ -82,84 +78,89 @@
     ],
     "6": "service_message_broker.dart"
   },
-  "ServiceMessageBrokerFactory": {
-    "kind": "type",
-    "value": {
+  "type": {
+    "ServiceMessageBrokerFactory": {
       "class": "Identifier",
       "name": "ServiceMessageBrokerFactory",
       "moduleUrl": "asset:angular2/lib/src/web_workers/shared/service_message_broker.dart",
       "prefix": null,
-      "constConstructor": null
-    }
-  },
-  "ServiceMessageBrokerFactory_": {
-    "kind": "type",
-    "value": {
+      "value": null
+    },
+    "ServiceMessageBrokerFactory_": {
       "class": "Type",
       "name": "ServiceMessageBrokerFactory_",
       "moduleUrl": "asset:angular2/lib/src/web_workers/shared/service_message_broker.dart",
       "prefix": null,
       "isHost": false,
-      "constConstructor": null,
+      "value": null,
       "diDeps": [
         {
-          "token": null,
-          "query": null,
-          "viewQuery": null,
-          "isAttribute": false,
-          "isSelf": false,
-          "isHost": false,
-          "isSkipSelf": false,
-          "isOptional": false
-        },
-        {
           "token": {
-            "class": "Identifier",
-            "name": "Serializer",
-            "moduleUrl": null,
-            "prefix": null,
-            "constConstructor": null
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "MessageBus",
+              "moduleUrl": null,
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
           },
           "query": null,
           "viewQuery": null,
+          "value": null,
           "isAttribute": false,
           "isSelf": false,
           "isHost": false,
           "isSkipSelf": false,
-          "isOptional": false
+          "isOptional": false,
+          "isValue": false
+        },
+        {
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "Serializer",
+              "moduleUrl": null,
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "query": null,
+          "viewQuery": null,
+          "value": null,
+          "isAttribute": false,
+          "isSelf": false,
+          "isHost": false,
+          "isSkipSelf": false,
+          "isOptional": false,
+          "isValue": false
         }
       ]
-    }
-  },
-  "ServiceMessageBroker": {
-    "kind": "type",
-    "value": {
+    },
+    "ServiceMessageBroker": {
       "class": "Identifier",
       "name": "ServiceMessageBroker",
       "moduleUrl": "asset:angular2/lib/src/web_workers/shared/service_message_broker.dart",
       "prefix": null,
-      "constConstructor": null
-    }
-  },
-  "ServiceMessageBroker_": {
-    "kind": "type",
-    "value": {
+      "value": null
+    },
+    "ServiceMessageBroker_": {
       "class": "Identifier",
       "name": "ServiceMessageBroker_",
       "moduleUrl": "asset:angular2/lib/src/web_workers/shared/service_message_broker.dart",
       "prefix": null,
-      "constConstructor": null
-    }
-  },
-  "ReceivedMessage": {
-    "kind": "type",
-    "value": {
+      "value": null
+    },
+    "ReceivedMessage": {
       "class": "Identifier",
       "name": "ReceivedMessage",
       "moduleUrl": "asset:angular2/lib/src/web_workers/shared/service_message_broker.dart",
       "prefix": null,
-      "constConstructor": null
+      "value": null
     }
   },
-  "definesAlias": false
+  "alias": {}
 }

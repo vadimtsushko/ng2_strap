@@ -49,19 +49,11 @@
                 "2": "true"
               }
             ],
-            "4": false,
-            "5": false,
-            "6": false,
-            "7": true,
-            "8": false
+            "4": false
           },
           {
             "1": "Injectable",
-            "4": false,
-            "5": false,
-            "6": false,
-            "7": true,
-            "8": false
+            "4": false
           }
         ],
         "6": [
@@ -71,9 +63,8 @@
     ],
     "6": "i18n_select_pipe.dart"
   },
-  "I18nSelectPipe": {
-    "kind": "type",
-    "value": {
+  "type": {
+    "I18nSelectPipe": {
       "class": "Pipe",
       "type": {
         "class": "Type",
@@ -81,12 +72,12 @@
         "moduleUrl": "asset:angular2/lib/src/common/pipes/i18n_select_pipe.dart",
         "prefix": null,
         "isHost": false,
-        "constConstructor": null,
-        "diDeps": null
+        "value": null,
+        "diDeps": []
       },
       "name": "i18nSelect",
       "pure": true
     }
   },
-  "definesAlias": false
+  "alias": {}
 }

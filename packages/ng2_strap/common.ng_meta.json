@@ -10,22 +10,6 @@
     "5": [
       {
         "1": "N2sTransclude",
-        "4": [
-          {
-            "1": "Directive",
-            "3": [
-              {
-                "1": "selector",
-                "2": "\"n2s-transclude\""
-              }
-            ],
-            "4": false,
-            "5": true,
-            "6": false,
-            "7": true,
-            "8": false
-          }
-        ],
         "5": [
           {
             "1": "ViewContainerRef",
@@ -34,38 +18,21 @@
             ],
             "4": "viewRef"
           }
-        ],
-        "7": [
-          {
-            "1": "templateRef",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          }
         ]
       }
     ],
     "6": "common.dart",
-    "10": [
+    "7": [
       {
-        "1": "package:angular2/angular2.template.dart",
+        "1": "package:angular2/angular2.ngfactory.dart",
         "4": "i0"
       }
     ]
   },
-  "N2sTransclude": {
-    "kind": "type",
-    "value": {
+  "type": {
+    "N2sTransclude": {
       "class": "Directive",
       "isComponent": false,
-      "dynamicLoadable": true,
       "selector": "n2s-transclude",
       "exportAs": null,
       "type": {
@@ -74,23 +41,29 @@
         "moduleUrl": "asset:ng2_strap/lib/common.dart",
         "prefix": null,
         "isHost": false,
-        "constConstructor": null,
+        "value": null,
         "diDeps": [
           {
             "token": {
-              "class": "Identifier",
-              "name": "ViewContainerRef",
-              "moduleUrl": null,
-              "prefix": null,
-              "constConstructor": null
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "ViewContainerRef",
+                "moduleUrl": "asset:angular2/lib/src/core/linker/view_container_ref.dart",
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
             },
             "query": null,
             "viewQuery": null,
+            "value": null,
             "isAttribute": false,
             "isSelf": false,
             "isHost": false,
             "isSkipSelf": false,
-            "isOptional": false
+            "isOptional": false,
+            "isValue": false
           }
         ]
       },
@@ -104,8 +77,11 @@
       "hostAttributes": {},
       "lifecycleHooks": [],
       "template": null,
-      "providers": []
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
     }
   },
-  "definesAlias": false
+  "alias": {}
 }

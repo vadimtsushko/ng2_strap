@@ -22,182 +22,15 @@
     "5": [
       {
         "1": "N2sPager",
-        "4": [
-          {
-            "1": "Component",
-            "3": [
-              {
-                "1": "selector",
-                "2": "\"n2s-pager\""
-              },
-              {
-                "1": "templateUrl",
-                "2": "'pager.html'"
-              }
-            ],
-            "4": false,
-            "5": true,
-            "6": true,
-            "7": true,
-            "8": false
-          }
-        ],
         "5": [
           {
             "1": "ElementRef",
             "4": "elementRef"
           }
-        ],
-        "7": [
-          {
-            "1": "previousText",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "nextText",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "align",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "disabled",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "currentPage",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "currentPageChange",
-            "2": [
-              {
-                "1": "Output",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "totalPagesChange",
-            "2": [
-              {
-                "1": "Output",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "itemsPerPage",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "totalItems",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          }
         ]
       },
       {
         "1": "N2sPagination",
-        "4": [
-          {
-            "1": "Component",
-            "3": [
-              {
-                "1": "selector",
-                "2": "\"n2s-pagination\""
-              },
-              {
-                "1": "templateUrl",
-                "2": "'pagination.html'"
-              },
-              {
-                "1": "inputs",
-                "2": "const ['previousText', 'nextText', 'align', 'disabled', 'currentPage', 'itemsPerPage', 'totalItems']"
-              },
-              {
-                "1": "outputs",
-                "2": "const ['totalPagesChange', 'currentPageChange']"
-              }
-            ],
-            "4": false,
-            "5": true,
-            "6": true,
-            "7": true,
-            "8": false
-          }
-        ],
         "5": [
           {
             "1": "ElementRef",
@@ -206,120 +39,37 @@
         ],
         "6": [
           "OnInit"
-        ],
-        "7": [
-          {
-            "1": "classes",
-            "2": [
-              {
-                "1": "Input",
-                "2": [
-                  "'class'"
-                ],
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "maxSize",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "rotate",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "directionLinks",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "boundaryLinks",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "firstText",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          },
-          {
-            "1": "lastText",
-            "2": [
-              {
-                "1": "Input",
-                "4": false,
-                "5": false,
-                "6": false,
-                "7": false,
-                "8": false
-              }
-            ]
-          }
         ]
       }
     ],
     "6": "pagination.dart"
   },
-  "PAGINATION_DIRECTIVES": {
-    "kind": "alias",
-    "value": [
-      "N2sPagination",
-      "N2sPager"
-    ]
-  },
-  "N2sPager": {
-    "kind": "type",
-    "value": {
+  "type": {
+    "PAGINATION_DIRECTIVES": {
+      "class": "Identifier",
+      "name": "PAGINATION_DIRECTIVES",
+      "moduleUrl": "asset:ng2_strap/lib/pagination/pagination.dart",
+      "prefix": null,
+      "value": [
+        {
+          "class": "Identifier",
+          "name": "N2sPagination",
+          "moduleUrl": null,
+          "prefix": null,
+          "value": null
+        },
+        {
+          "class": "Identifier",
+          "name": "N2sPager",
+          "moduleUrl": null,
+          "prefix": null,
+          "value": null
+        }
+      ]
+    },
+    "N2sPager": {
       "class": "Directive",
       "isComponent": true,
-      "dynamicLoadable": true,
       "selector": "n2s-pager",
       "exportAs": null,
       "type": {
@@ -328,17 +78,29 @@
         "moduleUrl": "asset:ng2_strap/lib/pagination/pagination.dart",
         "prefix": null,
         "isHost": false,
-        "constConstructor": null,
+        "value": null,
         "diDeps": [
           {
-            "token": null,
+            "token": {
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "ElementRef",
+                "moduleUrl": null,
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
+            },
             "query": null,
             "viewQuery": null,
+            "value": null,
             "isAttribute": false,
             "isSelf": false,
             "isHost": false,
             "isSkipSelf": false,
-            "isOptional": false
+            "isOptional": false,
+            "isValue": false
           }
         ]
       },
@@ -368,15 +130,14 @@
         "styleUrls": [],
         "ngContentSelectors": []
       },
-      "providers": []
-    }
-  },
-  "N2sPagination": {
-    "kind": "type",
-    "value": {
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    },
+    "N2sPagination": {
       "class": "Directive",
       "isComponent": true,
-      "dynamicLoadable": true,
       "selector": "n2s-pagination",
       "exportAs": null,
       "type": {
@@ -385,23 +146,29 @@
         "moduleUrl": "asset:ng2_strap/lib/pagination/pagination.dart",
         "prefix": null,
         "isHost": false,
-        "constConstructor": null,
+        "value": null,
         "diDeps": [
           {
             "token": {
-              "class": "Identifier",
-              "name": "ElementRef",
-              "moduleUrl": null,
-              "prefix": null,
-              "constConstructor": null
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "ElementRef",
+                "moduleUrl": null,
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
             },
             "query": null,
             "viewQuery": null,
+            "value": null,
             "isAttribute": false,
             "isSelf": false,
             "isHost": false,
             "isSkipSelf": false,
-            "isOptional": false
+            "isOptional": false,
+            "isValue": false
           }
         ]
       },
@@ -436,14 +203,22 @@
       ],
       "template": {
         "encapsulation": 2,
-        "template": "<ul class=\"pagination\" [ngClass]=\"'pagination-' + classes\">\n  <li class=\"pagination-first\"\n      [ngClass]=\"{disabled: noPrevious() || disabled, hidden: !boundaryLinks}\"\n      *ngIf=\"boundaryLinks\">\n    <a href (click)=\"selectPage(1, $event)\">{{firstText}}</a>\n  </li>\n\n  <li class=\"pagination-prev\"\n      [ngClass]=\"{disabled: noPrevious()||disabled, hidden: !directionLinks}\"\n      *ngIf=\"directionLinks\">\n    <a href=\"\" (click)=\"selectPage(currentPage - 1, $event)\">{{previousText}}</a>\n  </li>\n\n  <li *ngFor=\"#page of pages\" [ngClass]=\"{active: page['active'], disabled: disabled && !page['active']}\"\n      class=\"pagination-page\">\n    <a href (click)=\"selectPage(page['number'], $event)\">{{page['text']}}</a>\n  </li>\n\n  <li class=\"pagination-next\"\n      [ngClass]=\"{disabled: noNext() || disabled, hidden: !directionLinks}\"\n      *ngIf=\"directionLinks\">\n    <a href (click)=\"selectPage(currentPage + 1, $event)\">{{nextText}}</a>\n  </li>\n\n  <li class=\"pagination-last\"\n      [ngClass]=\"{disabled: noNext() || disabled, hidden: !boundaryLinks}\"\n      *ngIf=\"boundaryLinks\">\n    <a href=\"\" (click)=\"selectPage(totalPages, $event)\">{{lastText}}</a>\n  </li>\n</ul>",
+        "template": "<ul class=\"pagination\" [ngClass]=\"'pagination-' + classes\">\n  <li class=\"pagination-first\"\n      [ngClass]=\"{disabled: noPrevious() || disabled, hidden: !boundaryLinks}\"\n      *ngIf=\"boundaryLinks\">\n    <a href (click)=\"selectPage(1, $event)\">{{firstText}}</a>\n  </li>\n\n  <li class=\"pagination-prev\"\n      [ngClass]=\"{disabled: noPrevious()||disabled, hidden: !directionLinks}\"\n      *ngIf=\"directionLinks\">\n    <a href=\"\" (click)=\"selectPage(currentPage - 1, $event)\">{{previousText}}</a>\n  </li>\n\n  <li *ngFor=\"let page of pages\" [ngClass]=\"{active: page['active'], disabled: disabled && !page['active']}\"\n      class=\"pagination-page\">\n    <a href (click)=\"selectPage(page['number'], $event)\">{{page['text']}}</a>\n  </li>\n\n  <li class=\"pagination-next\"\n      [ngClass]=\"{disabled: noNext() || disabled, hidden: !directionLinks}\"\n      *ngIf=\"directionLinks\">\n    <a href (click)=\"selectPage(currentPage + 1, $event)\">{{nextText}}</a>\n  </li>\n\n  <li class=\"pagination-last\"\n      [ngClass]=\"{disabled: noNext() || disabled, hidden: !boundaryLinks}\"\n      *ngIf=\"boundaryLinks\">\n    <a href=\"\" (click)=\"selectPage(totalPages, $event)\">{{lastText}}</a>\n  </li>\n</ul>\n",
         "templateUrl": "asset:ng2_strap/lib/pagination/pagination.html",
         "styles": [],
         "styleUrls": [],
         "ngContentSelectors": []
       },
-      "providers": []
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
     }
   },
-  "definesAlias": true
+  "alias": {
+    "PAGINATION_DIRECTIVES": [
+      "N2sPagination",
+      "N2sPager"
+    ]
+  }
 }

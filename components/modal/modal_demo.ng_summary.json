@@ -1,0 +1,63 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:ng2_strap/modal/modal.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "ModalDemo",
+        "7": [
+          {
+            "2": "Modal"
+          }
+        ]
+      }
+    ],
+    "6": "modal_demo.dart"
+  },
+  "type": {
+    "ModalDemo": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "modal-demo",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "ModalDemo",
+        "moduleUrl": "asset:ng2_strap/web/components/modal/modal_demo.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "<n2s-modal #myModal [header]=\"'Are you sure?'\"\n           [cancelLabel]=\"'cancel'\"\n           [positiveLabel]=\"'OK'\"\n           (close)=\"onModalClose($event)\">\n  The body of your modal\n</n2s-modal>\n<button class=\"btn btn-default\" (click)=\"myModal.show()\">Show Modal</button>\n<hr>\n<pre>modal action: {{modalAction}}</pre>",
+        "templateUrl": "asset:ng2_strap/web/components/modal/modal_demo.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

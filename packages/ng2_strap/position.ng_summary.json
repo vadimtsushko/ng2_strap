@@ -17,15 +17,49 @@
     ],
     "6": "position.dart"
   },
-  "Position": {
-    "kind": "type",
-    "value": {
+  "type": {
+    "_document": {
+      "class": "Identifier",
+      "name": "_document",
+      "moduleUrl": "asset:ng2_strap/lib/position.dart",
+      "prefix": null,
+      "value": null
+    },
+    "_isStaticPositioned": {
+      "class": "Identifier",
+      "name": "_isStaticPositioned",
+      "moduleUrl": "asset:ng2_strap/lib/position.dart",
+      "prefix": null,
+      "value": null
+    },
+    "_parentOffsetEl": {
+      "class": "Identifier",
+      "name": "_parentOffsetEl",
+      "moduleUrl": "asset:ng2_strap/lib/position.dart",
+      "prefix": null,
+      "value": null
+    },
+    "_position": {
+      "class": "Identifier",
+      "name": "_position",
+      "moduleUrl": "asset:ng2_strap/lib/position.dart",
+      "prefix": null,
+      "value": null
+    },
+    "positionElements": {
+      "class": "Identifier",
+      "name": "positionElements",
+      "moduleUrl": "asset:ng2_strap/lib/position.dart",
+      "prefix": null,
+      "value": null
+    },
+    "Position": {
       "class": "Identifier",
       "name": "Position",
       "moduleUrl": "asset:ng2_strap/lib/position.dart",
       "prefix": null,
-      "constConstructor": null
+      "value": null
     }
   },
-  "definesAlias": false
+  "alias": {}
 }
