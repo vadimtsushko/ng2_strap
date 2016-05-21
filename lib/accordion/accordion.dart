@@ -8,15 +8,16 @@ import 'dart:async';
 /// Build on top of the [N2sCollapse] directive to provide a list of items, with collapsible bodies that
 /// are collapsed or expanded by clicking on the item's header.
 ///
+/// The body of each accordion group is transcluded into the body of the collapsible element.
+///
 /// Base specifications: [bootstrap 3](http://getbootstrap.com/javascript/#collapse-example-accordion)
-/// or [bootstrap 4](http://v4-alpha.getbootstrap.com/components/collapse/#accordion-example)
 ///
 /// [demo](http://dart-league.github.io/ng2_strap/#accordion)
 @Component (selector: 'n2s-accordion',
     host: const { '[class.panel-group]' : 'true'},
     template: '<ng-content></ng-content>')
 class N2sAccordion {
-  /// if `true` expanding one item will close all others
+  ///  _(Default:_ `true`_)_ - Control whether expanding an item will cause the other items to close.
   @Input() bool closeOthers;
 
   /// provides the list of children panels
