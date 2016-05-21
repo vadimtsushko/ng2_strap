@@ -1,5 +1,5 @@
 name: ng2_strap
-version: 0.0.4+1
+version: 0.0.5
 description: Angular2-Dart Bootstrap directives
 author: Luis Vargas <luisvargastijerino@gmail.com>
 homepage: https://github.com/luisvt/ng2-strap
@@ -31,6 +31,7 @@ transformers:
     - web/components/collapse/main.dart
     - web/components/datepicker/main.dart
     - web/components/dropdown/main.dart
+    - web/components/modal/main.dart
     - web/components/pagination/main.dart
     - web/components/progressbar/main.dart
     - web/components/rating/main.dart

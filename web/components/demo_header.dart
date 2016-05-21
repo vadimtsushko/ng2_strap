@@ -3,7 +3,7 @@ import "package:ng2_strap/index.dart";
 
 @Component(
     selector: "demo-header",
-    templateUrl: 'demo-header.html',
+    templateUrl: 'demo_header.html',
     directives: const [N2sCollapse, N2S_DROPDOWN_DIRECTIVES])
 class DemoHeader {
   List<String> components = [
@@ -14,6 +14,7 @@ class DemoHeader {
     "Collapse",
     "Datepicker",
     "Dropdown",
+    'Modal',
     "Pagination",
     "Progressbar",
     "Rating",

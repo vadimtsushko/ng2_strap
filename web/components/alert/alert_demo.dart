@@ -3,7 +3,7 @@ import "package:ng2_strap/alert/alert.dart";
 
 @Component(
     selector: "alert-demo",
-    templateUrl: "alert-demo.html",
+    templateUrl: "alert_demo.html",
     directives: const [N2sAlert])
 class AlertDemo {
   List alerts = [

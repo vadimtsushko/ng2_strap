@@ -5,7 +5,7 @@ import "package:ng2_strap/index.dart";
 
 @Component (
     selector: "demo-section",
-    templateUrl: 'demo-section.html',
+    templateUrl: 'demo_section.html',
     directives: const [N2S_TABS_DIRECTIVES])
 class DemoSection implements OnInit {
   @Input() String name;
@@ -21,8 +21,8 @@ class DemoSection implements OnInit {
     nameLC = name.toLowerCase();
     var rawMasterUrl = 'https://raw.githubusercontent.com/luisvt/ng2_strap/master';
     var componentsUrl = '$rawMasterUrl/web/components';
-    docUrl = 'https://www.dartdocs.org/documentation/ng2_strap/0.0.3/$nameLC/$nameLC-library.html';
-    dart = await HttpRequest.getString('$componentsUrl/$nameLC/$nameLC-demo.dart');
-    html = await HttpRequest.getString('$componentsUrl/$nameLC/$nameLC-demo.html');
+    docUrl = 'https://www.dartdocs.org/documentation/ng2_strap/0.0.5/$nameLC/$nameLC-library.html';
+    dart = await HttpRequest.getString('$componentsUrl/$nameLC/${nameLC}_demo.dart');
+    html = await HttpRequest.getString('$componentsUrl/$nameLC/${nameLC}_demo.html');
   }
 }

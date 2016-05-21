@@ -3,7 +3,7 @@ import 'package:ng2_strap/dropdown/index.dart';
 import 'dart:html';
 
 @Component(selector: "dropdown-demo",
-    templateUrl: 'dropdown-demo.html',
+    templateUrl: 'dropdown_demo.html',
     directives: const [N2S_DROPDOWN_DIRECTIVES])
 class DropdownDemo {
   bool disabled = false;

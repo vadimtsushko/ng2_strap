@@ -1,0 +1,9 @@
+<n2s-modal #myModal [header]="'Are you sure?'"
+           [cancelLabel]="'cancel'"
+           [positiveLabel]="'OK'"
+           (close)="onModalClose($event)">
+  The body of your modal
+</n2s-modal>
+<button class="btn btn-default" (click)="myModal.show()">Show Modal</button>
+<hr>
+<pre>modal action: {{modalAction}}</pre>

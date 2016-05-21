@@ -13,6 +13,7 @@
       <excludeFolder url="file://$MODULE_DIR$/web/components/collapse/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/components/datepicker/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/components/dropdown/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/components/modal/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/components/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/components/pagination/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/components/progressbar/packages" />

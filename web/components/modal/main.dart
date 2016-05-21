@@ -1,6 +1,6 @@
 import 'package:angular2/platform/browser.dart';
-import 'alert_demo.dart';
+import 'modal_demo.dart';
 
 main() {
-  bootstrap(AlertDemo);
+  bootstrap(ModalDemo);
 }

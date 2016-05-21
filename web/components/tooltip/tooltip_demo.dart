@@ -2,7 +2,7 @@ import "package:angular2/angular2.dart";
 import 'package:ng2_strap/tooltip/tooltip.dart';
 
 @Component(selector: "tooltip-demo",
-    templateUrl: 'tooltip-demo.html',
+    templateUrl: 'tooltip_demo.html',
     directives: const [N2S_TOOLTIP_DIRECTIVES],
     styles: const [
       '''
