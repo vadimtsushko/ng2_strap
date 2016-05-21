@@ -13,7 +13,7 @@ DateTime addMinutes(DateTime time, int minutes) => time.add(new Duration(minutes
 
 /// A lightweight & configurable timepicker directive
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#timepicker)
+/// [demo](http://dart-league.github.io/ng2_strap/#timepicker)
 @Component (selector: "n2s-time-picker",
     templateUrl: 'timepicker.html')
 class N2sTimePicker extends DefaultValueAccessor implements OnInit {

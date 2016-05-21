@@ -11,7 +11,7 @@ import 'package:node_shims/js.dart';
 /// Base specifications: [bootstrap 3](http://getbootstrap.com/javascript/#tabs) or
 /// [bootstrap 4](http://v4-alpha.getbootstrap.com/components/navs/)
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#tabs)
+/// [demo](http://dart-league.github.io/ng2_strap/#tabs)
 @Component (
     selector: "n2s-tab-set",
     templateUrl: 'tabset.html',
@@ -61,7 +61,7 @@ class N2sTabSet implements OnInit {
 
 /// Creates a tab which will be inside the [N2sTabSet]
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#tab)
+/// [demo](http://dart-league.github.io/ng2_strap/#tab)
 @Directive (selector: "n2s-tab",
     host: const { "[class.tab-pane]" : "true", "[class.active]" : "active"})
 class N2sTab implements OnInit, OnDestroy {

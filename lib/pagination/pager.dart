@@ -6,7 +6,7 @@ part of pagination;
 /// Base specifications: [bootstrap 3](http://getbootstrap.com/components/#pagination) or
 /// [bootstrap 4](http://v4-alpha.getbootstrap.com/components/pagination/)
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#pagination)
+/// [demo](http://dart-league.github.io/ng2_strap/#pagination)
 @Component (selector: "n2s-pager",
     templateUrl: 'pager.html')
 class N2sPager {

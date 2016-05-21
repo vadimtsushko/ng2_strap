@@ -8,7 +8,7 @@ import 'package:stream_transformers/stream_transformers.dart';
 // todo: options loading by http not yet implemented
 /// Creates a type-ahead component
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#typeahed)
+/// [demo](http://dart-league.github.io/ng2_strap/#typeahed)
 @Component(
     selector: "n2s-type-ahead",
     templateUrl: 'typeahead.html',

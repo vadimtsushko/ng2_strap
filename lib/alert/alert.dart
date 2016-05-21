@@ -12,7 +12,7 @@ import 'package:node_shims/js.dart';
 /// This directive can be used to generate alerts from the dynamic model data
 /// (using the `ngFor` directive).
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#alert)
+/// [demo](http://dart-league.github.io/ng2_strap/#alert)
 @Component (selector: "n2s-alert",
     templateUrl: 'alert.html')
 class N2sAlert implements OnInit {

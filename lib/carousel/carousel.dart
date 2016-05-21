@@ -12,7 +12,7 @@ enum Direction { UNKNOWN, NEXT, PREV }
 /// Base specifications: [bootstrap 3](http://getbootstrap.com/javascript/#carousel) or
 /// [bootstrap 4](http://v4-alpha.getbootstrap.com/components/carousel/)
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#carousel)
+/// [demo](http://dart-league.github.io/ng2_strap/#carousel)
 @Component(selector: "n2s-carousel",
     templateUrl: 'carousel.html')
 class N2sCarousel implements OnDestroy {
@@ -185,7 +185,7 @@ class N2sCarousel implements OnDestroy {
 
 /// Creates the slide element that will be displayed in the carousel
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#carousel)
+/// [demo](http://dart-league.github.io/ng2_strap/#carousel)
 @Component (selector: "n2s-slide",
     inputs: const [ "direction", "active", "index"],
     host: const {

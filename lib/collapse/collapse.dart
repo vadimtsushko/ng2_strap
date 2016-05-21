@@ -9,7 +9,7 @@ import 'dart:async';
 /// Base specifications: [bootstrap 3](http://getbootstrap.com/javascript/#collapse)
 /// or [bootstrap 4](http://v4-alpha.getbootstrap.com/components/collapse/)
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#collapse)
+/// [demo](http://dart-league.github.io/ng2_strap/#collapse)
 @Directive(selector: "[n2sCollapse]",
     host: const {
       "[class.in]" : "isExpanded",

@@ -107,7 +107,7 @@ class N2sTooltipContainer implements AfterViewInit {
 /// Base specifications: [bootstrap 3](http://getbootstrap.com/javascript/#tooltips) or
 /// [bootstrap 4](http://v4-alpha.getbootstrap.com/components/tooltips/)
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#tooltip)
+/// [demo](http://dart-league.github.io/ng2_strap/#tooltip)
 @Directive(selector: '[n2sTooltip]')
 class N2sTooltip {
   /// Constructs a new [N2sTooltip] injecting [viewContainerRef] and [loader]

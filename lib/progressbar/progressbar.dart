@@ -6,7 +6,7 @@ import 'dart:html';
 /// Base specifications: [bootstrap 3](http://getbootstrap.com/components/#progress) or
 /// [bootstrap 4](http://v4-alpha.getbootstrap.com/components/progress/)
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#progress)
+/// [demo](http://dart-league.github.io/ng2_strap/#progress)
 @Directive(selector: 'n2s-progress',
     host: const {'[attr.max]' : 'max'})
 class N2sProgress implements OnInit {
@@ -53,7 +53,7 @@ class N2sProgress implements OnInit {
 
 /// Creates the bar that will be changing in the progress-bar element
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#progress)
+/// [demo](http://dart-league.github.io/ng2_strap/#progress)
 @Directive(selector: 'n2s-bar',
     host: const {
       'style':'min-width: 0;',
@@ -131,7 +131,7 @@ class N2sBar implements OnInit, OnDestroy {
 /// Base specifications: [bootstrap 3](http://getbootstrap.com/components/#progress) or
 /// [bootstrap 4](http://v4-alpha.getbootstrap.com/components/progress/)
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#progress)
+/// [demo](http://dart-league.github.io/ng2_strap/#progress)
 @Component (selector: 'n2s-progressbar',
     templateUrl: 'progressbar.html',
     directives: const [N2sProgress, N2sBar])

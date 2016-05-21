@@ -7,7 +7,7 @@ import 'package:node_shims/js.dart';
 /// *Note*: Bootstrap 4 do not include glyphicons anymore, so if you want to continue use this font,
 /// you will need to add a link to [`glyphicons.css`](https://github.com/valor-software/ng2-bootstrap/blob/master/demo/assets/css/glyphicons.css)
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#accordion)
+/// [demo](http://dart-league.github.io/ng2_strap/#accordion)
 @Component (selector: "n2s-rating",
     templateUrl: 'rating.html')
 class Rating extends DefaultValueAccessor implements OnInit {

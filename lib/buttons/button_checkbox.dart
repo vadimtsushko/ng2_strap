@@ -4,7 +4,7 @@ import "package:angular2/angular2.dart";
 ///
 /// Base specifications: [bootstrap 3](http://getbootstrap.com/javascript/#buttons) or [bootstrap 4](http://v4-alpha.getbootstrap.com/components/buttons/#checkbox-and-radio-buttons)
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#buttons)
+/// [demo](http://dart-league.github.io/ng2_strap/#buttons)
 @Directive(
     selector: "n2s-btn-checkbox",
     host: const {"[class.active]" : "active"}

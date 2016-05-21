@@ -5,7 +5,7 @@ part of n2s_date_picker;
 ///
 /// Base specifications: [jquery-ui](https://api.jqueryui.com/datepicker/)
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#datepicker)
+/// [demo](http://dart-league.github.io/ng2_strap/#datepicker)
 @Component (selector: "n2s-date-picker",
     templateUrl: 'date_picker.html',
     directives: const [

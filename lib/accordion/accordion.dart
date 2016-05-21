@@ -11,7 +11,7 @@ import 'dart:async';
 /// Base specifications: [bootstrap 3](http://getbootstrap.com/javascript/#collapse-example-accordion)
 /// or [bootstrap 4](http://v4-alpha.getbootstrap.com/components/collapse/#accordion-example)
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#accordion)
+/// [demo](http://dart-league.github.io/ng2_strap/#accordion)
 @Component (selector: 'n2s-accordion',
     host: const { '[class.panel-group]' : 'true'},
     template: '<ng-content></ng-content>')
@@ -47,7 +47,7 @@ class N2sAccordion {
 
 /// Creates an accordion-panel
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#accordion)
+/// [demo](http://dart-league.github.io/ng2_strap/#accordion)
 @Component(selector: 'n2s-accordion-panel',
     host: const { '[class.panel-open]' : 'isOpen'},
     templateUrl: 'accordion_panel.html',

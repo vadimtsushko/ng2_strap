@@ -10,7 +10,7 @@ part 'pager.dart';
 /// **Pager** - quick previous and next links for simple pagination implementations with light
 /// markup and styles. It's great for simple sites like blogs or magazines.
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#pagination)
+/// [demo](http://dart-league.github.io/ng2_strap/#pagination)
 @Component(selector: "n2s-pagination",
     templateUrl: 'pagination.html',
     inputs: const [

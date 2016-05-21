@@ -5,7 +5,7 @@ part of n2s_dropdown;
 /// Base specifications: [bootstrap 3](http://getbootstrap.com/javascript/#dropdowns) or
 /// [bootstrap 4](http://v4-alpha.getbootstrap.com/components/dropdowns/)
 ///
-/// [demo](http://luisvt.github.io/ng2_strap/#dropdown)
+/// [demo](http://dart-league.github.io/ng2_strap/#dropdown)
 @Directive (selector: "n2s-dropdown, .dropdown",
     host: const {"[class.dropdown]" : "true", "[class.open]" : "isOpen"})
 class N2sDropdown implements OnInit, OnDestroy {
